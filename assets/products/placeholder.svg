@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-labelledby="title description">
+  <title id="title">Imagem ilustrativa</title>
+  <desc id="description">Ilustração decorativa local de um frasco de aroma.</desc>
+  <rect width="640" height="480" fill="#eeece4"/>
+  <circle cx="505" cy="112" r="95" fill="#e1e4d8"/>
+  <path d="M92 390c98-56 164-61 245-25 79 35 140 32 220-17" fill="none" stroke="#c8c3b4" stroke-width="2"/>
+  <path d="M324 155h72v37h-72z" rx="8" fill="#a78a58"/>
+  <path d="M305 190h110c18 0 31 14 31 32v146c0 26-18 44-44 44h-84c-26 0-44-18-44-44V222c0-18 13-32 31-32z" fill="#fffdfa" stroke="#a78a58" stroke-width="4"/>
+  <path d="M332 248h56v84h-56z" fill="#e9eee5"/>
+  <path d="M360 248v84m-28-42h56" stroke="#55634b" stroke-width="3" opacity=".7"/>
+  <path d="M359 247c-30-34-22-68 1-87 20 24 26 55-1 87zm2-15c31-31 63-24 82-3-24 22-53 28-82 3z" fill="#8d9b7e"/>
+  <text x="320" y="376" fill="#55634b" font-family="Georgia,serif" font-size="18" text-anchor="middle">Imagem ilustrativa</text>
+</svg>

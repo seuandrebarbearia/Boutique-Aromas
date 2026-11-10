@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f3ec">
+    <meta
+      name="description"
+      content="Catálogo demonstrativo de produtos da Boutique de Aromas."
+    >
+    <title>Boutique de Aromas | Catálogo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Boutique de Aromas, início">
+        <span class="brand-mark" aria-hidden="true">BA</span>
+        <span>Boutique <span>de Aromas</span></span>
+      </a>
+      <a class="header-catalog-link" href="#catalogo">Catálogo</a>
+      <div class="header-actions">
+        <label class="search-control">
+          <span class="visually-hidden">Buscar produto, código ou fragrância</span>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Buscar aromas e produtos"
+            autocomplete="off"
+          >
+        </label>
+        <button id="open-cart-button" class="button button-outline" type="button">
+          Carrinho <span id="cart-count" class="count-badge">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Aromas para o seu dia a dia</p>
+          <h1>Aromas para transformar seus ambientes</h1>
+          <p>Explore fragrâncias e produtos da Boutique de Aromas.</p>
+          <a class="button button-primary" href="#catalogo">Explorar produtos</a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="hero-orbit hero-orbit-one"></span>
+          <span class="hero-orbit hero-orbit-two"></span>
+          <span class="hero-stem"></span>
+          <span class="hero-leaf hero-leaf-one"></span>
+          <span class="hero-leaf hero-leaf-two"></span>
+        </div>
+      </section>
+
+      <aside class="demo-notice" aria-label="Aviso sobre preços">
+        Demonstração — preços fictícios. Nenhuma compra ou pedido será enviado.
+      </aside>
+
+      <section id="catalogo" class="catalog-section" aria-labelledby="catalog-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Conheça a coleção</p>
+            <h2 id="catalog-title">Catálogo de produtos</h2>
+          </div>
+          <p id="results-count" class="results-count"></p>
+        </div>
+
+        <label class="category-control">
+          <span class="visually-hidden">Categorias do catálogo</span>
+          <select id="category-filter" class="category-select">
+            <option value="">Todas as categorias</option>
+          </select>
+        </label>
+
+        <div class="filter-row">
+          <label>
+            <span>Fragrância</span>
+            <select id="fragrance-filter">
+              <option value="">Todas as fragrâncias</option>
+            </select>
+          </label>
+          <label>
+            <span>Ordenar por</span>
+            <select id="sort-select">
+              <option value="name">Nome</option>
+              <option value="price-asc">Menor preço</option>
+              <option value="price-desc">Maior preço</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="catalog-sections" class="catalog-sections"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <h3>Nenhum produto encontrado</h3>
+          <p>Tente mudar a busca ou limpar os filtros.</p>
+          <button id="clear-filters-button" class="button button-outline" type="button">
+            Limpar filtros
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <p>Boutique de Aromas</p>
+        <p>Endereço da loja: <span id="store-address">Rua Luiz Boito Piazza, nº 3467</span></p>
+        <p>Telefone / WhatsApp: <a id="store-phone" href="tel:48996495663">48996495663</a></p>
+      </div>
+      <p>Catálogo demonstrativo. Valores e disponibilidade precisam ser confirmados.</p>
+    </footer>
+
+    <div id="cart-live-status" class="visually-hidden" aria-live="polite"></div>
+
+    <button id="mobile-cart-button" class="mobile-cart-bar" type="button">
+      <span><span id="mobile-cart-count">0</span> itens no carrinho</span>
+      <span id="mobile-cart-subtotal">R$ 0,00</span>
+    </button>
+
+    <dialog id="product-dialog" class="modal product-modal" aria-modal="true">
+      <button class="dialog-close" type="button" data-close-dialog aria-label="Fechar detalhes">
+        <span aria-hidden="true">×</span>
+      </button>
+      <div id="product-detail-content" class="product-detail-content"></div>
+    </dialog>
+
+    <dialog id="collective-photo-dialog" class="modal collective-photo-modal" aria-modal="true">
+      <button class="dialog-close" type="button" data-close-dialog aria-label="Fechar foto ampliada">
+        <span aria-hidden="true">×</span>
+      </button>
+      <img id="collective-photo-large" class="collective-photo-large" alt="">
+      <p id="collective-photo-caption" class="collective-caption"></p>
+    </dialog>
+
+    <dialog id="cart-dialog" class="modal cart-drawer" aria-modal="true">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">Sua seleção</p>
+          <h2>Meu carrinho</h2>
+        </div>
+        <button class="dialog-close" type="button" data-close-dialog aria-label="Fechar carrinho">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <p id="cart-storage-notice" class="inline-notice" hidden></p>
+      <div id="cart-items" class="cart-items"></div>
+      <div id="cart-empty" class="cart-empty" hidden>
+        <p>Seu carrinho está vazio.</p>
+        <button id="back-to-catalog-button" class="button button-outline" type="button">
+          Voltar ao catálogo
+        </button>
+      </div>
+      <div class="cart-summary">
+        <div class="subtotal-row">
+          <span>Subtotal dos produtos</span>
+          <strong id="cart-subtotal">R$ 0,00</strong>
+        </div>
+        <p>Entrega: valor a combinar</p>
+        <button id="review-order-button" class="button button-primary button-full" type="button">
+          Revisar pedido
+        </button>
+      </div>
+    </dialog>
+
+    <dialog id="checkout-dialog" class="modal checkout-modal" aria-modal="true">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">Demonstração local</p>
+          <h2>Revisar pedido</h2>
+        </div>
+        <button class="dialog-close" type="button" data-close-dialog aria-label="Fechar revisão">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <form id="address-form" class="address-form" novalidate>
+        <h3 class="delivery-address-title">Endereço de entrega</h3>
+        <p class="form-intro">Informe o endereço onde deseja receber os produtos. Este é diferente do endereço da loja. Os dados ficam apenas nesta sessão.</p>
+        <div class="form-grid">
+          <label class="form-field form-field-wide">
+            <span>Nome</span>
+            <input name="name" autocomplete="name" required>
+            <small class="field-error" data-error-for="name"></small>
+          </label>
+          <label class="form-field">
+            <span>Telefone com DDD</span>
+            <input name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+            <small class="field-error" data-error-for="phone"></small>
+          </label>
+          <label class="form-field">
+            <span>CEP</span>
+            <input name="postalCode" inputmode="numeric" autocomplete="postal-code" required>
+            <small class="field-error" data-error-for="postalCode"></small>
+          </label>
+          <label class="form-field form-field-wide">
+            <span>Rua</span>
+            <input name="street" autocomplete="address-line1" required>
+            <small class="field-error" data-error-for="street"></small>
+          </label>
+          <label class="form-field">
+            <span>Número</span>
+            <input name="number" autocomplete="address-line2" required>
+            <small class="field-error" data-error-for="number"></small>
+          </label>
+          <label class="checkbox-field">
+            <input name="noNumber" type="checkbox">
+            <span>Sem número</span>
+          </label>
+          <label class="form-field">
+            <span>Complemento (opcional)</span>
+            <input name="complement" autocomplete="address-line2">
+          </label>
+          <label class="form-field">
+            <span>Bairro</span>
+            <input name="neighborhood" autocomplete="address-level3" required>
+            <small class="field-error" data-error-for="neighborhood"></small>
+          </label>
+          <label class="form-field">
+            <span>Cidade</span>
+            <input name="city" autocomplete="address-level2" required>
+            <small class="field-error" data-error-for="city"></small>
+          </label>
+          <label class="form-field">
+            <span>UF</span>
+            <input name="state" autocomplete="address-level1" maxlength="2" required>
+            <small class="field-error" data-error-for="state"></small>
+          </label>
+          <label class="form-field form-field-wide">
+            <span>Observações (opcional)</span>
+            <textarea name="notes" rows="3"></textarea>
+          </label>
+        </div>
+        <p id="address-form-status" class="form-status" role="status"></p>
+        <button class="button button-primary button-full" type="submit">
+          Conferir resumo
+        </button>
+      </form>
+
+      <section id="order-review" class="order-review" hidden aria-labelledby="review-title">
+        <h3 id="review-title">Confira os dados</h3>
+        <div id="review-content" class="review-content"></div>
+        <div class="review-actions">
+          <button id="edit-address-button" class="button button-outline" type="button">
+            Editar endereço
+          </button>
+          <button id="generate-summary-button" class="button button-primary" type="button">
+            Gerar resumo demonstrativo
+          </button>
+        </div>
+        <p id="summary-status" class="form-status" role="status"></p>
+        <textarea
+          id="order-summary-text"
+          class="summary-text"
+          rows="12"
+          readonly
+          aria-label="Resumo demonstrativo do pedido"
+          hidden
+        ></textarea>
+        <div id="summary-actions" class="summary-actions" hidden>
+          <button id="copy-summary-button" class="button button-outline" type="button">
+            Copiar resumo
+          </button>
+        </div>
+      </section>
+    </dialog>
+  </body>
+</html>

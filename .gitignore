@@ -1,0 +1,9 @@
+node_modules/
+tmp/
+referencias/*.pdf
+.env
+.env.*
+!.env.example
+Thumbs.db
+desktop.ini
+.DS_Store
