@@ -1,3 +1,5 @@
+import { referencePricesById } from "./reference-prices.js";
+
 const extractedProducts = [
   {
     "id": "7109",
@@ -3047,6 +3049,19 @@ function getCatalogCategory(product) {
 }
 
 const productImagesByCode = {
+  "6189": "assets/official/product-6189.png",
+  "6514": "assets/official/product-6514.png",
+  "7029": "assets/official/product-7029.png",
+  "7152": "assets/official/product-7152.png",
+  "7159": "assets/official/product-7159.png",
+  "5024": "assets/official/product-5024.jpg",
+  "6513": "assets/official/product-6513.png",
+  "6586": "assets/official/product-6586.png",
+  "6588": "assets/official/product-6588.png",
+  "6855": "assets/official/product-6855.png",
+  "7149": "assets/official/product-7149.png",
+  "7150": "assets/official/product-7150.png",
+  "7153": "assets/official/product-7153.png",
   "7195": "assets/products/product-7195.jpg",
   "7196": "assets/products/product-7196.jpg",
   "7232": "assets/products/product-7232.jpg",
@@ -3077,7 +3092,7 @@ const catalogNotesByCode = {
   "6507": "O catálogo usa o mesmo código 6507 para Baunilha G e Canela G. Confirme o aroma ao comprar. As estampas das latas podem variar."
 };
 
-export const products = extractedProducts.map((product, index) => {
+const catalogProducts = extractedProducts.map((product, index) => {
   const merged = {
     ...product,
     ...(catalogCorrections[product.code] ?? {}),
@@ -3093,6 +3108,8 @@ export const products = extractedProducts.map((product, index) => {
 
   return {
     ...merged,
+    priceCents: referencePricesById[merged.id]?.priceCents ?? merged.priceCents,
+    priceReference: referencePricesById[merged.id] ?? null,
     presentationNumber: index + 1,
     family,
     collection: family,
@@ -3101,5 +3118,17 @@ export const products = extractedProducts.map((product, index) => {
     image,
     imageKind: image === collectiveImage ? "collective" : "individual",
     catalogNote: catalogNotesByCode[merged.code] ?? ""
+  };
+});
+
+export const products = catalogProducts.map((product) => {
+  // The official similarly named kit contains a 200 ml lotion, while our
+  // catalog kit contains 380 ml. Keep the estimate based on its actual items.
+  if (product.id !== "7232") return product;
+  return {
+    ...product,
+    priceCents: product.componentIds.reduce((sum, id) =>
+      sum + catalogProducts.find((item) => item.id === id).priceCents, 0),
+    priceBasis: "component-sum"
   };
 });

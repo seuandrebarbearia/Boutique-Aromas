@@ -112,7 +112,7 @@ test("keeps set component names identifiable in the order summary", () => {
   assert.match(summary, /Loção Hidratante · Amêndoas Doces e Flor de Jasmim/);
 });
 
-test("catalog products have unique IDs and preserve the 13 specified prices", async () => {
+test("catalog products have unique IDs and retain baseline prices except reviewed references", async () => {
   const { products } = await import("../js/products.js");
   assert.equal(products.length, 191);
   assert.equal(new Set(products.map((product) => product.id)).size, products.length);
@@ -135,7 +135,7 @@ test("catalog products have unique IDs and preserve the 13 specified prices", as
     "7111": 6990,
     "7112": 12990,
     "7113": 6490,
-    "7117": 7990,
+    "7117": 15390,
     "7201": 2490,
     "7210": 9990,
     "7135": 5990,
@@ -148,7 +148,7 @@ test("catalog products have unique IDs and preserve the 13 specified prices", as
     assert.equal(
       products.find((product) => product.code === code).priceCents,
       priceCents,
-      `unexpected demo price for product ${code}`
+      `unexpected catalog price for product ${code}`
     );
   }
   assert.equal(products.find((product) => product.code === "7201").volume, "Não informado");
@@ -328,11 +328,13 @@ test("keeps the supplied store address and WhatsApp number without enabling send
   assert.equal(config.storePhone, "48996495663");
   assert.equal(config.whatsappNumber, "48996495663");
   assert.equal(config.whatsappEnabled, false);
+  assert.equal(`https://wa.me/55${config.whatsappNumber}`, "https://wa.me/5548996495663");
 });
 
 test("keeps every collective page and confirmed individual crop available locally", async () => {
   const { products } = await import("../js/products.js");
 
+  assert.ok(existsSync("assets/brand/boutique-de-aromas-logo.png"));
   for (const page of new Set(products.map((product) => product.sourcePage))) {
     assert.ok(
       existsSync(`assets/catalog-pages/catalog-page-${String(page).padStart(2, "0")}.jpg`),

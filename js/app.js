@@ -2,11 +2,13 @@ import { config } from "./config.js";
 import { createCartStore } from "./cart.js";
 import { buildOrderSummary, formatBRL, validateAddress } from "./checkout.js";
 import { products } from "./products.js";
-import { groupCatalogOffers } from "./catalog.js";
+import { getCatalogDepartment, groupProductsByCategory } from "./catalog.js";
+import { getProductCardPhoto } from "./product-card-media.js";
 
 const cart = createCartStore(products);
 const productById = new Map(products.map((product) => [product.id, product]));
 let selectedFragrance = "";
+let selectedDepartment = "";
 let checkoutCustomer = null;
 
 const elements = {
@@ -185,260 +187,133 @@ function getOfferItemSpecification(product) {
     .join(" · ");
 }
 
-function createOfferImagePanel(imagePath, imageAlt, caption, zoomLabel, openerLabel) {
-  const imagePanel = createElement("div", "collective-image-panel");
-  const figure = createElement("figure", "collective-figure");
-  const imageWrap = createElement("div", "collective-image-wrap");
-  const image = createElement("img", "collective-image");
-  setProductImage(image, imagePath, imageAlt);
-  image.alt = imageAlt;
-  image.loading = "lazy";
-  const photoButton = createButton(
-    "",
-    "collective-photo-button",
-    (event) => openCollectivePhoto(image, zoomLabel, event.currentTarget),
-    `Ampliar ${openerLabel}`
-  );
-  photoButton.append(image);
-  imageWrap.append(photoButton);
-  figure.append(imageWrap);
-  figure.append(createElement("figcaption", "collective-caption", caption));
-  imagePanel.append(figure);
-  return imagePanel;
+function getPriceLabel(product) {
+  if (product.priceReference) return "Preço de referência";
+  if (product.priceBasis === "component-sum") return "Valor estimado do conjunto";
+  return "Valor demonstrativo";
 }
 
-function createIndividualOption(product, offerId) {
-  const card = createElement("article", "individual-option");
-  card.id = `individual-option-${product.id}-${offerId}`;
+function getProductDescription(product) {
+  if (!/^Item identificado no catálogo, página \d+\.$/.test(product.description)) {
+    return product.description;
+  }
+  return `Uma opção da coleção ${product.family}. Confira a fragrância, o volume e o código nas informações do produto.`;
+}
+
+const catalogDepartments = [
+  {
+    id: "perfumacao-de-ambientes",
+    title: "Perfumação de ambientes",
+    description: "Fragrâncias e acessórios para criar a atmosfera dos seus espaços."
+  },
+  {
+    id: "autocuidado",
+    title: "Autocuidado",
+    description: "Produtos para acompanhar seus momentos e rituais pessoais."
+  },
+  {
+    id: "outras-colecoes",
+    title: "Outras coleções",
+    description: "Kits, presentes, acessórios e outras descobertas do catálogo."
+  }
+];
+
+function createProductCard(product) {
+  const card = createElement("article", "product-card");
+  card.id = `product-${product.id}`;
   card.dataset.productId = product.id;
-  const title = createButton(
-    getOfferItemName(product),
-    `individual-option-name${product.family === "Essências" ? " essence-aroma-name" : ""}`,
-    (event) => openProductDetails(product, event.currentTarget)
-  );
-  const titleLine = createElement("div", "individual-option-title-line");
-  if (product.family !== "Essências") {
-    titleLine.append(
-      createElement("span", "individual-option-number", `Nº ${product.presentationNumber}`)
+  const photo = getProductCardPhoto(product);
+  const media = createButton("", "product-card-media", (event) =>
+    openProductDetails(product, event.currentTarget), `Ver detalhes de ${getOfferItemName(product)}`);
+  if (photo) {
+    const crop = createElement("span", "product-card-photo-crop");
+    const image = createElement("img", "product-card-photo");
+    const [left, top, right, bottom] = photo.bounds;
+    const width = right - left;
+    const height = bottom - top;
+    const ratio = width / height;
+    crop.style.width = `${Math.min(1, ratio) * 90}%`;
+    crop.style.height = `${Math.min(1, 1 / ratio) * 90}%`;
+    image.style.width = `${photo.width / width * 100}%`;
+    image.style.height = `${photo.height / height * 100}%`;
+    image.style.left = `${-left / width * 100}%`;
+    image.style.top = `${-top / height * 100}%`;
+    image.width = photo.width;
+    image.height = photo.height;
+    image.loading = "lazy";
+    image.decoding = "async";
+    setProductImage(image, photo.src, getOfferItemName(product));
+    crop.append(image);
+    media.append(crop);
+  } else {
+    media.classList.add("product-card-media-pending");
+    media.append(
+      createElement("span", "product-card-pending-mark", "Boutique de Aromas"),
+      createElement("span", "product-card-pending-label", "Foto individual em atualização"),
+      createElement("span", "product-card-pending-link", "Ver referência nos detalhes")
     );
   }
-  titleLine.append(title);
-  card.append(titleLine);
-  card.append(
-    createElement("p", "individual-option-specification", getOfferItemSpecification(product))
+  const heading = createElement("h4", "product-card-heading");
+  heading.append(createButton(getOfferItemName(product), "product-card-name", (event) =>
+    openProductDetails(product, event.currentTarget)));
+  const price = createElement("div", "product-card-price-block");
+  price.append(
+    createElement("strong", "product-card-price", formatBRL(product.priceCents)),
+    createElement("small", "price-source-label", getPriceLabel(product))
   );
-
-  const controls = createElement("div", "individual-option-controls");
-  const quantityControls = createElement("div", "individual-quantity-controls");
-  const quantityInput = createElement("input", "quantity-input individual-quantity-input");
-  quantityInput.type = "number";
-  quantityInput.min = "1";
-  quantityInput.max = "99";
-  quantityInput.step = "1";
-  quantityInput.value = "1";
-  quantityInput.inputMode = "numeric";
-  quantityInput.setAttribute("aria-label", `Quantidade de ${getOfferItemName(product)}`);
-  const decrement = createButton(
-    "−",
-    "individual-quantity-button",
-    () => {
-      quantityInput.value = String(Math.max(1, Number(quantityInput.value || 1) - 1));
-      quantityInput.dispatchEvent(new Event("input", { bubbles: true }));
-    },
-    `Diminuir quantidade de ${getOfferItemName(product)}`
-  );
-  const increment = createButton(
-    "+",
-    "individual-quantity-button",
-    () => {
-      quantityInput.value = String(Math.min(99, Number(quantityInput.value || 1) + 1));
-      quantityInput.dispatchEvent(new Event("input", { bubbles: true }));
-    },
-    `Aumentar quantidade de ${getOfferItemName(product)}`
-  );
-  quantityInput.addEventListener("input", () => quantityInput.setCustomValidity(""));
-  quantityControls.append(decrement, quantityInput, increment);
-
-  const addButton = createButton(
-    "Adicionar ao carrinho",
-    "button button-primary button-small",
-    (event) => {
-      const quantity = Number(quantityInput.value);
-      if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
-        quantityInput.setCustomValidity("Informe uma quantidade inteira entre 1 e 99.");
-        quantityInput.reportValidity();
-        return;
-      }
-      quantityInput.setCustomValidity("");
-      addProduct(product, quantity, event.currentTarget);
-    }
-  );
-  controls.append(
-    createElement("strong", "individual-option-price", formatBRL(product.priceCents)),
-    quantityControls,
-    addButton
-  );
-  card.append(controls);
+  card.append(media, heading,
+    createElement("p", "product-card-meta", `${product.isCombo ? "Kit" : product.specification || product.volume} · Cód. ${product.code}`));
+  if (product.isCombo) {
+    card.append(createElement("p", "product-card-composition", product.composition));
+  }
+  card.append(price, createButton("Adicionar ao carrinho", "button product-card-add", (event) =>
+    addProduct(product, 1, event.currentTarget), `Adicionar ${getOfferItemName(product)} ao carrinho`));
   return card;
 }
 
-function appendIndividualOptions(controls, groupProducts, offerId) {
-  const optionsId = `individual-options-${offerId}`;
-  const toggle = createButton(
-    "Comprar unidades",
-    "button button-outline button-full",
-    (event) => {
-      const expanded = event.currentTarget.getAttribute("aria-expanded") === "true";
-      event.currentTarget.setAttribute("aria-expanded", String(!expanded));
-      event.currentTarget.textContent = expanded ? "Comprar unidades" : "Fechar unidades";
-      document.getElementById(optionsId).hidden = expanded;
-    }
-  );
-  toggle.setAttribute("aria-expanded", "false");
-  toggle.setAttribute("aria-controls", optionsId);
-  controls.append(toggle);
-  const options = createElement("div", "individual-options");
-  options.id = optionsId;
-  options.hidden = true;
-  options.setAttribute("aria-label", "Opções de compra individual");
-  for (const product of groupProducts) {
-    options.append(createIndividualOption(product, offerId));
-  }
-  controls.append(options);
-}
-
-function createFamilyOfferControls(groupProducts, offerId) {
-  if (groupProducts.length === 1) {
-    const controls = createElement("div", "family-offer-controls");
-    const [product] = groupProducts;
-    controls.append(
-      createButton(
-        "Comprar unidade",
-        "button button-primary button-full",
-        (event) => addProduct(product, 1, event.currentTarget)
-      )
-    );
-    return controls;
-  }
-
-  const controls = createElement("div", "family-offer-controls");
-  controls.append(
-    createButton(
-      "Comprar todos",
-      "button button-primary button-full",
-      (event) =>
-        addProducts(
-          groupProducts.map((product) => ({ id: product.id, quantity: 1 })),
-          groupProducts,
-          event.currentTarget
-        )
-    )
-  );
-  appendIndividualOptions(controls, groupProducts, offerId);
-  return controls;
-}
-
-function createComboOfferControls(combo, componentProducts, offerId) {
-  const controls = createElement("div", "family-offer-controls combo-offer-controls");
-  controls.append(
-    createButton(
-      "Comprar combo",
-      "button button-primary button-full",
-      (event) => addProduct(combo, 1, event.currentTarget)
-    )
-  );
-  if (componentProducts.length > 0) {
-    appendIndividualOptions(controls, componentProducts, offerId);
-  }
-  return controls;
-}
-
-function createCatalogSpread(family, page, category, groupProducts, assignedFamilies) {
-  const spread = createElement("section", "catalog-spread");
-  const familyId = `family-${slugify(family)}`;
-  if (!assignedFamilies.has(family)) {
-    spread.id = familyId;
-    assignedFamilies.add(family);
-  }
-
-  const heading = createElement("h3", "family-heading", family);
-  const offerId = slugify(`${family}-${page}-${category}`);
-  const imagePanel = createOfferImagePanel(
-    `assets/catalog-pages/catalog-page-${String(page).padStart(2, "0")}.jpg`,
-    `Foto coletiva original dos produtos na página ${page} do catálogo`,
-    `Foto coletiva · página ${page} do catálogo`,
-    `foto coletiva da família ${family}`,
-    `foto coletiva da família ${family}, página ${page}`
-  );
-  imagePanel.append(createFamilyOfferControls(groupProducts, offerId));
-  spread.append(heading, imagePanel);
-  return spread;
-}
-
-function createComboPresentation(product) {
-  const spread = createElement("section", "catalog-spread combo-presentation");
-  spread.id = `product-${product.id}`;
-  const heading = createElement("h3", "family-heading", product.name);
-  const offerId = `combo-${product.id}`;
-  const components = product.componentIds?.map((id) => {
-    const component = productById.get(id);
-    if (!component) {
-      throw new Error(`Missing component ${id} for combo ${product.code}.`);
-    }
-    return component;
-  });
-  const imagePanel = createOfferImagePanel(
-    product.image,
-    product.name,
-    product.imageKind === "collective"
-      ? `Foto coletiva da linha ${product.family}. Este combo inclui esponja e espuma de limpeza de 50 ml; os demais produtos da foto são vendidos separadamente.`
-      : `Foto do conjunto · ${product.name} · Cód. ${product.code}`,
-    `imagem do conjunto ${product.name}`,
-    `imagem do conjunto ${product.name}`
-  );
-  const comboPrice = createElement("aside", "combo-offer-badge");
-  comboPrice.setAttribute("aria-label", `COMBO — ${formatBRL(product.priceCents)}`);
-  comboPrice.append(
-    createElement("span", "combo-offer-label", "COMBO —"),
-    createElement("strong", "combo-offer-price", formatBRL(product.priceCents))
-  );
-  const controls = createComboOfferControls(product, components ?? [], offerId);
-  spread.append(
-    heading,
-    imagePanel,
-    comboPrice,
-    controls
-  );
-  return spread;
-}
-
 function renderProducts() {
-  const visibleProducts = getVisibleProducts();
+  const visibleProducts = getVisibleProducts().filter(
+    (product) =>
+      !selectedDepartment || getCatalogDepartment(product) === selectedDepartment
+  );
   const fragment = document.createDocumentFragment();
-  const category = elements.categoryFilter.value;
-  const categorySection = createElement("section", "catalog-category");
-  if (category) {
-    categorySection.id = `category-${slugify(category)}`;
-    categorySection.append(createElement("h2", "category-heading", category));
+  const department = catalogDepartments.find((item) => item.id === selectedDepartment);
+  const section = createElement("section", "catalog-department");
+  section.id = selectedDepartment || "todas-as-colecoes";
+  const heading = createElement("div", "department-heading");
+  heading.append(
+    createElement("p", "eyebrow", "Descubra por universo"),
+    createElement("h3", "", department?.title || "Todos os produtos"),
+    createElement(
+      "p",
+      "department-description",
+      department?.description || "Encontre seus favoritos por categoria. Cada produto tem seu preço e compra individual."
+    )
+  );
+  section.append(heading);
+
+  for (const [category, categoryProducts] of groupProductsByCategory(visibleProducts)) {
+    const categorySection = createElement("section", "product-category");
+    const categoryId = `category-${slugify(category)}`;
+    categorySection.setAttribute("aria-labelledby", categoryId);
+    const categoryHeading = createElement("div", "product-category-heading");
+    const title = createElement("h3", "", category);
+    title.id = categoryId;
+    categoryHeading.append(title, createElement("span", "", `${categoryProducts.length} ${categoryProducts.length === 1 ? "produto" : "produtos"}`));
+    const grid = createElement("div", "product-grid");
+    for (const product of categoryProducts) grid.append(createProductCard(product));
+    categorySection.append(categoryHeading, grid);
+    section.append(categorySection);
   }
-  const assignedFamilies = new Set();
-  for (const groupProducts of groupCatalogOffers(visibleProducts)) {
-    const [product] = groupProducts;
-    const familyHeading = [...new Set(groupProducts.map(item => item.family))].join(" · ");
-    categorySection.append(
-      product.isCombo
-        ? createComboPresentation(product)
-        : createCatalogSpread(
-            familyHeading,
-            product.sourcePage,
-            category || "todas",
-            groupProducts,
-            assignedFamilies
-          )
-    );
-  }
-  categorySection.hidden = visibleProducts.length === 0;
-  fragment.append(categorySection);
+  if (visibleProducts.length > 0) fragment.append(section);
+
+  document.querySelectorAll("[data-department]").forEach((link) => {
+    if (link.dataset.department === selectedDepartment) {
+      link.setAttribute("aria-current", "true");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
 
   elements.catalogSections.replaceChildren(fragment);
   elements.emptyState.hidden = visibleProducts.length > 0;
@@ -449,6 +324,10 @@ function renderProducts() {
 }
 
 function clearCatalogFilters() {
+  selectedDepartment = "";
+  if (catalogDepartments.some(({ id }) => window.location.hash === `#${id}`)) {
+    window.history.replaceState(null, "", "#catalogo");
+  }
   elements.search.value = "";
   elements.categoryFilter.value = "";
   elements.fragranceFilter.value = "";
@@ -585,12 +464,14 @@ function removeProduct(id) {
 function openProductDetails(product, opener) {
   elements.productDetail.replaceChildren();
 
-  const image = createElement("img", `detail-image${product.imageKind === "collective" ? " detail-image-collective" : ""}`);
-  setProductImage(image, product.image, product.name);
-  image.width = 640;
-  image.height = 480;
+  const cardPhoto = getProductCardPhoto(product);
+  const isCollective = !cardPhoto && product.imageKind === "collective";
+  const image = createElement("img", `detail-image${isCollective ? " detail-image-collective" : ""}`);
+  setProductImage(image, cardPhoto?.src ?? product.image, getOfferItemName(product));
+  image.width = cardPhoto?.width ?? 640;
+  image.height = cardPhoto?.height ?? 480;
   const figure = createElement("figure", "detail-figure");
-  if (product.imageKind === "collective") {
+  if (isCollective) {
     const caption = product.isCombo
       ? "Foto coletiva da linha Hydra. O combo inclui apenas esponja e espuma de limpeza de 50 ml."
       : `Foto coletiva da página ${product.sourcePage}. O item selecionado é ${getOfferItemName(product)}, código ${product.code}; os demais produtos são vendidos separadamente.`;
@@ -627,7 +508,7 @@ function openProductDetails(product, opener) {
     createElement(
       "p",
       "detail-description",
-      product.isCombo ? product.composition : product.description
+      product.isCombo ? product.composition : getProductDescription(product)
     )
   );
 
@@ -646,6 +527,14 @@ function openProductDetails(product, opener) {
     content.append(createElement("p", "inline-notice", product.catalogNote));
   }
   content.append(createElement("strong", "detail-price", formatBRL(product.priceCents)));
+  content.append(createElement("p", "price-source-label", getPriceLabel(product)));
+  if (product.priceReference) {
+    const source = createElement("a", "price-reference-link", "Consultar preço no site oficial");
+    source.href = product.priceReference.sourceUrl;
+    source.target = "_blank";
+    source.rel = "noopener noreferrer";
+    content.append(source);
+  }
 
   const quantityControls = createElement("div", "detail-purchase-row");
   const quantityLabel = createElement("label", "detail-quantity-label", "Quantidade");
@@ -707,9 +596,10 @@ function fillAddressForm(customer) {
     }
   }
   const numberField = elements.addressForm.elements.namedItem("number");
-  numberField.disabled = Boolean(
-    elements.addressForm.elements.namedItem("noNumber").checked
-  );
+  const noNumber = elements.addressForm.elements.namedItem("noNumber");
+  noNumber.checked = customer.number === "Sem número";
+  numberField.disabled = noNumber.checked;
+  if (noNumber.checked) numberField.value = "";
 }
 
 function updateReview(customer) {
@@ -846,6 +736,22 @@ elements.reviewButton.addEventListener("click", (event) => {
 });
 
 elements.search.addEventListener("input", renderProducts);
+function navigateCatalog() {
+  const destination = window.location.hash.slice(1);
+  if (destination !== "catalogo" && !catalogDepartments.some(({ id }) => id === destination)) return;
+  selectedDepartment = destination === "catalogo" ? "" : destination;
+  renderProducts();
+  // The destination section is created by rendering the selected department.
+  (document.getElementById(destination) ?? document.getElementById("catalogo"))
+    .scrollIntoView({ behavior: "auto" });
+}
+
+window.addEventListener("hashchange", navigateCatalog);
+document.querySelectorAll('a[href="#catalogo"], a[href="#perfumacao-de-ambientes"], a[href="#autocuidado"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    if (link.hash === window.location.hash) navigateCatalog();
+  });
+});
 elements.categoryFilter.addEventListener("change", renderProducts);
 elements.fragranceFilter.addEventListener("change", (event) => {
   selectedFragrance = event.currentTarget.value;
@@ -933,6 +839,9 @@ document.querySelector("#store-address").textContent = config.storeAddress;
 const storePhone = document.querySelector("#store-phone");
 storePhone.textContent = config.storePhone;
 storePhone.href = `tel:${config.storePhone}`;
+document.querySelector("#store-whatsapp").href =
+  `https://wa.me/55${config.whatsappNumber.replace(/\D/g, "")}`;
 renderCategoryFilters();
 renderFragranceOptions();
 renderAll();
+navigateCatalog();
