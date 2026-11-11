@@ -2,7 +2,44 @@
 
 Catálogo estático em português do Brasil, feito com HTML, CSS e JavaScript puro. A experiência permite pesquisar e filtrar produtos, selecionar uma categoria, montar um carrinho local e gerar uma simulação de resumo com endereço de entrega.
 
-> **Demonstração — preços fictícios.** Nenhum pedido é enviado e nenhum pagamento é realizado.
+> **Catálogo demonstrativo.** Há preços de referência do site oficial e valores demonstrativos identificados por item. Nenhum pedido é enviado e nenhum pagamento é realizado.
+
+## Revisão de preços e fotos — 10/11/2026
+
+### Cards unitários por categoria
+
+A apresentação atual usa **191 cards unitários em 16 categorias**, seguindo a referência enviada pelo usuário: uma imagem por SKU, nome, volume/especificação, código, preço sempre visível e botão “Adicionar ao carrinho”. O botão adiciona uma unidade daquele produto; quantidades são alteradas no carrinho. Os kits têm seu próprio card e exibem a composição antes da compra. A grade tem quatro colunas no desktop, três no tablet e duas no celular.
+
+Foram conferidas **153 fotos individuais: 137 do site oficial e 16 do catálogo**, ante 63 na etapa anterior. Os outros **38 cards** indicam “Foto individual em atualização”; as pendências por código e apresentação estão em `referencias/fotos-pendentes.md`. A foto coletiva permanece disponível nos detalhes desses itens. A busca, os filtros de categoria, fragrância e universo e a ordenação de preço continuam funcionando.
+
+O mapa público de produtos do site forneceu os nomes, páginas e imagens de referência. Foram conferidos tipo, aroma, volume e rótulos; no refil 6748, o código também foi confirmado na variante pública. Outras consultas de variantes retornaram HTTP 429 e não foram repetidas. A correspondência por código remoto não está confirmada para todos os itens. Os limites de enquadramento mudam apenas a área exibida no card: as fotos, rótulos e embalagens não foram reconstruídos. Duas máquinas GAS-501F e três roll-ons foram enquadrados individualmente a partir de objetos separados nas fotos do PDF.
+
+O mapeamento fica em `js/product-card-media.js` e `js/audited-product-photos.js`. A auditoria completa está em `referencias/auditoria-fotos-produtos.json`, com fonte, dimensões, enquadramento e hash de cada foto. Diferenças de volume, itens sobrepostos e aromas sem identificação segura ficaram pendentes.
+
+Validação desta apresentação: **32 testes passaram**, incluindo preservação de todos os SKUs nas categorias, ordem dos produtos filtrados, arquivos das fotos, limites de enquadramento e identidade das variantes. As fotos e os painéis de enquadramento foram inspecionados. A verificação do layout no navegador segue pendente.
+
+Na etapa anterior, foram extraídas 115 fotos de 59 páginas do PDF, separando as fotografias de títulos, textos, logotipos e decoração. Essa etapa forneceu as imagens aproveitadas nos cards unitários atuais. Os limites de enquadramento estão em `js/collection-photos.js`; os arquivos ficam em `assets/collections/`.
+
+- Atualizados 60 preços com correspondência de produto, aroma/coleção e volume nas páginas públicas do site oficial. Os dados ficam em `js/reference-prices.js`; valores anteriores, fontes, idade da indexação e pendências estão em `referencias/revisao-precos-site.json`.
+- A consulta inclui páginas indexadas entre hoje e três meses atrás. A listagem direta retornou HTTP 429, e algumas páginas não ficaram acessíveis. Os valores são referências para conferência, sem sincronização ao vivo ou confirmação de promoções e estoque da filial. Os demais itens continuam identificados como demonstrativos.
+- O difusor Sucesso 250 ml e o sabonete Borboletas 220 ml mantêm os valores demonstrativos: as apresentações encontradas no site são de 240 ml. O Novità Chá Branco 300 ml também ficou pendente, pois a página individual não pôde ser confirmada.
+- O kit 7232 usa loção de 380 ml; o kit de nome semelhante no site informa 200 ml. Seu valor continua estimado pela soma dos componentes corretos, agora R$ 293,70, sem copiar o preço do outro kit.
+- O usuário autorizou o uso das fotos do site oficial. Foram integradas 137 fotos individuais e uma foto de ambiente para a abertura, com origem em `referencias/fotos-site-oficial.json`.
+- As páginas completas renderizadas a 120 dpi (1350 × 1688 px) continuam disponíveis nos detalhes. Na apresentação dos cards, foram substituídas pelas fotografias extraídas descritas acima. O grid evita esticar um único card pela largura inteira. A ampliação continua disponível.
+- Verificação: 29 testes passaram, JavaScript válido e nenhuma falha em `git diff --check`. A conferência de layout no navegador continua pendente por indisponibilidade do acesso de navegador na sessão anterior.
+
+## Revisão de continuidade — 10/11/2026
+
+O trabalho existente foi preservado: 191 produtos, agrupamento por coleção, fotos locais, filtros, carrinho e resumo demonstrativo, além da identidade visual baseada no brandbook fornecido.
+
+- Corrigida a navegação de Perfumação e Autocuidado no cabeçalho e nos acessos rápidos. Links diretos, recarregamento e voltar/avançar agora sincronizam o universo exibido com a URL. Os filtros de busca, categoria e fragrância continuam combinados.
+- Completada a classificação de Perfumação com velas, essências, aromatizadores elétricos, sachês e aromatização profissional; Autocuidado inclui perfumaria e cuidados faciais. Refis de sabonete ficam em Autocuidado; outros refis, em Perfumação. Kits, embalagens, acessórios e aromaterapia permanecem na consulta geral.
+- Corrigida a restauração de “Sem número” ao reabrir a revisão do endereço.
+- Conferidos visualmente no PDF os exemplos de assinatura, redução mínima, paleta e tipografia. As fontes institucionais continuam dependendo de arquivos licenciados para integração.
+- Consultado o site oficial como referência. A página de Bamboo da Sorte 250 ml ficou acessível e apresenta texto sobre folhas verdes/cítricos e uma pirâmide com lavanda, mel, jasmim, vetiver e musk. Essa diferença continua exigindo confirmação da marca; não foi transferida ao catálogo.
+- Validação desta revisão: 28 testes passaram e o JavaScript passou na verificação de sintaxe. A conferência visual interativa desta revisão não foi concluída: a conexão HTTP local foi encerrada inesperadamente, o acesso de navegador estava indisponível e a janela nativa permaneceu minimizada após a tentativa de abertura. Os registros de telas abaixo pertencem à revisão anterior.
+
+Para uso comercial, ainda é necessário confirmar preços, disponibilidade, composições pendentes dos kits, entrega e o fluxo de pedidos. A prévia permanece demonstrativa e as alterações desta revisão são locais.
 
 ## Abrir no Windows com VS Code
 
@@ -17,13 +54,14 @@ Não é necessário instalar dependências nem executar uma etapa de compilaçã
 - `index.html` — estrutura semântica da página e dos diálogos.
 - `css/styles.css` — estilos responsivos e estados de foco.
 - `js/app.js` — filtros, detalhes, carrinho e fluxo de revisão.
-- `js/catalog.js` — agrupamento das apresentações, sem repetir fotos coletivas na visualização geral.
+- `js/catalog.js` — agrupamento das páginas e produtos por coleção.
 - `js/products.js` — dados dos produtos, números de apresentação, famílias, categorias, preços demonstrativos e páginas de origem.
 - `js/cart.js` — carrinho e persistência versionada em `localStorage`.
 - `js/checkout.js` — validação do endereço e montagem do resumo.
 - `js/config.js` — nome da loja, modo demonstrativo, entrega e configuração futura do WhatsApp.
 - `assets/catalog-pages/` — cópias em imagem das páginas de produtos, usadas como fotos coletivas.
 - `assets/products/` — recortes individuais que puderam ser associados com segurança a produtos.
+- `assets/brand/boutique-de-aromas-logo.png` — recorte sem alterações da assinatura horizontal oficial no brandbook fornecido.
 - `assets/products/placeholder.svg` — ilustração local para os produtos sem recorte confirmado.
 - `referencias/catalogo.pdf` — PDF de referência fornecido, mantido apenas na cópia local e excluído da publicação.
 - `referencias/auditoria-catalogo.json` — identificação do PDF revisado, códigos por página e conferência das fotos coletivas.
@@ -33,44 +71,47 @@ Não é necessário instalar dependências nem executar uma etapa de compilaçã
 ## Dados e limitações
 
 - Foram lidas as 65 páginas do PDF. O catálogo digital contém 191 produtos identificados nas páginas 4 a 62.
-- Na visualização “Todas as categorias”, cada página coletiva aparece uma única vez, reunindo seus produtos mesmo quando pertencem a categorias diferentes. Combos mantêm cards próprios. A revisão reduziu 109 apresentações para 62, sem excluir nenhum dos 191 produtos. Ao selecionar uma categoria, as opções de compra ficam restritas aos produtos correspondentes.
+- A apresentação segue as cores institucionais do brandbook (#567E72, #FCF5E3 e #32563D) e usa a assinatura horizontal oficial do documento, preservando sua proporção e respiro.
+- Quiche Sans e Recursive Sans não estão disponíveis como arquivos de fonte licenciados no projeto. Seguindo a alternativa indicada no brandbook, títulos usam Optima com fallback de sistema e textos usam Calibri com fallback de sistema.
+- BA Essências, BOU Beauty e Favo Beauty não foram atribuídas aos produtos: a associação de cada SKU a uma linha não está confirmada nos cadastros. O catálogo agora agrupa páginas repetidas da mesma coleção e oferece acessos separados para perfumação de ambientes e autocuidado.
+- O botão “Ver produtos da coleção” apenas revela as opções individuais; nenhum item é adicionado até a ação explícita em um produto. As composições conhecidas de combos são apresentadas antes da compra e combos de composição não confirmada não recebem componentes presumidos.
+- O WhatsApp da loja abre um canal de atendimento com o número confirmado e prefixo internacional do Brasil. O link não preenche uma mensagem nem ativa o envio de pedido.
+- A abertura usa uma foto de ambiente do site oficial, autorizada pelo usuário. As fotografias do brandbook não foram copiadas.
+- O usuário confirmou autorização da filial para as imagens existentes do catálogo e autorizou posteriormente as fotos do site oficial.
+- Na visualização geral, páginas repetidas da mesma coleção são agrupadas sob um único título, preservando as fotos e os produtos de cada página. Os acessos “Perfumação de ambientes” e “Autocuidado” filtram o catálogo sem alterar a busca por nome, código ou fragrância nem a seleção de categoria.
 - Foram diferenciados os cadastros semelhantes conferindo as fotos do catálogo: o código 6401 é um refil; as loções 6590 e 6592 têm variantes diferentes; o frasco 7248 identifica Ocean, apesar da legenda repetida “Element” no PDF. Óleos, brumas e blends de Aromaterapia receberam os nomes das variantes visíveis nos rótulos.
 - As páginas coletivas são cópias renderizadas do PDF original, que permanece intacto na cópia local. Nenhum número é sobreposto às fotos; os números de apresentação aparecem nas opções individuais. Essências são identificadas pelo nome completo do aroma, sem número.
 - O PDF imprime o código `6507` em duas velas diferentes. Os dois produtos têm IDs e números de apresentação próprios; o código exibido permanece exatamente como no catálogo.
 - Categorias como difusores, sabonetes, sprays e refis são separadas para navegação. As famílias foram atribuídas a partir dos títulos visíveis no catálogo.
-- “Comprar todos” inclui somente os itens daquela apresentação, respeitando os filtros ativos. Combos exibem o preço demonstrativo do conjunto. “Comprar combo” adiciona uma unidade do SKU do combo, sem lançar seus componentes novamente. No kit 7232, o preço demonstrativo do conjunto é a soma dos três componentes confirmados (R$ 204,70); eles ficam disponíveis separadamente em “Comprar unidades”. Os demais combos permanecem como SKU único enquanto suas composições individuais não puderem ser confirmadas. Preços são fictícios e não representam descontos.
+- “Ver produtos da coleção” revela as opções sem adicionar itens; a compra ocorre apenas quando o cliente aciona o botão do produto. Combos exibem sua composição conhecida, quantidade, volume e preço antes da compra. “Comprar combo” adiciona uma unidade do SKU do conjunto, sem lançar seus componentes novamente. No kit 7232, o valor estimado é a soma dos três componentes confirmados (R$ 293,70). Os demais combos permanecem como SKU único enquanto suas composições individuais não puderem ser confirmadas.
 - As fotos coletivas completas foram comparadas com os códigos e cadastros nas páginas de produtos do PDF. Identificações, especificações e pendências de composição estão registradas em `referencias/conferencia-catalogo.csv`; os itens de combo sem SKUs completos permanecem explicitamente pendentes. Fotos são contidas sem cortes e ampliadas somente ao clicar.
 - Na revisão final, foram completados o modelo GAS-501F, os aromas dos aromatizadores profissionais, as especificações elétricas, os aromas e a embalagem dos sachês, além dos nomes do açúcar esfoliante em óleo e do hidratante Summer Gold.
-- Os 13 preços da tabela inicial da especificação foram mantidos. Os demais preços são fictícios e devem ser substituídos antes de qualquer uso comercial.
-- Os detalhes usam 17 fotos específicas de produtos ou conjuntos e 174 referências a fotos coletivas originais. Fotos coletivas têm legenda explicativa e ampliação. O kit Hydra usa a página coletiva porque o recorte anterior não representava o conjunto completo.
+- Os preços sem referência oficial mantêm os valores demonstrativos de base. As referências conferidas substituem esses valores na exportação final do catálogo e aparecem identificadas na interface.
+- Os detalhes usam 153 fotos individuais ou de conjuntos específicos e 38 referências a fotos coletivas. Fotos coletivas têm legenda explicativa e ampliação. O kit Hydra recebeu a foto oficial da embalagem, que confirma uma esponja e uma espuma de limpeza de 50 ml.
 - A revisão organiza os produtos em 16 categorias. Corrige os aromas de Casa Alegre nas páginas 32 e 33, os refis 6400 e 6106 e as famílias das loções 6590 e 6592. Divergências entre legendas e rótulos são informadas nos detalhes dos produtos e na planilha de conferência.
 - O catálogo não define disponibilidade, frete, regras de venda ou condições de atacado. A entrega aparece como **a combinar**.
-- O endereço da loja é Rua Luiz Boito Piazza, nº 3467. O telefone e WhatsApp informados são 48996495663; o catálogo apenas os exibe e não abre uma integração de envio.
+- A página oficial do Bamboo da Sorte 250 ml foi consultada na revisão de continuidade acima. A descrição e a pirâmide olfativa continuam dependendo de confirmação antes de incorporá-las ao catálogo.
+- O endereço da loja é Rua Luiz Boito Piazza, nº 3467. O telefone e WhatsApp informados são 48996495663. O link de atendimento usa o prefixo do Brasil e não envia pedidos.
 - Nome, telefone e endereço de entrega permanecem apenas na memória da página durante a sessão. O carrinho salva apenas IDs e quantidades localmente.
 - O resumo é demonstrativo e não confirma nem envia um pedido.
 
 ### Editar dados e preços
 
-Em `js/products.js`, atualize `priceCents` usando centavos (por exemplo, `11990` representa R$ 119,90). Os 13 registros iniciais estão na seção `initialProductDetails`; os demais estão em `extractedProducts`. Também é possível corrigir nomes, fragrâncias, volumes e páginas de origem nesse arquivo.
+Atualize preços de referência em `js/reference-prices.js`, usando centavos (por exemplo, `11990` representa R$ 119,90). Os valores demonstrativos de base ficam em `js/products.js`, nas seções `initialProductDetails` e `extractedProducts`. Nomes, fragrâncias, volumes e páginas de origem também ficam nesse arquivo.
 
 Para trocar uma imagem, coloque o arquivo local em `assets/products/` e altere o campo `image` do produto para o caminho relativo correspondente. Use somente uma imagem confirmada para aquele produto; mantenha o placeholder quando não houver uma imagem confiável.
 
 ## WhatsApp
 
-O número fornecido, `48996495663`, fica registrado em `js/config.js` e é exibido junto ao telefone da loja. O envio por WhatsApp permanece desativado (`whatsappEnabled: false`): não foi acrescentado um código de país nem presumida uma integração. Nenhum pedido é enviado automaticamente.
+O número fornecido, `48996495663`, fica registrado em `js/config.js` e é exibido junto ao telefone da loja. O link de atendimento abre `https://wa.me/5548996495663`; enviar um pedido continua desativado (`whatsappEnabled: false`).
 
 ## Verificação
 
 Execute `npm test` para verificar SKUs, números de apresentação únicos, nomes de essências, famílias e categorias, imagens locais, adição atômica de ofertas, subtotal de R$ 299,70 (2 unidades do código 7109 e 1 do 7110), separação da entrega, validação de telefone/CEP/UF, restauração do carrinho e dados salvos inválidos.
 
-Histórico de verificações no navegador de versões anteriores (a versão atual passou pelos testes automatizados; a última conferência visual foi interrompida pelo controle de acesso do navegador):
-
-- 191 cadastros correspondem aos códigos das páginas de produtos do PDF, incluindo dois produtos distintos com o código repetido 6507. As pendências de composição dos combos estão listadas na relação de conferência.
-- “Comprar combo” adiciona somente o SKU do conjunto pelo preço demonstrativo; “Comprar unidades” do kit 7232 lista os três componentes confirmados, e compras individuais adicionam somente o item e a quantidade escolhidos.
-- Listas individuais inicialmente recolhidas, alternância por botão com `aria-expanded`, controle por teclado e quantidades inteiras de 1 a 99. Essências usam o nome completo do aroma e não mostram números de apresentação.
-- Pesquisa sem acentos, estado sem resultados, limpeza de filtros, filtro de fragrância, ordenação e rolagem até categorias/famílias.
-- Layout em 360, 768 e 1440 px, sem rolagem horizontal nem textos cortados; conteúdo limitado a 1.200 px e fotos coletivas contidas sem corte.
-- Listas de ofertas e opções individuais com rolagem interna, preservando a rolagem da página e do carrinho.
-- Compra de todas as unidades de uma oferta e compra individual com abertura automática do carrinho, quantidades, remoção e cálculos.
-- Revisão do endereço de entrega, subtotal, frete a combinar e geração de resumo sem envio; endereço e contato da loja permanecem separados dos dados do cliente.
-- Preferência por movimento reduzido e ausência de erros de JavaScript nos fluxos exercitados.
+- `npm test` — 29 testes passaram, cobrindo preços de referência, diferenças de volume, catálogo, agrupamento por coleção, imagens locais, combos e carrinho.
+- No navegador, em 360, 768 e 1440 px, não houve rolagem horizontal nem sobreposição entre o título e o elemento gráfico da abertura.
+- Busca pelo código repetido 6507 retornou os dois produtos; o filtro de Difusores retornou 28 produtos. Os acessos das categorias selecionaram os destinos corretos e Novità foi agrupada em um único bloco na visualização geral.
+- “Ver produtos da coleção” abriu uma lista sem fotos e com `aria-expanded`; apenas a ação explícita em um produto abriu o carrinho. O carrinho confirmou a inclusão individual.
+- A composição do kit 7232 aparece antes da compra. O endereço de WhatsApp foi conferido e imagens locais referenciadas carregaram sem erro.
+- A prévia local fica disponível em `http://127.0.0.1:8767/` enquanto o servidor de revisão estiver em execução.

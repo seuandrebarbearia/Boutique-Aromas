@@ -103,7 +103,7 @@ test("adds a complete combo once at its combo price without charging its compone
     [{ id: combo.id, quantity: 1 }]
   );
   assert.equal(store.subtotalCents, combo.priceCents);
-  assert.equal(store.subtotalCents, 20470);
+  assert.equal(store.subtotalCents, 29370);
 });
 
 test("adds a multi-product offer atomically and combines duplicate SKUs", () => {

@@ -1,0 +1,2554 @@
+// Photographs matched and visually reviewed against product labels.
+export const auditedProductPhotos = {
+  "2912": {
+    "src": "assets/official/product-2912.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      260,
+      0,
+      676,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-wedding-flores-brancas-com-gardenia-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_ambiente_wedding_250ml_175_1_d8ed52cadc0660b16948acd0e9e81d3b.png?v=1750247132&width=1000",
+    "sourceTitle": "Difusor de aromas Wedding Flores Brancas com Gardênia - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "4db6bfc3c8418a168fc5c4fc6bf8a013fd02c1f1b37c65c28b0c16b543cd9703"
+  },
+  "6054": {
+    "src": "assets/official/product-6054.png",
+    "width": 675,
+    "height": 675,
+    "bounds": [
+      171,
+      78,
+      476,
+      675
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/agua-perfumada-para-roupas-wedding-flores-brancas-com-gardenia-500ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/Design_sem_nome_6.png?v=1761825774&width=1000",
+    "sourceTitle": "Água Perfumada para Roupas Wedding Flores Brancas com Gardênia- 500ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a79ee377cac8a004146f62d4f57b351e4ba90e2630ffe7df2dd73a09c9752e0e"
+  },
+  "2913": {
+    "src": "assets/official/product-2913.png",
+    "width": 675,
+    "height": 675,
+    "bounds": [
+      186,
+      85,
+      514,
+      675
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-wedding-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_wedding_250ml_218_1_38f95df886897b56716adaedd2c436b6.png?v=1750247136&width=1000",
+    "sourceTitle": "Sabonete Líquido Wedding - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "840515e6eec699c7f81f7322077dbfff94eae64dfbc8661c3ee6ffdaace44d49"
+  },
+  "4071": {
+    "src": "assets/official/product-4071.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      324,
+      390,
+      641,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-maca-com-canela-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/essencia_para_aromatizador_eletrico_maca_com_canela_10ml_1072_1_d96bdf36fda41d274a190126efd7ccb0.png?v=1750247139&width=1000",
+    "sourceTitle": "Essência para Aromatizador Elétrico Maçã com Canela - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "83291f6a619df5593768cdccb9f397690c4028b95ea9b6f4d6f3e82b6a57cda8"
+  },
+  "4534": {
+    "src": "assets/official/product-4534.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      236,
+      341,
+      715,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-wedding-flores-brancas-com-gardenia-95ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_wedding_95ml_1491_1_b7b918dd95414a36a0f98ed10f0a7d94.png?v=1750247148&width=1000",
+    "sourceTitle": "Sabonete Líquido Wedding Flores Brancas com Gardênia - 95ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "1f1a9d670b06b5ed4edb0e185f99d40292d96ea3ddd53d62b4d9a902df4cb787"
+  },
+  "4537": {
+    "src": "assets/official/product-4537.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      232,
+      335,
+      792,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/creme-hidratante-para-maos-wedding-flores-brancas-com-gardenia-95g",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/creme_hidratante_para_maos_wedding_95g_1495_1_f373092560d0e2ec57928f684ba2401e.png?v=1750247150&width=1000",
+    "sourceTitle": "Creme Hidratante para Mãos Wedding Flores Brancas com Gardênia - 95g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "3a4125d6c747ebb4903e29a9240604c3fc898cfb664a6d88bf678acdc724f51b"
+  },
+  "5504": {
+    "src": "assets/official/product-5504.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      94,
+      69,
+      910,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-divina-alecrim-com-jasmim-95-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_divina_95_ml_1539_1_f978246b63c55fbcd9bb2b8e56d68a7a.png?v=1750247152&width=1000",
+    "sourceTitle": "Difusor de Aromas Divina Alecrim com Jasmim- 95 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "9ceb25f5caaf235047356a9b3cb475e36e647cae0f48871c6bb2d6f6d25eee4e"
+  },
+  "4836": {
+    "src": "assets/official/product-4836.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      196,
+      337,
+      708,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-flowers-flor-de-cerejeira-95ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_flowers_95ml_2819_1_54df5439dfd7749b0f3f2f44a75b054e.png?v=1750247159&width=1000",
+    "sourceTitle": "Sabonete Líquido Flowers Flor de Cerejeira - 95ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a239d80507661fc7a231e1c0c1aea0d6671c4f653791793631111ca652cebfd1"
+  },
+  "5252": {
+    "src": "assets/official/product-5252.png",
+    "width": 810,
+    "height": 810,
+    "bounds": [
+      246,
+      152,
+      564,
+      810
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-sabonete-flowers-flor-de-cerejeira-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_sabonete_flowers_250ml_2987_1_eb3a65c8f43ad2a7ab5104401afae948.png?v=1750247170&width=1000",
+    "sourceTitle": "Refil para Sabonete Flowers Flor de Cerejeira - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "439eb2f1f973271f61c211d0db2f7da881e0171a89c73f57495d7681fe89a476"
+  },
+  "5044": {
+    "src": "assets/official/product-5044.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      273,
+      157,
+      716,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-novita-orquidea-negra-com-musk-95ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_novita_orquidea_negra_com_musk_95ml_3030_1_291f730bac315af9ab5fc0c14b6ac00b.png?v=1750247185&width=1000",
+    "sourceTitle": "Difusor de Aromas Novità Orquidea Negra com Musk - 95ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "7c86bbbae51c274f43708b55c6aa3c061a3448de1399951c3a78f1f5ac357520"
+  },
+  "5039": {
+    "src": "assets/official/product-5039.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      240,
+      7,
+      741,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-novita-orquidea-negra-com-musk-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_novita_orquidea_negra_com_musk_250ml_3036_1_b803b92552ced0c7164ffb3305d02e70.png?v=1750247190&width=1000",
+    "sourceTitle": "Sabonete Líquido Novità Orquídea Negra com Musk - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "10a7fded8a62bbdd56d8a5bde37228432ec99ce67e265575cfb8f5ebddd464c3"
+  },
+  "5042": {
+    "src": "assets/official/product-5042.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      221,
+      307,
+      707,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-novita-orquidea-negra-com-musk-95ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_novita_orquidea_negra_com_musk_95ml_3038_1_80e2835c123e189da6de029945b1191b.png?v=1750247193&width=1000",
+    "sourceTitle": "Sabonete Liquido Novità Orquídea Negra com Musk - 95ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "661b391ec2adc4fe8fec9c6ead036e740e547b809ac65efd76e12549e4fee9e4"
+  },
+  "5254": {
+    "src": "assets/official/product-5254.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      300,
+      193,
+      693,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-sabonete-liquido-novita-orquidea-negra-com-musk-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_sabonete_liquido_novita_orquidea_negra_com_musk_250ml_3040_1_ed1e179287056418dcc8ff5f5dd957df.png?v=1750247194&width=1000",
+    "sourceTitle": "Refil para Sabonete Líquido Novità Orquídea Negra com Musk - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "2d798f2752ea4464574c6d9339bc35c03f45ff7b32d75e8e7af27df472efb464"
+  },
+  "5248": {
+    "src": "assets/official/product-5248.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      339,
+      382,
+      656,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-orquidea-negra-com-musk-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/essencia_para_aromatizador_eletrico_orquidea_negra_com_musk_10ml_3044_1_cd43ecbc5c38a73179ba0fc11ed8190f.png?v=1750247196&width=1000",
+    "sourceTitle": "Essência para Aromatizador Elétrico Orquídea Negra com Musk - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "255dd6369e27c87fd8e63b5e70a93e7dcbf87b89223f5b27c0ce2014c3504957"
+  },
+  "5397": {
+    "src": "assets/official/product-5397.png",
+    "width": 554,
+    "height": 549,
+    "bounds": [
+      0,
+      0,
+      554,
+      549
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-casa-alegre-lichia-e-flores-do-campo-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_casa_alegre_lichia_e_flores_do_campo_250ml_3115_1_b62cc8afcb51999080c8d6be7f06b35d.png?v=1750247210&width=1000",
+    "sourceTitle": "Difusor de Aromas Casa Alegre Lichia e Flores do Campo - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "8c7c85c923a85f948a4ffb90282708454cb0e7b31c7276a46e13e394906018da"
+  },
+  "5387": {
+    "src": "assets/official/product-5387.png",
+    "width": 547,
+    "height": 547,
+    "bounds": [
+      164,
+      82,
+      397,
+      547
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-casa-alegre-lichia-e-flores-do-campo-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_casa_alegre_lichia_e_flores_do_campo_380ml_3119_1_eb4f531f8b128127c1689034db3d6806.png?v=1750247213&width=1000",
+    "sourceTitle": "Sabonete Líquido Casa Alegre Lichia e Flores Do Campo - 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "4915af0720442fd4b4c21bec433776786139609c4550036bd1b7f497da96cba6"
+  },
+  "5398": {
+    "src": "assets/official/product-5398.png",
+    "width": 548,
+    "height": 546,
+    "bounds": [
+      159,
+      0,
+      401,
+      546
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-casa-alegre-violeta-e-lavanda-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_casa_alegre_violeta_e_lavanda_250ml_3123_1_cdc3a73a89c60bf5aa5aaea9fe192179.png?v=1750247215&width=1000",
+    "sourceTitle": "Difusor de Aromas Casa Alegre Violeta e Lavanda - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "877fcb1a6eecadbecaa061a19c14d451dcb11b36714c038033db12c7e03f9ff3"
+  },
+  "5388": {
+    "src": "assets/official/product-5388.png",
+    "width": 550,
+    "height": 548,
+    "bounds": [
+      161,
+      0,
+      550,
+      548
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-casa-alegre-violeta-e-lavanda-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_casa_alegre_violeta_e_lavanda_380ml_3127_1_5fdb2a6eb3a06e5a57635bde79200059.png?v=1750247219&width=1000",
+    "sourceTitle": "Sabonete Líquido Casa Alegre Violeta e Lavanda - 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a239befd4e0e9a259b2bd8577be6a76289b58990655ba663dbf11928dc0baa32"
+  },
+  "7151": {
+    "src": "assets/official/product-7151.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      94,
+      202,
+      905,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/acucar-esfoliante-em-oleo-flor-de-jasmim-e-amendoas-doces-120g",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/Fotos_para_site_f318591f-9687-46a6-a178-e41275f6df80.png?v=1778076949&width=1000",
+    "sourceTitle": "Açúcar Esfoliante em Óleo Amêndoas Doces e Flor de Jasmim - 120g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "11090962850978b9a7cfe8de05e43823b1af4ba16d1ad7dc05f12f0b9d822454"
+  },
+  "7149": {
+    "src": "assets/official/product-7149.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      313,
+      82,
+      687,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/locao-hidratante-corporal-flor-de-jasmim-e-amendoas-doces-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_2_9d51cf2a-d017-4a3f-a191-6be476a7e768.png?v=1785176374&width=1000",
+    "sourceTitle": "Loção Hidratante Corporal Amendoas Doces e Flor de Jasmim 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "33bb29b0bb4a0343c8cff63521b40cc9195c982d606cff3c86a63bf30c8e6505"
+  },
+  "5120": {
+    "src": "assets/official/product-5120.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      333,
+      385,
+      649,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-flowers-flor-de-cerejeira-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/essencia_para_aromatizador_eletrico_flowers_10ml_3501_1_fbf094482c9e85bf718d30aa4729f7c6.png?v=1750247230&width=1000",
+    "sourceTitle": "Essência para Aromatizador Elétrico Flowers Flor de Cerejeira- 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "3a0e100f61351ad0f4f399c818d95386985281737326a5ab26797f65bc419770"
+  },
+  "6098": {
+    "src": "assets/official/product-6098.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      226,
+      0,
+      776,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-nana-nene-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_nana_nene_200ml_3576_1_d5304ce1f565be2e0c87b7af1121ea79.png?v=1750247234&width=1000",
+    "sourceTitle": "Difusor de Aromas Nana Nenê - 200ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "c35b2b21e91bccbb6711268e8273c6f30d19f2f8792edc47ca3ae042c4bfe047"
+  },
+  "6099": {
+    "src": "assets/official/product-6099.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      176,
+      0,
+      762,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-nana-nene-95ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_nana_nene_95ml_3603_1_7cf4ab4b196ff26691f5216394978939.png?v=1750247236&width=1000",
+    "sourceTitle": "Difusor de Aromas Nana Nenê - 95ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "f4579f3508a265da9b8779b986d4ce07d0f516cbe3f63c26782477ac025ddf67"
+  },
+  "6100": {
+    "src": "assets/official/product-6100.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      214,
+      0,
+      730,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/perfume-para-roupas-e-ambiente-nana-nene-500ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/perfume_para_roupas_e_ambiente_nana_nene_500ml_3607_1_67552e061e4ed979ef4f4937eb4c27a3.jpg?v=1750247238&width=1000",
+    "sourceTitle": "Perfume para Roupas e Ambiente Nana Nenê - 500ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "dbaf37e84ac6a63832a6edc88ddacb924de47cc09373e25e1bc39fcdb47605fc"
+  },
+  "6140": {
+    "src": "assets/official/product-6140.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      203,
+      58,
+      814,
+      945
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sache-perfumado-carro-novo-30g",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sache_perfumado_carro_novo_30g_3718_1_3e11f52e99f22c55619daeab6b5a492c.png?v=1750247247&width=1000",
+    "sourceTitle": "Sachê Perfumado Carro Novo - 30g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a09897ffe49706f305ef4479ef44b8dc90023e19f8ba6a71fd6423cf1c059e46"
+  },
+  "6139": {
+    "src": "assets/official/product-6139.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      209,
+      60,
+      816,
+      943
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sache-perfumado-baunilha-do-tahiti-30g",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sache_perfumado_baunilha_do_tahiti_30g_3722_1_e505bca17bc35055940b97f5c0211b9a.png?v=1750247249&width=1000",
+    "sourceTitle": "Sachê Perfumado Baunilha do Tahiti - 30g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "5e127a713f94ba5eb1f48dca524ff5dbe0b72272b4fb06fad503860865f2208a"
+  },
+  "6175": {
+    "src": "assets/official/product-6175.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      306,
+      190,
+      690,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-difusor-de-aromas-desejos-amor-violeta-com-amora-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_difusor_de_aromas_amor_250ml_3918_1_4124dd984b3e515e929f134a7cdbfd6c.png?v=1750247263&width=1000",
+    "sourceTitle": "Refil para Difusor de Aromas Desejos Amor Violeta com Amora - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "025fcaff658e97e26878c9459ecd4bf6986f1f85e38e0b8223bf79fe48b8d3bc"
+  },
+  "5024": {
+    "src": "assets/official/product-5024.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      341,
+      18,
+      660,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/mousse-de-banho-flor-de-jasmim-e-amendoas-doces-150ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine.jpg?v=1788355093&width=1000",
+    "sourceTitle": "Mousse de Banho Amêndoas Doces e Flor de Jasmim - 150ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "131405bb4247bb1155245b4b6e339409bebbffb5cecce3391812bbcca8ec701e"
+  },
+  "6189": {
+    "src": "assets/official/product-6189.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      254,
+      102,
+      725,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/locao-hidratante-corporal-jasmim-e-vanilla-divina-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_2_bf708887-5864-4fdf-8c37-4bde0399dfd0.png?v=1769799945&width=1000",
+    "sourceTitle": "Loção Hidratante Corporal Jasmim e Vanilla Divina - 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "c2b655210cfbe639cb92482d4f58bd3d326eafbcd45cf5c90a3e7cdbd6bec610"
+  },
+  "6190": {
+    "src": "assets/official/product-6190.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      320,
+      0,
+      680,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-em-espuma-divina-150ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonte_em_espuma_divina_bou_cosmeticos.png?v=1769800492&width=1000",
+    "sourceTitle": "Sabonete em Espuma Divina - 150ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "e38c578bbc0c235d6ba167c1f81fc79a52f6f4cd38f3424007590775dc8e1829"
+  },
+  "7152": {
+    "src": "assets/official/product-7152.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      153,
+      51,
+      880,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-felicidade-damasco-com-peonia-240ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_5_edb0419e-e133-46b3-9257-e73b63899833.png?v=1785159144&width=1000",
+    "sourceTitle": "Óleo Difusor de Aromas Felicidade - 240ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "975bcc6a1600b4e2481381c2189ab9072c77778029fe20495796ecf691eaa8be"
+  },
+  "6578": {
+    "src": "assets/official/product-6578.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      168,
+      81,
+      357,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/perfume-para-roupas-e-ambiente-felicidade-damasco-com-peonia-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/perfume_para_roupas_e_ambiente_felicidade_380ml_4332_1_dffefc789fae2714e93279a210190181.png?v=1750247285&width=1000",
+    "sourceTitle": "Perfume para roupas e ambiente Felicidade Damasco com Peônia- 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "44ee9995ad02ad32af0c8ceacb2967f3953cd0d1c01acc3df7bf8ecc2965d70d"
+  },
+  "7153": {
+    "src": "assets/official/product-7153.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      152,
+      51,
+      880,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-gratidao-canela-com-musk-240-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_4_a50c96b7-3155-48aa-9b94-c2738459006a.png?v=1785159883&width=1000",
+    "sourceTitle": "Óleo Difusor de Aromas Gratidão - 240 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "304a6e96d2928e02d1778ed0678ecc3fe06e67dcb9631b15ef12f2ba11945b9a"
+  },
+  "6577": {
+    "src": "assets/official/product-6577.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      164,
+      81,
+      353,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/perfume-para-roupas-e-ambiente-gratidao-canela-com-musk-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/perfume_para_roupas_e_ambiente_gratidao_380ml_4414_1_29e9304fb22e934aff9c8dc445f30d5b.png?v=1750247290&width=1000",
+    "sourceTitle": "Perfume para roupas e ambiente Gratidão Canela com Musk - 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "9f641f1163c845c06eb83f16a33a671da9d8e0bd498c7ebfcc3722f34e70a8b3"
+  },
+  "6375": {
+    "src": "assets/official/product-6375.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      347,
+      378,
+      664,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-sucesso-mandarina-fresca-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/essencia_para_aromatizador_eletrico_sucesso_10ml_4508_1_3bc212500231fcea3c04025f7544d720.png?v=1750247297&width=1000",
+    "sourceTitle": "Essência para Aromatizador Elétrico Sucesso Mandarina Fresca - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "34aaabd9ccad2bc48c63ecd9806ef6ee793c07d0f71533d90e94df6a401c6f3e"
+  },
+  "6106": {
+    "src": "assets/official/product-6106.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      301,
+      193,
+      693,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-difusor-de-aromas-nana-nene-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_difusor_de_aromas_nana_nene_250ml_4523_1_c310d472e061d4628e061219e9eb0ab1.png?v=1750247303&width=1000",
+    "sourceTitle": "Refil para Difusor de Aromas Nana Nenê - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "86b581022b5d125e13fd11a0c44aed9d7cb5f81539627f23078051fba7344ea2"
+  },
+  "6113": {
+    "src": "assets/official/product-6113.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      330,
+      376,
+      654,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-casa-alegre-lichia-e-flores-do-campo-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/essencia_para_aromatizador_eletrico_casa_alegre_lichia_e_flores_do_campo_10ml_4589_1_4523a3d20a106c744e49517f6fe501df.png?v=1750247306&width=1000",
+    "sourceTitle": "Essência para Aromatizador Elétrico Casa Alegre Lichia e Flores do Campo - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "eacbe641f4ae13c6808dce5fdb77ff8340cd8bae55c42447e3839a770522b1cb"
+  },
+  "6114": {
+    "src": "assets/official/product-6114.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      331,
+      376,
+      655,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-casa-alegre-violeta-e-lavanda-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/essencia_para_aromatizador_eletrico_casa_alegre_violeta_e_lavanda_10ml_4603_1_3bd521c8b51541f5477c043bd4fbf7a4.png?v=1750247310&width=1000",
+    "sourceTitle": "Essência para Aromatizador Elétrico Casa Alegre Violeta e Lavanda - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "fc0f92d8ada427d77dc2697240cde13b497657ebdb038fe85ba385717aec3b15"
+  },
+  "5253": {
+    "src": "assets/official/product-5253.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      301,
+      193,
+      698,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-sabonete-novita-cha-branco-com-roma-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_sabonete_novita_cha_branco_com_roma_250ml_4707_1_5968aaa65a64364a24791e0e8f9d3b63.png?v=1750247313&width=1000",
+    "sourceTitle": "Refil para Sabonete Novitá Chá Branco com Romã - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "01838f75159c7c32fd5c52eccc6c2efbeee1c1481941d08cd8b731ee17a625fc"
+  },
+  "7159": {
+    "src": "assets/official/product-7159.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      253,
+      385,
+      752,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-desejos-240ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/Novo_Desejos_4.png?v=1776369591&width=1000",
+    "sourceTitle": "Sabonete Líquido Desejos - 240ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "e4a28610a9ee4c1273eb13445240b90a563f353ee2d15cfe6d7505fae734eadc"
+  },
+  "6391": {
+    "src": "assets/official/product-6391.png",
+    "width": 800,
+    "height": 800,
+    "bounds": [
+      237,
+      0,
+      567,
+      800
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/spray-de-travesseiro-sono-tranquilo-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/spray_de_travesseiro_sono_tranquilo_250ml_4916_1_b2b2e54174323879c770d20bec459d02.png?v=1750247322&width=1000",
+    "sourceTitle": "Spray de Travesseiro Sono Tranquilo - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "c19cb968f5ca6fd10ea4a5981e197066e38fefe3775b3ab5b186eebd03e50eb6"
+  },
+  "6307": {
+    "src": "assets/official/product-6307.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      281,
+      92,
+      701,
+      918
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-multifuncional-purissimo-de-amendoas-doces-60ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/oleo_purissimo_de_amendoas_doces_multifuncional_60ml_bou_aromaterapia_4922_1_17781435b2185fa40f5ec10f43803688.png?v=1750247327&width=1000",
+    "sourceTitle": "Óleo Multifuncional Puríssimo de Amêndoas Doces -  60ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "cf681fb23323b08c31f72d02e660b1533f6d267bd5e0a9e25291d621af75b74b"
+  },
+  "6293": {
+    "src": "assets/official/product-6293.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      301,
+      131,
+      671,
+      896
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-essencial-100-puro-alecrim-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/oleo_essencial_100_puro_alecrim_concentracao_e_foco_10ml_bou_aromaterapia_4926_1_ecdaef13efc4cc1f32453f91f7f41883.png?v=1750247329&width=1000",
+    "sourceTitle": "Óleo Essencial 100% Puro Alecrim  - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "bfae5dd504b5d06628e99048079a7798b600ccedbda139d355582c8963700bac"
+  },
+  "6295": {
+    "src": "assets/official/product-6295.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      315,
+      131,
+      685,
+      896
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-essencial-100-puro-hortela-pimenta-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/oleo_essencial_100_puro_hortela_pimenta_detox_e_energia_10ml_bou_aromaterapia_4929_1_aefbc7365a2f29d2f4ac0c3aed94cee9.png?v=1750247331&width=1000",
+    "sourceTitle": "Óleo Essencial 100% Puro Hortelã Pimenta - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "2adb0d214783824b9f25b59c2fe893c772c8562d99c91f8e08b5e8c14e2ccd33"
+  },
+  "6294": {
+    "src": "assets/official/product-6294.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      315,
+      131,
+      685,
+      896
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-essencial-100-puro-lavanda-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/oleo_essencial_100_puro_lavanda_relax_e_equilibrio_10ml_bou_aromaterapia_4932_1_0fd3da70a09ae8b34754d96e5a56d7d3.png?v=1750247333&width=1000",
+    "sourceTitle": "Óleo Essencial 100% Puro Lavanda - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "5a5fd04de7c0f0533dc09dcd7155a2001c907b558d1a3da0616d4722b5750da1"
+  },
+  "6400": {
+    "src": "assets/official/product-6400.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      275,
+      189,
+      720,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-agua-perfumada-para-roupas-flowers-flor-de-cerejeira-500ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_agua_perfumada_para_roupas_flowers_500ml_4938_1_9a29c78cc2a44f930ad5adf5ce88ace4.png?v=1750247335&width=1000",
+    "sourceTitle": "Refil para Água Perfumada para Roupas Flowers Flor de Cerejeira - 500ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "6b683b7b8d8f5c9d518462f523a90b5eedc1e635ade3456eafa5ae836ef83457"
+  },
+  "6401": {
+    "src": "assets/official/product-6401.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      274,
+      195,
+      715,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-agua-perfumada-para-roupas-wedding-flores-brancas-com-gardenia-500ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_agua_perfumada_para_roupas_wedding_500ml_4940_1_bd869d6033db8167aebe2dcea26d6977.png?v=1750247338&width=1000",
+    "sourceTitle": "Refil para Água Perfumada para Roupas Wedding Flores Brancas com Gardênia - 500ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "82dc8207cd028338761ae83a5185ef6987f8d966e23fda0de6a23023c77f9d62"
+  },
+  "6402": {
+    "src": "assets/official/product-6402.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      278,
+      195,
+      720,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-perfume-de-ambiente-divina-alecrim-com-jasmim-500ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_perfume_de_ambiente_divina_500ml_4942_1_28c3bf58281b3624065a8840f45d8147.png?v=1750247341&width=1000",
+    "sourceTitle": "Refil para Perfume de Ambiente Divina Alecrim com Jasmim - 500ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "dd6f0e6d6479b188b624fd45541f211b5fd9048a5ca8418b4a71c2f8e90d8577"
+  },
+  "6403": {
+    "src": "assets/official/product-6403.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      272,
+      189,
+      713,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-perfume-roupas-e-ambiente-capim-limao-500ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_perfume_roupas_e_ambiente_capim_limao_500ml_4944_1_2a761992a5ceaeb385200bd07bf0a7df.png?v=1750247344&width=1000",
+    "sourceTitle": "Refil para Perfume Roupas e Ambiente Capim Limão - 500ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "9fd5f0bda974d48ebab09364a6675199237322671d5fa0149633e879a11f590b"
+  },
+  "6405": {
+    "src": "assets/official/product-6405.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      269,
+      189,
+      713,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-perfume-roupas-e-ambiente-lichia-e-flores-do-campo-500ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_perfume_roupas_e_ambiente_lichia_e_flores_do_campo_500ml_4948_1_37e383db5a740ea80185b8fcc1602a50.png?v=1750247348&width=1000",
+    "sourceTitle": "Refil para Perfume Roupas e Ambiente Lichia e Flores do Campo - 500ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "fa86b915514303ebdc187cb4431a9b2aea243a56b85f8ef751492535d27c5a8d"
+  },
+  "6409": {
+    "src": "assets/official/product-6409.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      275,
+      195,
+      717,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-perfume-para-roupas-e-ambiente-nana-nene-500ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_perfume_para_roupas_e_ambiente_nana_nene_500ml_4960_1_c2255c6928e7bfcf42a78b5c5e52be37.png?v=1750247356&width=1000",
+    "sourceTitle": "Refil Perfume para Roupas e Ambiente Nana Nenê - 500ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "d8ab1152751e36502870e3c3f839b817c0e0216fdab363de607b41c282213513"
+  },
+  "6513": {
+    "src": "assets/official/product-6513.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      187,
+      0,
+      813,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-bamboo-da-sorte-250-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_bamboo_da_sorte_boutique_de_aramas.png?v=1769799618&width=1000",
+    "sourceTitle": "Difusor de Aromas Bamboo da Sorte - 250 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "33611e20b0a5a1efedc586848742d43d799b166d510acc8e1e7826b3bcb106e7"
+  },
+  "6514": {
+    "src": "assets/official/product-6514.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      294,
+      0,
+      685,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/perfume-para-roupas-e-ambiente-bamboo-da-sorte-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_d942d466-7d3f-4c33-89ba-9035dc8c089b.png?v=1769799300&width=1000",
+    "sourceTitle": "Perfume para Roupas e Ambiente Bamboo da Sorte - 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "ac07684cde3c11810111478fa2197247678720b9bd1ac54f625c848579b2d36f"
+  },
+  "6515": {
+    "src": "assets/official/product-6515.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      340,
+      382,
+      659,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-bamboo-da-sorte-10-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/essencia_para_aromatizador_eletrico_bamboo_da_sorte_10_ml_4975_1_30244c3c7b8302b0593c6aad86c5d43a.png?v=1769799429&width=1000",
+    "sourceTitle": "Essência para Aromatizador elétrico Bamboo da Sorte - 10 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "cfac03b446e791c1cca8780804a0b8ce775bdc12ecb786587036565c73c7c4ce"
+  },
+  "6525": {
+    "src": "assets/official/product-6525.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      292,
+      0,
+      709,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/perfume-para-roupas-e-ambiente-magnolia-250-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_2_9848b1cc-57e0-48af-a9a9-427ecbf5ce33.png?v=1769802530&width=1000",
+    "sourceTitle": "Perfume para Roupas e Ambiente Magnólia 250 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "5f2825ad55245425acaf7ef185d8cd6af3b6ff7f5f039c59500263a82ae5b034"
+  },
+  "7033": {
+    "src": "assets/official/product-7033.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      301,
+      0,
+      699,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/locao-hidratante-corporal-bella-oriental-gourmand-200-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_12_7b47fb15-fb4b-43de-83cc-9ddadc0dfbd3.png?v=1770128955&width=1000",
+    "sourceTitle": "Loção Hidratante Corporal Bella Oriental Gourmand - 380 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "70e42cf6d36bb6e38652f760a336a27cc24f0c0d1c8ac833098b74913b9d47c7"
+  },
+  "7034": {
+    "src": "assets/official/product-7034.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      301,
+      0,
+      699,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/locao-hidratante-corporal-lolia-floral-frutal-200-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_13_dd7ec265-63a8-4266-8ffe-05117b8bd3d4.png?v=1770128987&width=1000",
+    "sourceTitle": "Loção Hidratante Corporal Lolia Floral Frutal - 380 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "99dc8a5ece6e2faf464937d58a07b65bfc3f373b2a50d06eea4cd401cb6c8027"
+  },
+  "6523": {
+    "src": "assets/official/product-6523.png",
+    "width": 675,
+    "height": 675,
+    "bounds": [
+      242,
+      75,
+      448,
+      675
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/mousse-de-banho-lolia-floral-frutal-150-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/mousse_de_banho_lolia_150_ml_5017_1_740e998ac7984e0cf1cd71d80c187d41.png?v=1750247371&width=1000",
+    "sourceTitle": "Mousse de banho Lolia Floral Frutal - 150 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "2e714d6e4a5fc84046ca4c2f79e4096d42468c0efe643184d227b918141f183f"
+  },
+  "6522": {
+    "src": "assets/official/product-6522.png",
+    "width": 675,
+    "height": 675,
+    "bounds": [
+      241,
+      77,
+      445,
+      675
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/mousse-de-banho-bella-oriental-gourmand-150-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/mousse_de_banho_bella_150_ml_5019_1_5dc63a6c0609b62584d6c92f49b47dd7.png?v=1750247373&width=1000",
+    "sourceTitle": "Mousse de banho Bella Oriental Gourmand - 150 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "57c51a1fdee467dacc41e5ad28418c41a10ccda184137a0ad5c3585850f13362"
+  },
+  "6564": {
+    "src": "assets/official/product-6564.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      256,
+      14,
+      724,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-difusor-de-aromas-bamboo-da-sorte-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_difusor_de_aromas_bamboo_da_sorte_boutique_de_aromas_19b466fb-ecf2-4332-a0d3-96f56b9f3994.png?v=1769799206&width=1000",
+    "sourceTitle": "Refil para difusor de Aromas Bamboo da Sorte 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "f1a6eb47cb42165cca24bdb257d56378d81541e3e6721b589f2ef08b15aa382a"
+  },
+  "6588": {
+    "src": "assets/official/product-6588.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      165,
+      49,
+      835,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-borboletas-azuis-flor-de-lotus-com-musgos-do-vale-220ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantoneprojetonovalojaquiosqueceline_2_28b5e8e6-e18a-47d2-b5d2-2bc8b712b91d.png?v=1785174525&width=1000",
+    "sourceTitle": "Difusor de Aromas Borboletas Azuis Flor de Lótus com Musgos do Vale 220ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "07552057a9ff3e282a36034adf672638fc853b5bf3cbce9c3bbc18a6af1ce121"
+  },
+  "6586": {
+    "src": "assets/official/product-6586.png",
+    "width": 675,
+    "height": 675,
+    "bounds": [
+      221,
+      74,
+      454,
+      675
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/perfume-para-ambiente-borboletas-azuis-flor-de-lotus-com-musgos-do-vale-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/perfume_para_ambiente_borboletas_azuis_380ml_5043_1_46137b6db1c7283a4f68f54464164681.png?v=1750247385&width=1000",
+    "sourceTitle": "Perfume para ambiente Borboletas Azuis Flor de Lótus com Musgos do Vale - 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "62b046ff9fd787994c90e3736582218318106b513d3c4874ede3c8a5640322cd"
+  },
+  "6637": {
+    "src": "assets/official/product-6637.png",
+    "width": 675,
+    "height": 675,
+    "bounds": [
+      34,
+      275,
+      630,
+      671
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/vela-aromatica-borboletas-azuis",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/vela_aromatica_borboletas_azuis_5045_1_498d0b113ff37502475bc2b974d2f0d8.png?v=1750247386&width=1000",
+    "sourceTitle": "Vela Aromática Borboletas Azuis – 190g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "89f4a5488a1cdc17672fb0e4869bd16ca3ad686c77593bc1ab983be0a2830a4b"
+  },
+  "6640": {
+    "src": "assets/official/product-6640.png",
+    "width": 675,
+    "height": 675,
+    "bounds": [
+      236,
+      58,
+      456,
+      675
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/espuma-de-limpeza-facial-hydra-150ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/espuma_de_limpeza_facial_hydra_150ml_5047_1_d6fa9e019cddeb8e20adbec5523266ba.png?v=1750247388&width=1000",
+    "sourceTitle": "Espuma de Limpeza Facial Hydra 150ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "219fa1ff244b968023a38d65872ed3e3bd501c2a7b3b05e999f8d632eddf6702"
+  },
+  "6641": {
+    "src": "assets/official/product-6641.png",
+    "width": 675,
+    "height": 675,
+    "bounds": [
+      224,
+      110,
+      444,
+      675
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/agua-micelar-hydra-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/Design_sem_nome_5.png?v=1761825176&width=1000",
+    "sourceTitle": "Água Micelar Hydra 200ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "3f979fee0947542e4aefc8784a878dde03b7918445d5d5370693f8ffff030873"
+  },
+  "6639": {
+    "src": "assets/official/product-6639.png",
+    "width": 675,
+    "height": 675,
+    "bounds": [
+      191,
+      124,
+      484,
+      675
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/creme-microesfoliante-hydra-60g",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/creme_microesfoliante_hydra_60g_5051_1_6ebbc2d2ce52b9610ca9577bedc11100.png?v=1750247393&width=1000",
+    "sourceTitle": "Creme Microesfoliante Hydra 60g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "8e1afa1f134fb860ba8b462815d9223796436f65fab05037c14b9a8d77c1c090"
+  },
+  "6680": {
+    "src": "assets/official/product-6680.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      121,
+      54,
+      443,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-bouquet-de-lavanda-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_bouquet_de_lavanda_250ml_5069_1_79a6cdc88ba700df16ce10e0010a5401.png?v=1750247396&width=1000",
+    "sourceTitle": "Difusor de aromas Bouquet de Lavanda 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "f47bda4d99e402d931edf7af56167919115343e50f5f1d12535a7ef77e13abc6"
+  },
+  "6681": {
+    "src": "assets/official/product-6681.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      128,
+      77,
+      428,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-flor-de-figo-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_flor_de_figo_250ml_5071_1_ac45ed83fcf01a9a8ec405bbdf88b292.png?v=1750247398&width=1000",
+    "sourceTitle": "Difusor de aromas Flor de Figo 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "c2c61c81d5863b457be69fe6e29e39ba089d4fdc8f53454475348572f92865dc"
+  },
+  "6679": {
+    "src": "assets/official/product-6679.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      127,
+      89,
+      409,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-rosas-e-peonia-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_rosas_e_peonia_250ml_5073_1_55e54a889241ba2ba46f9d317d4a9fc9.png?v=1750247400&width=1000",
+    "sourceTitle": "Difusor de Aromas Rosas e Peônia 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "62862e17f3070ee3d7a47448612b038db94b517ed37eb02f8ae4869c9014a09f"
+  },
+  "6682": {
+    "src": "assets/official/product-6682.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      126,
+      69,
+      431,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-orquidea-baunilha-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_orquidea_baunilha_250ml_5075_1_e35a1e0ab8dd727da91593505c9842c7.png?v=1750247402&width=1000",
+    "sourceTitle": "Difusor de aromas Orquídea Baunilha 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "2f45a470524b738aafde3eb0c2e989d0baf227412e372d7ce8dd673e31ee082e"
+  },
+  "6699": {
+    "src": "assets/official/product-6699.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      323,
+      290,
+      677,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-magnolia-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_1_a60dbf16-242e-49b1-8afa-22e5b56cde7b.png?v=1769802122&width=1000",
+    "sourceTitle": "Essência para Aromatizador elétrico Magnólia 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "0c3a12f3c20483319e9ac4672bfbf5db4934dd97d2a7236c583aa6f302c4a358"
+  },
+  "6678": {
+    "src": "assets/official/product-6678.png",
+    "width": 810,
+    "height": 810,
+    "bounds": [
+      243,
+      129,
+      569,
+      810
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-difusor-de-aromas-borboletas-azuis-flor-de-lotus-com-musgos-do-vale-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_difusor_de_aromas_borboletas_azuis_250ml_5099_1_002900c1a23fb3c02fab52b2e2702477.png?v=1750247421&width=1000",
+    "sourceTitle": "Refil para Difusor de Aromas Borboletas Azuis Flor de Lótus com Musgos do Vale - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "d0d2b3139bd5ce259a9a8f4e6b14f2e7c59b9acbd3e48210ff15879d69e76c84"
+  },
+  "6693": {
+    "src": "assets/official/product-6693.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      331,
+      326,
+      669,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-borboletas-azuis-flor-de-lotus-com-musgos-do-vale-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/essencia_para_aromatizador_eletrico_borboletas_azuis_flor_de_lotus_com_musgos_do_vale_10ml_5103_1_cc360e048e77cbdbb21f334385df0a57.png?v=1750247425&width=1000",
+    "sourceTitle": "Essência para Aromatizador elétrico Borboletas Azuis Flor de Lótus com Musgos do Vale - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "34188f130a6776b131389a0d87cc7bfe067b3736a1c6fcb5c8b58dda2335b0e3"
+  },
+  "6746": {
+    "src": "assets/official/product-6746.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      286,
+      32,
+      745,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-difusor-bouquet-de-lavanda-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_difusor_bouquet_de_lavanda_250ml_5111_1_0e0329f9886c07698b6d9d868f053993.png?v=1750247429&width=1000",
+    "sourceTitle": "Refil Difusor Bouquet de Lavanda 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "999affbf6cafd821ca4914729f0d9701bc693372b2835f8607af3b835d519a45"
+  },
+  "6747": {
+    "src": "assets/official/product-6747.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      286,
+      31,
+      745,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-difusor-flor-de-figo-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_difusor_flor_de_figo_250ml_5113_1_f8ea23813a99c6c19d63e5f728cce6cf.png?v=1750247431&width=1000",
+    "sourceTitle": "Refil Difusor Flor de Figo 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "dd4f9936ae7e161c6b49533b61757f7d843462afba245942dfc6e4f0bd6b523d"
+  },
+  "6774": {
+    "src": "assets/official/product-6774.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      295,
+      74,
+      703,
+      993
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/creme-hidratante-maos-black-44-75g",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/Fotosparasite_7.jpg?v=1781118976&width=1000",
+    "sourceTitle": "Creme Hidratante Mãos Black 44 - 75g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "f42928c83ccd3d77bcb164453c566e99c0f6a4a8e470fe605ccca16c309500d8"
+  },
+  "6755": {
+    "src": "assets/official/product-6755.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      0,
+      160,
+      950,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/serum-transformador-para-maos-divina-50g",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_3_21eba4bf-05c3-4760-965b-bdc865d07372.png?v=1769800960&width=1000",
+    "sourceTitle": "Sérum Transformador para mãos Divina 50g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "e62cedb5d663dcbd7efdd815761c6ff698a8cd04a451265da368b4c00895180b"
+  },
+  "6752": {
+    "src": "assets/official/product-6752.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      218,
+      3,
+      734,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-alecrim-dourado-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_alecrim_dourado_boutique_de_aromas.png?v=1769798259&width=1000",
+    "sourceTitle": "Difusor de Aromas Alecrim Dourado 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "38a1d07fe3707cabfadac86e7d8454398553d9cce82cf087e2fa07eb2fa0d44f"
+  },
+  "6775": {
+    "src": "assets/official/product-6775.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      239,
+      9,
+      719,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-alecrim-dourado-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_alecrim_dourado_boutique_de_aromas_20501782-8ca9-4490-8194-807857b2f69d.png?v=1769792523&width=1000",
+    "sourceTitle": "Sabonete Líquido Alecrim Dourado 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a54dd30658e3beba3b10723e0cfb0ccbb1efa845c94e4c3734e7873e9718d22b"
+  },
+  "6840": {
+    "src": "assets/official/product-6840.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      151,
+      61,
+      346,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/locao-hidratante-summer-gold-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/locao_hidratante_summer_gold_200ml_5141_1_cf109d1878247eb9e2339d6c6c023b4f.png?v=1750247451&width=1000",
+    "sourceTitle": "Loção Hidratante Summer Gold 200ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "82e231e99cac160615507911da9f1b7a70b32e51c98733899febfea5fa370130"
+  },
+  "6758": {
+    "src": "assets/official/product-6758.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      175,
+      82,
+      334,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/mousse-black-44",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/mousse_black_44_5145_1_f45f6ac364882cb7a59a14f62dce45da.png?v=1750247454&width=1000",
+    "sourceTitle": "Mousse Black 44",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "7bbbdea8438727b57dcea44c3de06d22b62b913690b75ba6ec0340e90f3a91de"
+  },
+  "6855": {
+    "src": "assets/official/product-6855.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      266,
+      18,
+      756,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-bamboo-da-sorte-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_bamboo_da_sorte_250ml_5147_1_9859d92314ca40f3a0ea4043cadf4c76.png?v=1750247457&width=1000",
+    "sourceTitle": "Sabonete Líquido Bamboo da Sorte 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "fdd22c5e82cc5cbf4293aeeb9160d3ce9a72fb967e8175059c592bac7bc37b72"
+  },
+  "6854": {
+    "src": "assets/official/product-6854.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      274,
+      12,
+      806,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sal-de-banho-bamboo-da-sorte-330g",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sal_de_banho_bamboo_da_sorte_330g_5149_1_3f3b5d23f12294b8fe027e3eda91f311.png?v=1750247459&width=1000",
+    "sourceTitle": "Sal de Banho Bamboo da Sorte 330g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "081b90cdc764cbed9115cd7c4c4fbf49936bc90590e82de72c682428e2b3e18d"
+  },
+  "6900": {
+    "src": "assets/official/product-6900.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      285,
+      3,
+      688,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/locao-corporal-acetinada-velvet-rose-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/locao_corporal_acetinada_velvet_rose_380ml_5151_1_30fd964fc75d1085302ca87757ac6f70.png?v=1750247461&width=1000",
+    "sourceTitle": "Loção Corporal Acetinada Velvet Rosé 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "e99dc3fb05d1a960f337626269da851ff8de23867ee8d26ddf149bf796c62f06"
+  },
+  "6899": {
+    "src": "assets/official/product-6899.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      325,
+      0,
+      665,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/body-splash-velvet-rose-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/body_splash_velvet_rose_200ml_5153_1_b2d6ae2d9ff9f22139b86ebb98e346b9.png?v=1750247463&width=1000",
+    "sourceTitle": "Body Splash Velvet Rosé – 200ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "9ce741b18e0e9b141b67ff933c1b26100d131f993ea9642bd648a6e7de98d84c"
+  },
+  "6875": {
+    "src": "assets/official/product-6875.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      36,
+      56,
+      1000,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-amor-perfeito-chypre-floral-240ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_de_aromas_amor_perfeito_boutique_de_aromas.png?v=1769790802&width=1000",
+    "sourceTitle": "Difusor de Aromas Amor Perfeito Chypre Floral 240ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "2b3e43ae432d147e4e55b0e64bc0f2dc4d8fd4428c6af77ea6da054ab1938485"
+  },
+  "6898": {
+    "src": "assets/official/product-6898.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      99,
+      186,
+      418,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-amor-perfeito-chypre-floral-240ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/sabonete_liquido_amor_perfeito_chypre_floral_240ml_5157_1_12f9a152362c558f6312f0a0004783d8.png?v=1750247466&width=1000",
+    "sourceTitle": "Sabonete Líquido Amor Perfeito Chypre Floral – 240ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "3d6c49b8cbe78016624620f22ff73ca4054a459db529b95c0eeccc3d3765d6df"
+  },
+  "6844": {
+    "src": "assets/official/product-6844.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      258,
+      15,
+      718,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-difusor-alecrim-dourado-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_difusor_de_aromas_alecrim_dourado_boutique_de_aromas.png?v=1769792863&width=1000",
+    "sourceTitle": "Refil Difusor Alecrim Dourado 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a437a849878f46eee863cd027f379ee19e0412b349f03894f9a9fbd403f68e7d"
+  },
+  "6926": {
+    "src": "assets/official/product-6926.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      303,
+      153,
+      696,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-sabonete-liquido-amor-perfeito-chypre-floral-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/saboneteliquidoamorperfeitoboutiquedearomas_687e9b29-6645-49e9-a7dd-4507db940379.png?v=1769790497&width=1000",
+    "sourceTitle": "Refil Sabonete Líquido Amor Perfeito Chypre Floral 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "ff2f1d3affd1b05afdb2360603c20e21c5fa71c68689fbd01ab13e631c0b192b"
+  },
+  "6970": {
+    "src": "assets/official/product-6970.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      145,
+      91,
+      852,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-dif-de-aromas-manga-rosa-aromas-nativos-95ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/Fotosparasite_2.png?v=1778182483&width=1000",
+    "sourceTitle": "OLEO DIF DE AROMAS MANGA ROSA AROMAS NATIVOS 95ML",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "93a5609e6abaee71e2b675328cd9c7e3b37f1df320416c53604a86971cae989b"
+  },
+  "6925": {
+    "src": "assets/official/product-6925.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      303,
+      156,
+      695,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-difusor-de-aromas-amor-perfeito-chypre-floral-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refildifusoramorperfeitoboutiquedearomas.png?v=1769790613&width=1000",
+    "sourceTitle": "Refil para Difusor de Aromas Amor Perfeito Chypre Floral – 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "945bbaf40c1c0164b9cddf01d28d74ee015c2e4feba73c6c839901f402afb472"
+  },
+  "6929": {
+    "src": "assets/official/product-6929.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      255,
+      8,
+      726,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-sabonete-liquido-bamboo-da-sorte-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_saboente_liquido_bamboo_da_sorte_boutique_de_aromas.png?v=1769799142&width=1000",
+    "sourceTitle": "Refil para Sabonete Líquido Bamboo da Sorte 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "888079f3ea7fbfd91377949372271832adea7d90e02f2e44b0cd1d0e16ffa387"
+  },
+  "6987": {
+    "src": "assets/official/product-6987.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      272,
+      4,
+      667,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/hidratante-corporal-nutritivo-pessego-e-flores-brancas-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/hidratante_nutritivo_pessego_e_flores_brancas.png?v=1769801745&width=1000",
+    "sourceTitle": "Hidratante Corporal Nutritivo Pêssego e Flores Brancas 380ML",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "f05696dbf63d546d843499ed37075635124c2a94c0b3f649ddaffc5090a33b0c"
+  },
+  "6988": {
+    "src": "assets/official/product-6988.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      272,
+      4,
+      664,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-hidratante-de-banho-pessego-e-flores-brancas-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/oleo_hidratante_de_banho_pessego_e_flores_brancas.png?v=1769801516&width=1000",
+    "sourceTitle": "Óleo Hidratante de Banho Pêssego e Flores Brancas 200ML",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "22a39a7af4ef9869861a10331fed0b3b2916cdcae0e6cb99a7bf1dbd70efb328"
+  },
+  "6986": {
+    "src": "assets/official/product-6986.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      319,
+      0,
+      661,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/body-splash-cabelo-e-corpo-pessego-e-flores-brancas-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/body_splash_pessego_e_flores_brancas.png?v=1769801417&width=1000",
+    "sourceTitle": "Body Splash Pêssego & Flores Brancas – Corpo e Cabelo – 200ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "4572ddab0b9f24f25cb0554d6cffed7f72d4ce891f5da5fd196e365e4e9fa72c"
+  },
+  "6985": {
+    "src": "assets/official/product-6985.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      290,
+      110,
+      712,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/perfume-para-ambiente-amor-perfeito-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_3_97158710-bfad-43eb-9467-f2fc3001c33c.png?v=1791401045&width=1000",
+    "sourceTitle": "Home Spray Amor Perfeito 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "1f8b648a57d8e73d3c070c71dfb10273e7a906f6980b78270e00659b4dc9b669"
+  },
+  "6965": {
+    "src": "assets/official/product-6965.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      308,
+      0,
+      683,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/perfume-para-ambiente-alecrim-dourado-380ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/perfume_para_ambiente_alecrim_dourado_boutique_de_aromas.png?v=1769793042&width=1000",
+    "sourceTitle": "Perfume para Ambiente Alecrim Dourado 380ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "56699ef6bf3443d137a65a2d7447610dc3d865d7bfb74c326b3d9dddfeca50f0"
+  },
+  "6928": {
+    "src": "assets/official/product-6928.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      256,
+      4,
+      725,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-sabonete-liquido-alecrim-dourado-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_sabonete_liquido_alerim_dourado_boutique_de_aromas.png?v=1769792659&width=1000",
+    "sourceTitle": "Refil para Sabonete Líquido Alecrim Dourado 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "aa7d6a5d0eac576ea881c675da01a72a6f774c89e77c02f32691ad8ae550d4c5"
+  },
+  "6744": {
+    "src": "assets/official/product-6744.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      256,
+      15,
+      717,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-sabonete-liquido-magnolia-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_4_bf2c3570-9abc-478c-8f06-f5f56d9218fd.png?v=1769802765&width=1000",
+    "sourceTitle": "Refil para Sabonete Líquido Magnólia - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "c5967be556aa3f96e2fc50f8ae1a0e13e4b2150b714a8d4867539941f3cde9ec"
+  },
+  "7029": {
+    "src": "assets/official/product-7029.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      91,
+      272,
+      911,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/deo-colonia-spray-flor-de-jasmim-60ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/deo_colonia_flor_de_jasmim_e_amendoas_doces_bou_cosmeticos.png?v=1769784044&width=1000",
+    "sourceTitle": "Deo Colônia Spray Flor de Jasmim – 60ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "faf9dbc91c3cc0adf18c30383645eea8c3871b67b1a06674baba5f5664540b74"
+  },
+  "7102": {
+    "src": "assets/official/product-7102.png",
+    "width": 540,
+    "height": 540,
+    "bounds": [
+      54,
+      140,
+      487,
+      540
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/manteiga-hidratante-corporal-new-york-vibes-200g",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/3.png?v=1767960597&width=1000",
+    "sourceTitle": "Manteiga Hidratante Corporal New York Vibes 200g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "80cd002fe35369222b91df9f48e1a7ef80873074f043b8b3175870d4e86b6098"
+  },
+  "7055": {
+    "src": "assets/official/product-7055.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      329,
+      20,
+      671,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/body-splash-bonjour-paris-oriental-gourmand-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_11_5439bbd1-5434-4b1b-8166-4914f8fb0024.png?v=1770128444&width=1000",
+    "sourceTitle": "Body Splash Bonjour Paris Oriental Gourmand - 200ML",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "084f8863bf0952957dec4c00b931aa3cdc8cbd72eee9b362e086ceec687ff885"
+  },
+  "7057": {
+    "src": "assets/official/product-7057.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      326,
+      24,
+      669,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/body-splash-dubai-dreams-ambar-amadeirado-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_10_df89bf40-0978-4422-9d54-bb77f76983ef.png?v=1770128516&width=1000",
+    "sourceTitle": "Body Splash Dubai Dreams Âmbar Amadeirado - 200ML",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "c41a6cd18742c677e7bb99bcb413501f3424cb92f577bcbeb5354c48532e1e2f"
+  },
+  "7056": {
+    "src": "assets/official/product-7056.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      331,
+      37,
+      669,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/body-splash-new-york-vibes-chypre-floral-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_9_9ed8774f-21be-46d6-906b-ad9660facfd9.png?v=1770128412&width=1000",
+    "sourceTitle": "Body Splash New York Vibes Chypre Floral - 200ML",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "5884330375c657ec7583a54caeaaa6f5333ffd08e8272b8fe437c386c244d08f"
+  },
+  "7115": {
+    "src": "assets/official/product-7115.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      90,
+      257,
+      929,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/deo-colonia-marianita-400-60-ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_15_5cfb2ea6-3171-4d07-948b-9aaa4e012180.png?v=1770129334&width=1000",
+    "sourceTitle": "Deo Colônia Marianita 400 - 60 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "c61bb1e7b263de0313a062dff21a69ce5d4fd3da66e2356eba62f892724b7e08"
+  },
+  "7109": {
+    "src": "assets/official/product-7109.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      118,
+      102,
+      899,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-difusor-de-aromas-novita-cha-branco-com-roma-300ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/difusor_cha_branco_com_roma_boutique_de_aromas.png?v=1769783367&width=1000",
+    "sourceTitle": "Óleo Difusor de Aromas Novità Chá Branco com Romã - 300ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a489a8b48286bcc89d636394ebad355f1ec01d6129797ea942527fa32b1e13d4"
+  },
+  "7110": {
+    "src": "assets/official/product-7110.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      222,
+      187,
+      876,
+      998
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-novita-cha-branco-com-roma-300ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/Fotos_para_site.png?v=1769776945&width=1000",
+    "sourceTitle": "Sabonete Líquido Novità Chá Branco com Romã - 300ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "3a2c1b0c254a9d6b99f340e67374d6bd5f0aa502e3b60c0984e1659f8621c0cc"
+  },
+  "7112": {
+    "src": "assets/official/product-7112.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      270,
+      32,
+      731,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-difusor-de-aromas-novita-patchouli-e-musk-imperial-300ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/106.png?v=1769781595&width=1000",
+    "sourceTitle": "Óleo Difusor de Aromas Novità Patchouli e Musk Imperial - 300ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "7d27c006a69d825b085019f2168ad3adfec8a93c2b524a27be6f9a8fd62491c4"
+  },
+  "7113": {
+    "src": "assets/official/product-7113.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      232,
+      192,
+      882,
+      997
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-novita-patchouli-e-musk-imperial-300ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/98.png?v=1769777037&width=1000",
+    "sourceTitle": "Sabonete Líquido Novità Patchouli e Musk Imperial - 300ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "7b977754fd4c7c2026a29ce579952e950fb27141e9f6ab443c143123a64d50f8"
+  },
+  "7111": {
+    "src": "assets/official/product-7111.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      312,
+      133,
+      688,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/agua-perfumada-para-roupas-novita-cha-branco-com-roma-500ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/99.png?v=1769777139&width=1000",
+    "sourceTitle": "Água Perfumada para Roupas Novità Chá Branco com Romã - 500ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "06af5110bd59dc47674a5852824f85ff877d4e2d681763e52eb317600c2db9c5"
+  },
+  "7117": {
+    "src": "assets/official/product-7117.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      284,
+      112,
+      714,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/home-spray-novita-patchouli-e-musk-imperial-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/97.png?v=1769777092&width=1000",
+    "sourceTitle": "Home Spray Novità Patchouli e Musk Imperial - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "e17ca4eb168ad96c0f00e3461255b50defdffa381524a7ea503aad137d377cc1"
+  },
+  "7150": {
+    "src": "assets/official/product-7150.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      347,
+      97,
+      654,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/spray-corporal-flor-de-jasmim-e-amendoas-doces-200ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_313046ef-f69f-474e-a9e7-283b4b31abf6.png?v=1785176406&width=1000",
+    "sourceTitle": "Body Splash Amêndoas Doces e Flor de Jasmim - 200ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "35b36b6118d6c811670944ac27810dff920d5f47897eae2a86ad74d0f754be80"
+  },
+  "6836": {
+    "src": "assets/official/product-6836.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      256,
+      15,
+      746,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/aromatizador-profissional-cha-branco-com-roma-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/aromatizadorprofissionalboutiquedearomass.png?v=1772049278&width=1000",
+    "sourceTitle": "Aromatizador Profissional Chá Branco com Romã - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "3bee040ddb33d160379c256d2ae26d358fff63c0b4bce0e2d85258d6f879063c"
+  },
+  "6848": {
+    "src": "assets/official/product-6848.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      257,
+      12,
+      747,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/aromatizador-profissional-rosas-e-peonia-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/aromatizadorprofissionalboutiquedearomass2.png?v=1772049505&width=1000",
+    "sourceTitle": "Aromatizador Profissional Rosas e Peônia - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "ee9ae55d179cf15f9c1b98a903f3f1973935f8f7d7c1a9cbaa40e6d3a0a89ec2"
+  },
+  "6847": {
+    "src": "assets/official/product-6847.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      255,
+      9,
+      746,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/aromatizador-profissional-gardenia-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/aromatizadorprofissionalboutiquedearomass3.png?v=1772049664&width=1000",
+    "sourceTitle": "Aromatizador Profissional Gardênia - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "8dea9216e215798c1ecd612a804765eb4d7b7a1a4e5d65d0ffa4c44c7e406f8d"
+  },
+  "6845": {
+    "src": "assets/official/product-6845.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      254,
+      0,
+      758,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/aromatizador-profissional-alecrim-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/aromatizadorprofissionalboutiquedearomass5.png?v=1772050045&width=1000",
+    "sourceTitle": "Aromatizador Profissional Alecrim - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a04c4d5b75d7b9f52a0622375e20b1f39481e66fbc42f27aef892c7796350fd3"
+  },
+  "7158": {
+    "src": "assets/official/product-7158.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      159,
+      51,
+      880,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-difusor-de-aromas-coragem-240ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_3_0c1cbb9b-6eb1-4e38-b1ef-09f1e1c66cba.png?v=1785159974&width=1000",
+    "sourceTitle": "Óleo Difusor de Aromas Coragem - 240ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "fad38db3b49bb5e3f3f6ec0519189d9cbc68a15551ebe533691113dcff8d3ac0"
+  },
+  "7213": {
+    "src": "assets/official/product-7213.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      323,
+      162,
+      686,
+      998
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/locao-hidratante-corporal",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/184.jpg?v=1779303395&width=1000",
+    "sourceTitle": "Loção Hidratante Corporal À Flor da Pele - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a0b25b3da415d994c3d8aaa9857fae92d2ffc1d1d64db04f7beb1b869149a1c3"
+  },
+  "7192": {
+    "src": "assets/official/product-7192.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      230,
+      428,
+      768,
+      981
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/vela-para-massagem",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/185_e9aede96-1487-4dac-8167-70b0fef5bcf1.jpg?v=1779303344&width=1000",
+    "sourceTitle": "Vela para Massagem À Flor da Pele - 100g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "a39ee14dfd34f24327bd12bf9d4a8466757bfecd22a57465be96dc83e4f5107c"
+  },
+  "7226": {
+    "src": "assets/official/product-7226.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      67,
+      428,
+      971,
+      940
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/esfoliante-corporal",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/186.jpg?v=1779303212&width=1000",
+    "sourceTitle": "Esfoliante Corporal À Flor da Pele - 200g",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "507e3694790c455ffd1071a4f2f92241a4cfd1f6540a4759cff2880894e38bcd"
+  },
+  "7195": {
+    "src": "assets/official/product-7195.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      267,
+      189,
+      733,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/difusor-de-aromas-amor-perfeito-intense",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/Fotosparasite_2_4b59c853-bd32-40da-afc8-0ec7e6e5f824.jpg?v=1780084018&width=1000",
+    "sourceTitle": "Difusor de Aromas Amor Perfeito Intense",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "e7efe71595d65ae4054408529c3a41a148d9e045ab98a665d3a7dbec1932dda3"
+  },
+  "7196": {
+    "src": "assets/official/product-7196.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      221,
+      283,
+      779,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-amor-perfeito-intense",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/Fotosparasite_4.jpg?v=1780084346&width=1000",
+    "sourceTitle": "Sabonete Líquido Amor Perfeito Intense",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "df4a51655cd4c45b84e054d05a4a1f3dd066dce4e43456a6e50bb289a32b610f"
+  },
+  "7181": {
+    "src": "assets/official/product-7181.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      235,
+      58,
+      752,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-dif-de-aromas-bergamota-basilic-aromas-nativos-95ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_361f75c3-d3f0-4f31-b3c1-bfb8f5bf36b4.png?v=1781898615&width=1000",
+    "sourceTitle": "OLEO DIF DE AROMAS BERGAMOTA BASILIC AROMAS NATIVOS 95ML",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "230975cff5c0bf74969851fd840c8c1dd8084ed67a76244e44bf99e32bb37392"
+  },
+  "7180": {
+    "src": "assets/official/product-7180.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      218,
+      37,
+      774,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/oleo-dif-de-aromas-capim-real-aromas-nativos-95ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantone_projeto_nova_loja_quiosque_celine_1_dfe7acd5-dd16-45c1-a861-fcad6412efd3.png?v=1782127633&width=1000",
+    "sourceTitle": "OLEO DIF DE AROMAS CAPIM REAL AROMAS NATIVOS 95ML",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "d8067b9c87cd0850db707647cc4010d6e9a5741248eeaaa0acda3979afa66700"
+  },
+  "7198": {
+    "src": "assets/official/product-7198.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      134,
+      56,
+      894,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/papel-perfumado-amor-perfeito-para-gavetas",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/203_795e0b14-5a89-4f22-92fa-8e1f60367f91.png?v=1782153284&width=1000",
+    "sourceTitle": "Papel Perfumado Amor Perfeito para Gavetas",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "29ffd57689ab7c31912e359ec65e947d0308af2948a8e1cd93d699ac89b5a03a"
+  },
+  "7201": {
+    "src": "assets/official/product-7201.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      137,
+      13,
+      885,
+      981
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/papel-perfumado-patchouli-e-musk-imperial-para-gavetas",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/202.png?v=1782153820&width=1000",
+    "sourceTitle": "Papel Perfumado Patchouli e Musk Imperial para Gavetas",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "da355066983d57af7a6d9dbb09118f33203b6a339dacab97df4fc838ee8807ca"
+  },
+  "7248": {
+    "src": "assets/official/product-7248.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      353,
+      118,
+      644,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/body-splash-ocean-black44",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantoneprojetonovalojaquiosqueceline_3.png?v=1783966012&width=1000",
+    "sourceTitle": "Body Splash Ocean Black44",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "056be8aab4a2fdf4396c0eaf18f138271b2641682acb9f0a4ed68311bf410681"
+  },
+  "7247": {
+    "src": "assets/official/product-7247.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      359,
+      147,
+      642,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/body-splash-ocean-black44-copia",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantoneprojetonovalojaquiosqueceline_2.png?v=1783967871&width=1000",
+    "sourceTitle": "Body Splash Element Black44",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "c3f7f5faf951bd6b9dbe2eff11c5dd8b1e664db289edf5aa72a62459c2363576"
+  },
+  "7246": {
+    "src": "assets/official/product-7246.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      358,
+      129,
+      645,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/body-splash-element-black44-copia",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantoneprojetonovalojaquiosqueceline_7ddefc7c-568a-4488-aec7-86be18dcc9c4.png?v=1783967967&width=1000",
+    "sourceTitle": "Body Splash Original Black44",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "cd169a5b521097bc2aee525913008668b048a6e12e5f696b7dbc5f36ff66f9ca"
+  },
+  "6169": {
+    "src": "assets/official/product-6169.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      285,
+      114,
+      718,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-novita-cha-branco-com-roma-250ml-1",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantoneprojetonovalojaquiosqueceline_2_fe65b880-3791-44bb-80a2-e04c332e931a.png?v=1793277742&width=1000",
+    "sourceTitle": "Sabonete Líquido Novitá Chá Branco com Romã 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "31530a343b6901d7375251949e9d0160bb7f812c02b2c4a579d5eb6b41935a41"
+  },
+  "6172": {
+    "src": "assets/official/product-6172.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      297,
+      354,
+      705,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/sabonete-liquido-novita-cha-branco-com-roma-95ml-2",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantoneprojetonovalojaquiosqueceline_f90b7cc0-7081-4440-9323-b81d7db2650d.png?v=1793277964&width=1000",
+    "sourceTitle": "Sabonete Líquido Novitá Chá Branco com Romã 95ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "ea947c63bc95066b29629f4bf923a8e93be32af2bac5fb180d261859a7a2e720"
+  },
+  "6935": {
+    "src": "assets/official/product-6935.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      320,
+      243,
+      679,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/essencia-para-aromatizador-eletrico-cereja-e-avela-10ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantoneprojetonovalojaquiosqueceline_5_54f3456d-e69a-48b5-9981-2b941aa63471.png?v=1793297654&width=1000",
+    "sourceTitle": "Essência para Aromatizador Elétrico Cereja e Avelã - 10ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Nome, tipo, apresentação e rótulo revisados.",
+    "sha256": "0046cbee2558cd8e6806ad5bec8f298ecd4a14622974fb2bdcf43d03fa254d15"
+  },
+  "6914": {
+    "src": "assets/official/product-6914.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      0,
+      74,
+      1000,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/collections/corpo-e-banho",
+    "sourceImageUrl": "https://www.boutiquedearomas.com.br/cdn/shop/files/kit_de_limpeza_facial_hydra_5165_1_b47d830448989c7f3fc89dedfcf50048.png?v=1750247474&width=1000",
+    "sourceTitle": "Kit de Limpeza Facial Hydra · 1 esponja + 1 espuma 50 ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Composição de 50 ml confirmada no texto impresso da embalagem.",
+    "sha256": "6d74f773944a43a461f7a0020d36ff3936d7d6a41af830de0d4c5bad007cebdd"
+  },
+  "6392": {
+    "src": "assets/official/product-6392.png",
+    "width": 800,
+    "height": 800,
+    "bounds": [
+      214,
+      0,
+      556,
+      800
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/bruma-para-ambiente-hortela-pimenta-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/bruma_para_ambiente_hortela_pimenta_250ml_4918_1_f897d825e56c0e6583d4618bf00d68c5.png?v=1750247324&width=1000",
+    "sourceTitle": "Bruma para Ambiente Hortelã-Pimenta - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Variante e volume conferidos no rótulo da fotografia.",
+    "sha256": "6210d92078ca36b39460b4fafa59049922e46ceea05fc2807d943d1ade441a7c"
+  },
+  "6393": {
+    "src": "assets/official/product-6393.png",
+    "width": 800,
+    "height": 800,
+    "bounds": [
+      213,
+      0,
+      557,
+      800
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/bruma-para-ambiente-alecrim-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/bruma_para_ambiente_alecrim_250ml_4920_1_570e3f7833f48e2200ba15bbf2482c84.png?v=1750247325&width=1000",
+    "sourceTitle": "Bruma para Ambiente Alecrim - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Variante e volume conferidos no rótulo da fotografia.",
+    "sha256": "71e7428d5e390022292def13da1030077616d5978a097d5b88790d981905c937"
+  },
+  "6748": {
+    "src": "assets/official/product-6748.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      286,
+      31,
+      745,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-difusor-orquidea-baunilha-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_difusor_orquidea_baunilha_250ml_5115_1_bdb8c8da39da10d47e322060abea628e.png?v=1750247433&width=1000",
+    "sourceTitle": "Refil Difusor Orquídea Baunilha 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "SKU 6748 confirmado na variante pública; rótulo Orquídea Baunilha 250 ml.",
+    "sha256": "e89bfd1b0bef0296dec25ccaa81db2dafe0c63d3d77a394899808fe0f62a8287"
+  },
+  "6846": {
+    "src": "assets/official/product-6846.png",
+    "width": 1000,
+    "height": 1000,
+    "bounds": [
+      312,
+      193,
+      681,
+      1000
+    ],
+    "sourceKind": "official-site",
+    "sourceUrl": "https://www.boutiquedearomas.com.br/products/aromatizador-profissional-borboletas-azuis-250ml",
+    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/pantoneprojetonovalojaquiosqueceline_8_1ff86022-be96-4a71-b3ad-8bddc0c4ade3.png?v=1793821392&width=1000",
+    "sourceTitle": "Aromatizador Profissional Borboletas Azuis - 250ml",
+    "reviewedAt": "2026-11-10",
+    "verification": "Variante e volume conferidos no rótulo da fotografia.",
+    "sha256": "bdb9298356267c9ae2d175e9a112825f11c605e01c23060dc030d8c6caee5bd7"
+  },
+  "7140": {
+    "src": "assets/collections/collection-10-1.webp",
+    "width": 1383,
+    "height": 1946,
+    "bounds": [
+      260,
+      750,
+      680,
+      1380
+    ],
+    "sourceKind": "catalog-pdf",
+    "sourceUrl": "referencias/catalogo.pdf",
+    "sourcePage": 10,
+    "reviewedAt": "2026-11-10",
+    "verification": "GAS-501F branco, conforme catálogo, página 10.",
+    "sha256": "0e11a68a03f65f7b8ce2e1ed6b55766cef852667fb6c40751819949c611285ce"
+  },
+  "7141": {
+    "src": "assets/collections/collection-10-1.webp",
+    "width": 1383,
+    "height": 1946,
+    "bounds": [
+      745,
+      750,
+      1180,
+      1380
+    ],
+    "sourceKind": "catalog-pdf",
+    "sourceUrl": "referencias/catalogo.pdf",
+    "sourcePage": 10,
+    "reviewedAt": "2026-11-10",
+    "verification": "GAS-501F preto, conforme catálogo, página 10.",
+    "sha256": "0e11a68a03f65f7b8ce2e1ed6b55766cef852667fb6c40751819949c611285ce"
+  },
+  "6918": {
+    "src": "assets/collections/collection-61-1.webp",
+    "width": 1556,
+    "height": 2189,
+    "bounds": [
+      565,
+      865,
+      668,
+      1393
+    ],
+    "sourceKind": "catalog-pdf",
+    "sourceUrl": "referencias/catalogo.pdf",
+    "sourcePage": 61,
+    "reviewedAt": "2026-11-10",
+    "verification": "Rótulo Energizar legível na foto original, página 61.",
+    "sha256": "500fd91df2563a9c0ae2a2855b2b33a26a989ab386b091d7558d4475eefcc681"
+  },
+  "6917": {
+    "src": "assets/collections/collection-61-1.webp",
+    "width": 1556,
+    "height": 2189,
+    "bounds": [
+      727,
+      867,
+      831,
+      1393
+    ],
+    "sourceKind": "catalog-pdf",
+    "sourceUrl": "referencias/catalogo.pdf",
+    "sourcePage": 61,
+    "reviewedAt": "2026-11-10",
+    "verification": "Rótulo Relaxar legível na foto original, página 61.",
+    "sha256": "500fd91df2563a9c0ae2a2855b2b33a26a989ab386b091d7558d4475eefcc681"
+  },
+  "6916": {
+    "src": "assets/collections/collection-61-1.webp",
+    "width": 1556,
+    "height": 2189,
+    "bounds": [
+      890,
+      866,
+      993,
+      1392
+    ],
+    "sourceKind": "catalog-pdf",
+    "sourceUrl": "referencias/catalogo.pdf",
+    "sourcePage": 61,
+    "reviewedAt": "2026-11-10",
+    "verification": "Rótulo Concentrar legível na foto original, página 61.",
+    "sha256": "500fd91df2563a9c0ae2a2855b2b33a26a989ab386b091d7558d4475eefcc681"
+  }
+};
