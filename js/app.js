@@ -1,6 +1,6 @@
 import { config } from "./config.js";
 import { createCartStore } from "./cart.js";
-import { buildOrderSummary, formatBRL, validateAddress } from "./checkout.js";
+import { buildOrderSummary, buildWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js";
 import { products } from "./products.js";
 import { getCatalogDepartment, groupProductsByCategory } from "./catalog.js";
 import { getProductCardPhoto } from "./product-card-media.js";
@@ -41,8 +41,7 @@ const elements = {
   orderReview: document.querySelector("#order-review"),
   reviewContent: document.querySelector("#review-content"),
   summaryStatus: document.querySelector("#summary-status"),
-  summaryText: document.querySelector("#order-summary-text"),
-  summaryActions: document.querySelector("#summary-actions")
+  sendWhatsApp: document.querySelector("#send-whatsapp-button")
 };
 
 const dialogOpeners = new WeakMap();
@@ -143,6 +142,8 @@ function getVisibleProducts() {
     const searchable = normalizeText(
       [
         product.name,
+        product.officialTitle,
+        product.officialHandle,
         product.code,
         product.fragrance,
         product.family,
@@ -167,6 +168,7 @@ function slugify(value) {
 }
 
 function getOfferItemName(product) {
+  if (product.officialTitle) return product.officialTitle;
   if (product.family === "Essências") return product.fragrance || product.name;
   if (product.isCombo) return product.name;
   const variant = product.fragrance || (product.family !== "Outros" ? product.family : "");
@@ -225,7 +227,13 @@ function createProductCard(product) {
   const photo = getProductCardPhoto(product);
   const media = createButton("", "product-card-media", (event) =>
     openProductDetails(product, event.currentTarget), `Ver detalhes de ${getOfferItemName(product)}`);
-  if (photo) {
+  if (product.officialImage && !photo) {
+    const image = createElement("img", "product-card-photo");
+    image.loading = "lazy";
+    image.style.cssText = "width:100%;height:100%;object-fit:contain;position:static";
+    setProductImage(image, product.officialImage, product.officialTitle);
+    media.append(image);
+  } else if (photo) {
     const crop = createElement("span", "product-card-photo-crop");
     const image = createElement("img", "product-card-photo");
     const [left, top, right, bottom] = photo.bounds;
@@ -268,6 +276,13 @@ function createProductCard(product) {
   }
   card.append(price, createButton("Adicionar ao carrinho", "button product-card-add", (event) =>
     addProduct(product, 1, event.currentTarget), `Adicionar ${getOfferItemName(product)} ao carrinho`));
+  if (product.officialHandle) {
+    const source = createElement("a", "price-source-label", "Ver no site oficial");
+    source.href = product.priceReference.sourceUrl;
+    source.target = "_blank";
+    source.rel = "noopener noreferrer";
+    card.append(source);
+  }
   return card;
 }
 
@@ -518,7 +533,7 @@ function openProductDetails(product, opener) {
     ...(!product.isCombo
       ? [[product.specification ? "Especificação" : "Volume", product.specification || product.volume]]
       : []),
-    ["Página do catálogo", String(product.sourcePage)]
+    ...(product.sourcePage ? [["Página do catálogo", String(product.sourcePage)]] : [["Referência", product.officialHandle]])
   ]) {
     metadata.append(createElement("dt", "", label), createElement("dd", "", value));
   }
@@ -664,11 +679,19 @@ function showReview(customer) {
   checkoutCustomer = customer;
   elements.addressForm.hidden = true;
   elements.orderReview.hidden = false;
-  elements.summaryStatus.textContent = "";
-  elements.summaryText.value = "";
-  elements.summaryText.hidden = true;
-  elements.summaryActions.hidden = true;
+  const message = buildOrderSummary({
+    storeName: config.storeName,
+    items: cart.getItems(),
+    customer,
+    subtotalCents: cart.subtotalCents,
+    shippingLabel: config.shippingLabel
+  });
+  elements.sendWhatsApp.href = buildWhatsAppUrl(config.whatsappNumber, message);
+  elements.sendWhatsApp.hidden = !config.whatsappEnabled;
+  elements.summaryStatus.textContent =
+    "O WhatsApp abrirá com seu pedido preenchido. Confirme o envio no aplicativo. A loja confirmará valores, disponibilidade e entrega.";
   updateReview(customer);
+  elements.checkoutDialog.scrollTop = 0;
   elements.orderReview.querySelector("#edit-address-button").focus();
 }
 
@@ -804,35 +827,15 @@ document.querySelector("#edit-address-button").addEventListener("click", () => {
   elements.addressForm.elements.namedItem("name").focus();
 });
 
-document.querySelector("#generate-summary-button").addEventListener("click", () => {
-  if (!checkoutCustomer || cart.totalUnits === 0) return;
-  elements.summaryText.value = buildOrderSummary({
-    storeName: config.storeName,
-    items: cart.getItems(),
-    customer: checkoutCustomer,
-    subtotalCents: cart.subtotalCents,
-    shippingLabel: config.shippingLabel
-  });
-  elements.summaryText.hidden = false;
-  elements.summaryActions.hidden = false;
-  elements.summaryStatus.textContent =
-    "Resumo gerado. Nenhum pedido foi enviado.";
-});
-
-document.querySelector("#copy-summary-button").addEventListener("click", async () => {
-  try {
-    if (!navigator.clipboard?.writeText) {
-      throw new Error("A área de transferência não está disponível.");
-    }
-    await navigator.clipboard.writeText(elements.summaryText.value);
-    elements.summaryStatus.textContent = "Resumo copiado.";
-  } catch {
-    elements.summaryText.hidden = false;
-    elements.summaryText.focus();
-    elements.summaryText.select();
-    elements.summaryStatus.textContent =
-      "Não foi possível copiar automaticamente. O resumo está selecionado para cópia manual.";
+elements.sendWhatsApp.addEventListener("click", (event) => {
+  if (!config.whatsappEnabled || !checkoutCustomer || cart.totalUnits === 0) {
+    event.preventDefault();
+    return;
   }
+  cart.clear();
+  renderAll();
+  elements.checkoutDialog.close();
+  elements.liveStatus.textContent = "Pedido preparado para o WhatsApp. Carrinho esvaziado.";
 });
 
 document.querySelector("#store-address").textContent = config.storeAddress;

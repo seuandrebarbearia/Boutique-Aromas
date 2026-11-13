@@ -1,3 +1,4 @@
+import {officialProductUpdates} from "../js/official-catalog.js";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { products } from "../js/products.js";
@@ -10,8 +11,8 @@ import { auditedProductPhotos } from "../js/audited-product-photos.js";
 test("keeps every SKU once in its category and preserves the selected product order", () => {
   const sorted = [...products].sort((a, b) => b.priceCents - a.priceCents);
   const groups = groupProductsByCategory(sorted);
-  assert.equal(groups.flatMap(([, items]) => items).length, 191);
-  assert.equal(new Set(groups.flatMap(([, items]) => items.map(p => p.id))).size, 191);
+  assert.equal(groups.flatMap(([, items]) => items).length, 236);
+  assert.equal(new Set(groups.flatMap(([, items]) => items.map(p => p.id))).size, 236);
   for (const [category, items] of groups) {
     assert.ok(items.every(p => p.category === category));
     assert.deepEqual(items, sorted.filter(p => p.category === category));
@@ -55,7 +56,7 @@ test("applies reviewed references without confusing package sizes or kit composi
   for (const id of Object.keys(referencePricesById)) {
     const product = products.find(p => p.id === id);
     assert.ok(product, `unknown reference product ${id}`);
-    assert.equal(product.priceCents, referencePricesById[id].priceCents);
+    assert.equal(product.priceCents, (officialProductUpdates[id] ?? referencePricesById[id]).priceCents);
     assert.ok(product.priceReference.sourceUrl.startsWith("https://www.boutiquedearomas.com.br/"));
   }
   // Official listings use 240 ml for these items; our PDF lists 220/250 ml.

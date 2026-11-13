@@ -25,11 +25,27 @@ test("keeps different SKUs separate and calculates the specified subtotal", () =
   assert.equal(store.add("7109", 2), true);
   assert.equal(store.add("7110"), true);
   assert.equal(store.totalUnits, 3);
-  assert.equal(store.subtotalCents, 29970);
+  assert.equal(store.subtotalCents, 83468);
   assert.deepEqual(
     store.getItems().map(({ code, quantity }) => [code, quantity]),
     [["7109", 2], ["7110", 1]]
   );
+});
+
+test("clears all cart items and keeps the cart empty after reload", () => {
+  const storage = new MemoryStorage();
+  const store = createCartStore(products, storage);
+  store.add("7109", 2);
+  store.add("7110");
+
+  store.clear();
+
+  assert.deepEqual(store.getItems(), []);
+  assert.equal(store.totalUnits, 0);
+  assert.equal(store.subtotalCents, 0);
+  assert.equal(createCartStore(products, storage).totalUnits, 0);
+  assert.equal(store.add("7110"), true);
+  assert.equal(store.totalUnits, 1);
 });
 
 test("restores only valid IDs and quantities from storage", () => {
@@ -46,7 +62,7 @@ test("restores only valid IDs and quantities from storage", () => {
 
   const store = createCartStore(products, storage);
   assert.equal(store.totalUnits, 2);
-  assert.equal(store.subtotalCents, 23980);
+  assert.equal(store.subtotalCents, 63778);
 });
 
 test("ignores corrupted JSON without breaking the cart", () => {

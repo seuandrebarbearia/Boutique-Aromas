@@ -129,6 +129,10 @@ export function createCartStore(products, storage = getDefaultStorage()) {
       if (removed) persist();
       return removed;
     },
+    clear() {
+      quantities.clear();
+      persist();
+    },
     getItems() {
       return [...quantities].map(([id, quantity]) => {
         const product = productById.get(id);

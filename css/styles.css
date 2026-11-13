@@ -20,6 +20,11 @@
   box-sizing: border-box;
 }
 
+[hidden],
+dialog:not([open]) {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 16px;
@@ -87,6 +92,10 @@ main,
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--paper);
   min-height: 88px;
   display: flex;
   align-items: center;

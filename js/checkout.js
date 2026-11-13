@@ -64,8 +64,7 @@ export function buildOrderSummary({
   ].filter(Boolean);
 
   const lines = [
-    `${storeName} — resumo demonstrativo`,
-    "Nenhum pedido foi enviado.",
+    `${storeName} — pedido pelo WhatsApp`,
     "",
     "Produtos:"
   ];
@@ -82,7 +81,7 @@ export function buildOrderSummary({
           ? `${item.name} · ${variant}`
           : item.name;
     lines.push(
-      `${item.quantity} x ${itemName} (${itemDescription}, cód. ${item.code}) — ${formatBRL(item.lineSubtotalCents)}`
+      `${item.quantity} x ${item.officialTitle || itemName} (${itemDescription}, cód. ${item.code}) — ${formatBRL(item.lineSubtotalCents)}`
     );
   }
 
@@ -98,4 +97,11 @@ export function buildOrderSummary({
 
   if (customer.notes) lines.push(`Observações: ${customer.notes}`);
   return lines.join("\n");
+}
+
+export function buildWhatsAppUrl(number, message) {
+ const phone = String(number).replace(/\D/g, "");
+ const full = phone.startsWith("55") && phone.length >= 12 ? phone : `55${phone}`;
+ if (!/^55[1-9]\d{9,10}$/.test(full)) throw new Error("WhatsApp inválido.");
+ return `https://wa.me/${full}?text=${encodeURIComponent(message)}`;
 }

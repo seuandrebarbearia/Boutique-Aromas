@@ -1,7 +1,9 @@
+import {officialProductUpdates} from "../js/official-catalog.js";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
-import { buildOrderSummary, formatBRL, validateAddress } from "../js/checkout.js";
+import { buildOrderSummary, buildWhatsAppUrl, formatBRL, validateAddress } from "../js/checkout.js";
+import { createCartStore } from "../js/cart.js";
 
 const validFields = {
   name: "Ana Exemplo",
@@ -37,7 +39,7 @@ test("reports invalid phone, CEP, and UF", () => {
   assert.ok(result.errors.state);
 });
 
-test("builds a simulation summary with shipping separate from the subtotal", () => {
+test("builds an order summary with shipping separate from the subtotal", () => {
   const summary = buildOrderSummary({
     storeName: "Boutique de Aromas",
     items: [
@@ -63,6 +65,8 @@ test("builds a simulation summary with shipping separate from the subtotal", () 
 
   assert.match(summary, /R\$\u00a0299,70/);
   assert.match(summary, /Entrega: valor a combinar/);
+  assert.match(summary, /pedido pelo WhatsApp/);
+  assert.doesNotMatch(summary, /resumo demonstrativo|Nenhum pedido foi enviado/);
   assert.doesNotMatch(summary, /Valor final|Total a pagar/i);
   assert.equal(formatBRL(29970), "R$ 299,70");
 });
@@ -114,9 +118,9 @@ test("keeps set component names identifiable in the order summary", () => {
 
 test("catalog products have unique IDs and retain baseline prices except reviewed references", async () => {
   const { products } = await import("../js/products.js");
-  assert.equal(products.length, 191);
+  assert.equal(products.length, 236);
   assert.equal(new Set(products.map((product) => product.id)).size, products.length);
-  assert.equal(new Set(products.map((product) => product.code)).size, 190);
+  assert.equal(new Set(products.map((product) => product.code)).size, 191);
   assert.equal(products.filter((product) => product.code === "6507").length, 2);
   assert.ok(
     products.every(
@@ -147,7 +151,7 @@ test("catalog products have unique IDs and retain baseline prices except reviewe
   for (const [code, priceCents] of Object.entries(initialPrices)) {
     assert.equal(
       products.find((product) => product.code === code).priceCents,
-      priceCents,
+      officialProductUpdates[code]?.priceCents ?? priceCents,
       `unexpected catalog price for product ${code}`
     );
   }
@@ -292,7 +296,7 @@ test("keeps the catalog audit report aligned with corrected products and open co
 
 test("keeps catalog combos and their confirmed components explicit", async () => {
   const { products } = await import("../js/products.js");
-  const combos = products.filter((product) => product.isCombo);
+  const combos = products.filter((product) => product.isCombo && !product.id.startsWith("site-"));
 
   assert.deepEqual(
     combos.map((product) => product.code).sort(),
@@ -321,13 +325,13 @@ test("keeps catalog combos and their confirmed components explicit", async () =>
   );
 });
 
-test("keeps the supplied store address and WhatsApp number without enabling sending", async () => {
+test("keeps the supplied store address and WhatsApp number with WhatsApp ordering enabled", async () => {
   const { config } = await import("../js/config.js");
 
   assert.equal(config.storeAddress, "Rua Luiz Boito Piazza, nº 3467");
   assert.equal(config.storePhone, "48996495663");
   assert.equal(config.whatsappNumber, "48996495663");
-  assert.equal(config.whatsappEnabled, false);
+  assert.equal(config.whatsappEnabled, true);
   assert.equal(`https://wa.me/55${config.whatsappNumber}`, "https://wa.me/5548996495663");
 });
 
@@ -335,7 +339,7 @@ test("keeps every collective page and confirmed individual crop available locall
   const { products } = await import("../js/products.js");
 
   assert.ok(existsSync("assets/brand/boutique-de-aromas-logo.png"));
-  for (const page of new Set(products.map((product) => product.sourcePage))) {
+  for (const page of new Set(products.filter(product => product.sourcePage !== null).map((product) => product.sourcePage))) {
     assert.ok(
       existsSync(`assets/catalog-pages/catalog-page-${String(page).padStart(2, "0")}.jpg`),
       `missing collective image for catalog page ${page}`
@@ -346,4 +350,43 @@ test("keeps every collective page and confirmed individual crop available locall
       assert.ok(existsSync(product.image), `missing crop for product ${product.code}`);
     }
   }
+});
+
+test("WhatsApp preserves accented order text and uses the store international number", () => {
+ const message = "Pedido: Jasmim & Vanilla — João\n2 unidades";
+ const url = new URL(buildWhatsAppUrl("(48) 99649-5663", message));
+ assert.equal(url.pathname, "/5548996495663");
+ assert.equal(url.searchParams.get("text"), message);
+ assert.throws(() => buildWhatsAppUrl("123", message));
+});
+
+test("WhatsApp order keeps products and delivery details after the cart is cleared", () => {
+  const cart = createCartStore([
+    { id: "test-1", name: "Difusor de Jasmim", code: "1234", volume: "300 ml", priceCents: 5990 },
+    { id: "test-2", name: "Sabonete Líquido", code: "5678", volume: "200 ml", priceCents: 2990 }
+  ], null);
+  cart.add("test-1", 2);
+  cart.add("test-2");
+  const { customer } = validateAddress({ ...validFields, notes: "Entregar à tarde" });
+  const message = buildOrderSummary({
+    storeName: "Boutique de Aromas",
+    items: cart.getItems(),
+    customer,
+    subtotalCents: cart.subtotalCents,
+    shippingLabel: "A combinar"
+  });
+  const url = new URL(buildWhatsAppUrl("48996495663", message));
+
+  cart.clear();
+
+  assert.equal(cart.totalUnits, 0);
+  assert.equal(url.pathname, "/5548996495663");
+  const text = url.searchParams.get("text");
+  assert.match(text, /2 x Difusor de Jasmim/);
+  assert.match(text, /1 x Sabonete Líquido/);
+  assert.match(text, /Subtotal dos produtos: R\$\u00a0149,70/);
+  assert.match(text, /Cliente: Ana Exemplo/);
+  assert.match(text, /Telefone: 11999991234/);
+  assert.match(text, /Rua das Flores, 10, Centro, São Paulo - SP, CEP 01001000/);
+  assert.match(text, /Observações: Entregar à tarde/);
 });

@@ -115,3 +115,9 @@ Execute `npm test` para verificar SKUs, números de apresentação únicos, nome
 - “Ver produtos da coleção” abriu uma lista sem fotos e com `aria-expanded`; apenas a ação explícita em um produto abriu o carrinho. O carrinho confirmou a inclusão individual.
 - A composição do kit 7232 aparece antes da compra. O endereço de WhatsApp foi conferido e imagens locais referenciadas carregaram sem erro.
 - A prévia local fica disponível em `http://127.0.0.1:8767/` enquanto o servidor de revisão estiver em execução.
+
+## Pedidos pelo WhatsApp — 12/11/2026
+A revisão agora prepara uma solicitação com produtos, quantidades, subtotal e endereço. O cliente abre o WhatsApp da loja e confirma o envio no próprio aplicativo. Não há pagamento automático nem confirmação de estoque. Preços de referência e valores pendentes continuam sujeitos à confirmação da loja. Layout e cores preservados.
+
+## Catálogo oficial — 12/11/2026
+Consultado o catálogo público oficial: 185 produtos em sete páginas. Atualizados 140 produtos por correspondência documentada e adicionadas 45 apresentações com fotos locais. O catálogo contém agora 236 itens, preservando os 191 originais e os volumes distintos. Fontes e correspondências: referencias/catalogo-oficial-2026-11-12.json. As ofertas são referências consultadas na data, sem sincronização de estoque ou preços da filial. Produtos antigos sem correspondência continuam identificados como valores demonstrativos. Layout e paleta preservados.
