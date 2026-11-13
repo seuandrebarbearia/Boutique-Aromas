@@ -276,13 +276,6 @@ function createProductCard(product) {
   }
   card.append(price, createButton("Adicionar ao carrinho", "button product-card-add", (event) =>
     addProduct(product, 1, event.currentTarget), `Adicionar ${getOfferItemName(product)} ao carrinho`));
-  if (product.officialHandle) {
-    const source = createElement("a", "price-source-label", "Ver no site oficial");
-    source.href = product.priceReference.sourceUrl;
-    source.target = "_blank";
-    source.rel = "noopener noreferrer";
-    card.append(source);
-  }
   return card;
 }
 
@@ -543,13 +536,6 @@ function openProductDetails(product, opener) {
   }
   content.append(createElement("strong", "detail-price", formatBRL(product.priceCents)));
   content.append(createElement("p", "price-source-label", getPriceLabel(product)));
-  if (product.priceReference) {
-    const source = createElement("a", "price-reference-link", "Consultar preço no site oficial");
-    source.href = product.priceReference.sourceUrl;
-    source.target = "_blank";
-    source.rel = "noopener noreferrer";
-    content.append(source);
-  }
 
   const quantityControls = createElement("div", "detail-purchase-row");
   const quantityLabel = createElement("label", "detail-quantity-label", "Quantidade");
