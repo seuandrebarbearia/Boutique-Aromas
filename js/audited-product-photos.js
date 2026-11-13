@@ -2550,5 +2550,239 @@ export const auditedProductPhotos = {
     "reviewedAt": "2026-11-10",
     "verification": "Rótulo Concentrar legível na foto original, página 61.",
     "sha256": "500fd91df2563a9c0ae2a2855b2b33a26a989ab386b091d7558d4475eefcc681"
+  },
+  "6589": {
+    "src": "assets/catalog-completo-2026-11-13/product-6589.webp",
+    "width": 360,
+    "height": 360,
+    "bounds": [
+      0,
+      0,
+      360,
+      360
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 9,
+    "sourceImageIndex": 3,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6589, tipo e apresentação conferidos na página 9 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "d247bf77aad66811817f4b6d7245671bc093c72599df434bad749a6b20ad0b2b"
+  },
+  "6692": {
+    "src": "assets/catalog-completo-2026-11-13/product-6692.webp",
+    "width": 166,
+    "height": 415,
+    "bounds": [
+      0,
+      0,
+      166,
+      415
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 10,
+    "sourceImageIndex": 3,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6692, tipo e apresentação conferidos na página 10 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "a1df2425728af3770d9f40430c8f2060dada9ab32b421672c42f5cf5fee0de48"
+  },
+  "6698": {
+    "src": "assets/catalog-completo-2026-11-13/product-6698.webp",
+    "width": 401,
+    "height": 535,
+    "bounds": [
+      0,
+      0,
+      401,
+      535
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 15,
+    "sourceImageIndex": 7,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6698, tipo e apresentação conferidos na página 15 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "2c46708480799dd7d5b0e57438a3ffca0af7b6fbb9052783a0d0b7b82004f138"
+  },
+  "6566": {
+    "src": "assets/catalog-completo-2026-11-13/product-6566.webp",
+    "width": 183,
+    "height": 461,
+    "bounds": [
+      0,
+      0,
+      183,
+      461
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 22,
+    "sourceImageIndex": 1,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6566, tipo e apresentação conferidos na página 22 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "b9559baafd0fb6d0c3d282d309762dc353de8b4707d56191c06fff71639d04db"
+  },
+  "6408": {
+    "src": "assets/catalog-completo-2026-11-13/product-6408.webp",
+    "width": 189,
+    "height": 407,
+    "bounds": [
+      0,
+      0,
+      189,
+      407
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 31,
+    "sourceImageIndex": 6,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6408, tipo e apresentação conferidos na página 31 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "a6baa7b822e67ef0eae6678af5907fb271855bbb9ce8cc7191b46b3358d66113"
+  },
+  "4837": {
+    "src": "assets/catalog-completo-2026-11-13/product-4837.webp",
+    "width": 378,
+    "height": 514,
+    "bounds": [
+      0,
+      0,
+      378,
+      514
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 35,
+    "sourceImageIndex": 4,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 4837, tipo e apresentação conferidos na página 35 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "62a35295b88027ffb1b54aea6eb24295f5d36f8ee123357e22ef0a76024a9ce0"
+  },
+  "6050": {
+    "src": "assets/catalog-completo-2026-11-13/product-6050.webp",
+    "width": 180,
+    "height": 457,
+    "bounds": [
+      0,
+      0,
+      180,
+      457
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 42,
+    "sourceImageIndex": 3,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6050, tipo e apresentação conferidos na página 42 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "fa8eedb5e05ffcec3b4b801287126cdbacbf658102c0ea6ff71bd5183e86e989"
+  },
+  "5395": {
+    "src": "assets/catalog-completo-2026-11-13/product-5395.webp",
+    "width": 318,
+    "height": 859,
+    "bounds": [
+      0,
+      0,
+      318,
+      859
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 58,
+    "sourceImageIndex": 2,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 5395, tipo e apresentação conferidos na página 58 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "9624d81489ebe62fbae100f2831f18bf09ae0c670b2f1ac2100a61939d9adb39"
+  },
+  "4017": {
+    "src": "assets/catalog-completo-2026-11-13/product-4017.webp",
+    "width": 272,
+    "height": 156,
+    "bounds": [
+      0,
+      0,
+      272,
+      156
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 65,
+    "sourceImageIndex": 18,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 4017, tipo e apresentação conferidos na página 65 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "9bdb9525e05fe900f523c85a8d322a43ddbad1db52b683cf8c350598f0600e88"
+  },
+  "6768": {
+    "src": "assets/catalog-completo-2026-11-13/product-6768.webp",
+    "width": 320,
+    "height": 320,
+    "bounds": [
+      0,
+      0,
+      320,
+      320
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 65,
+    "sourceImageIndex": 21,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6768, tipo e apresentação conferidos na página 65 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "3c3e65c5d1dfbf3131dd797de22d3fde76761b0a17b818c0aa5eb6509e6cc5ec"
+  },
+  "6767": {
+    "src": "assets/catalog-completo-2026-11-13/product-6767.webp",
+    "width": 250,
+    "height": 250,
+    "bounds": [
+      0,
+      0,
+      250,
+      250
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 65,
+    "sourceImageIndex": 22,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6767, tipo e apresentação conferidos na página 65 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "d8682dcd371bb31283a52bb0c85f49b4e92dcbb16de45df454fe49ed1213f139"
+  },
+  "6306": {
+    "src": "assets/catalog-completo-2026-11-13/product-6306.webp",
+    "width": 205,
+    "height": 575,
+    "bounds": [
+      0,
+      0,
+      205,
+      575
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 95,
+    "sourceImageIndex": 2,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6306, tipo e apresentação conferidos na página 95 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "eff5dae574c0e3dadf53afd2817123fc2870bcfce42916469e9c591c940645d6"
+  },
+  "6305": {
+    "src": "assets/catalog-completo-2026-11-13/product-6305.webp",
+    "width": 183,
+    "height": 560,
+    "bounds": [
+      0,
+      0,
+      183,
+      560
+    ],
+    "sourceKind": "supplied-catalog-pdf",
+    "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+    "sourcePage": 95,
+    "sourceImageIndex": 8,
+    "reviewedAt": "2026-11-13",
+    "verification": "SKU 6305, tipo e apresentação conferidos na página 95 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+    "sha256": "ce7afd96fe582e81ba6adc22783ba2039981927db4501ae12f58b59c1ffd26ac"
   }
 };

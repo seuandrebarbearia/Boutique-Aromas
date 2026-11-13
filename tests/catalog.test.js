@@ -5,7 +5,8 @@ import { products } from "../js/products.js";
 import { getCatalogDepartment, groupCatalogCollections, groupCatalogOffers, groupProductsByCategory } from "../js/catalog.js";
 import { referencePricesById } from "../js/reference-prices.js";
 import { getProductCardPhoto } from "../js/product-card-media.js";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { auditedProductPhotos } from "../js/audited-product-photos.js";
 
 test("keeps every SKU once in its category and preserves the selected product order", () => {
@@ -46,6 +47,22 @@ test("reviewed photos preserve complete bounds, provenance and the identity of v
   assert.notDeepEqual(auditedProductPhotos["7140"].bounds, auditedProductPhotos["7141"].bounds);
   assert.equal(auditedProductPhotos["6914"].sourceKind, "official-site");
   assert.match(auditedProductPhotos["6748"].verification, /SKU 6748/);
+});
+
+test("supplied PDF fills 13 missing photographs with complete verified images", () => {
+  const report = JSON.parse(readFileSync("referencias/fotos-catalogo-completo-2026-11-13.json", "utf8"));
+  const expected = ["6589", "6692", "6698", "6566", "6408", "4837", "6050", "5395", "4017", "6768", "6767", "6306", "6305"];
+  assert.deepEqual(Object.keys(report.photos).sort(), expected.sort());
+  assert.equal(report.sourcePages, 97);
+  for (const id of expected) {
+    const photo = getProductCardPhoto(products.find(p => p.id === id));
+    assert.equal(photo.src, report.photos[id].src);
+    assert.deepEqual(photo.bounds, [0, 0, photo.width, photo.height]);
+    assert.equal(createHash("sha256").update(readFileSync(photo.src)).digest("hex"), photo.sha256);
+  }
+  assert.equal(products.filter(p => !getProductCardPhoto(p) && !p.officialImage).length, 25);
+  assert.notEqual(getProductCardPhoto(products.find(p => p.id === "4017")).src,
+    getProductCardPhoto(products.find(p => p.id === "6768")).src);
 });
 
 test("applies reviewed references without confusing package sizes or kit composition", () => {
