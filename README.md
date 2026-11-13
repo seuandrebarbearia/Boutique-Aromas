@@ -121,3 +121,6 @@ A revisão agora prepara uma solicitação com produtos, quantidades, subtotal e
 
 ## Catálogo oficial — 12/11/2026
 Consultado o catálogo público oficial: 185 produtos em sete páginas. Atualizados 140 produtos por correspondência documentada e adicionadas 45 apresentações com fotos locais. O catálogo contém agora 236 itens, preservando os 191 originais e os volumes distintos. Fontes e correspondências: referencias/catalogo-oficial-2026-11-12.json. As ofertas são referências consultadas na data, sem sincronização de estoque ou preços da filial. Produtos antigos sem correspondência continuam identificados como valores demonstrativos. Layout e paleta preservados.
+
+## Fotos do PDF fornecido — 13/11/2026
+Adicionadas 13 fotos individuais extraídas do catálogo de 97 páginas, preservando as imagens completas. Conferidos código, tipo e apresentação antes da associação. O catálogo tem 211 fotos disponíveis e 25 pendências documentadas em `referencias/fotos-pendentes.md`; modelos ausentes ou com volume divergente não foram substituídos por outra apresentação. Preços e dados dos produtos preservados.

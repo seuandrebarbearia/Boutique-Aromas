@@ -1,0 +1,422 @@
+{
+  "reviewedAt": "2026-11-13",
+  "sourceFilename": "ee720bc9b5a92a5a187ac66fc09889cd40c72b6a6e2ab61b4b5465020fc35d25.pdf",
+  "sourceSha256": "ee720bc9b5a92a5a187ac66fc09889cd40c72b6a6e2ab61b4b5465020fc35d25",
+  "sourcePages": 97,
+  "addedCount": 13,
+  "method": "Extração das fotos originais incorporadas ao PDF, com fundo branco e dimensões integrais. Correspondências conferidas por página, código, tipo e apresentação. Nenhum preço, volume ou aroma alterado.",
+  "photos": {
+    "6589": {
+      "src": "assets/catalog-completo-2026-11-13/product-6589.webp",
+      "width": 360,
+      "height": 360,
+      "bounds": [
+        0,
+        0,
+        360,
+        360
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 9,
+      "sourceImageIndex": 3,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6589, tipo e apresentação conferidos na página 9 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "d247bf77aad66811817f4b6d7245671bc093c72599df434bad749a6b20ad0b2b"
+    },
+    "6692": {
+      "src": "assets/catalog-completo-2026-11-13/product-6692.webp",
+      "width": 166,
+      "height": 415,
+      "bounds": [
+        0,
+        0,
+        166,
+        415
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 10,
+      "sourceImageIndex": 3,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6692, tipo e apresentação conferidos na página 10 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "a1df2425728af3770d9f40430c8f2060dada9ab32b421672c42f5cf5fee0de48"
+    },
+    "6698": {
+      "src": "assets/catalog-completo-2026-11-13/product-6698.webp",
+      "width": 401,
+      "height": 535,
+      "bounds": [
+        0,
+        0,
+        401,
+        535
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 15,
+      "sourceImageIndex": 7,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6698, tipo e apresentação conferidos na página 15 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "2c46708480799dd7d5b0e57438a3ffca0af7b6fbb9052783a0d0b7b82004f138"
+    },
+    "6566": {
+      "src": "assets/catalog-completo-2026-11-13/product-6566.webp",
+      "width": 183,
+      "height": 461,
+      "bounds": [
+        0,
+        0,
+        183,
+        461
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 22,
+      "sourceImageIndex": 1,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6566, tipo e apresentação conferidos na página 22 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "b9559baafd0fb6d0c3d282d309762dc353de8b4707d56191c06fff71639d04db"
+    },
+    "6408": {
+      "src": "assets/catalog-completo-2026-11-13/product-6408.webp",
+      "width": 189,
+      "height": 407,
+      "bounds": [
+        0,
+        0,
+        189,
+        407
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 31,
+      "sourceImageIndex": 6,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6408, tipo e apresentação conferidos na página 31 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "a6baa7b822e67ef0eae6678af5907fb271855bbb9ce8cc7191b46b3358d66113"
+    },
+    "4837": {
+      "src": "assets/catalog-completo-2026-11-13/product-4837.webp",
+      "width": 378,
+      "height": 514,
+      "bounds": [
+        0,
+        0,
+        378,
+        514
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 35,
+      "sourceImageIndex": 4,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 4837, tipo e apresentação conferidos na página 35 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "62a35295b88027ffb1b54aea6eb24295f5d36f8ee123357e22ef0a76024a9ce0"
+    },
+    "6050": {
+      "src": "assets/catalog-completo-2026-11-13/product-6050.webp",
+      "width": 180,
+      "height": 457,
+      "bounds": [
+        0,
+        0,
+        180,
+        457
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 42,
+      "sourceImageIndex": 3,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6050, tipo e apresentação conferidos na página 42 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "fa8eedb5e05ffcec3b4b801287126cdbacbf658102c0ea6ff71bd5183e86e989"
+    },
+    "5395": {
+      "src": "assets/catalog-completo-2026-11-13/product-5395.webp",
+      "width": 318,
+      "height": 859,
+      "bounds": [
+        0,
+        0,
+        318,
+        859
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 58,
+      "sourceImageIndex": 2,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 5395, tipo e apresentação conferidos na página 58 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "9624d81489ebe62fbae100f2831f18bf09ae0c670b2f1ac2100a61939d9adb39"
+    },
+    "4017": {
+      "src": "assets/catalog-completo-2026-11-13/product-4017.webp",
+      "width": 272,
+      "height": 156,
+      "bounds": [
+        0,
+        0,
+        272,
+        156
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 65,
+      "sourceImageIndex": 18,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 4017, tipo e apresentação conferidos na página 65 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "9bdb9525e05fe900f523c85a8d322a43ddbad1db52b683cf8c350598f0600e88"
+    },
+    "6768": {
+      "src": "assets/catalog-completo-2026-11-13/product-6768.webp",
+      "width": 320,
+      "height": 320,
+      "bounds": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 65,
+      "sourceImageIndex": 21,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6768, tipo e apresentação conferidos na página 65 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "3c3e65c5d1dfbf3131dd797de22d3fde76761b0a17b818c0aa5eb6509e6cc5ec"
+    },
+    "6767": {
+      "src": "assets/catalog-completo-2026-11-13/product-6767.webp",
+      "width": 250,
+      "height": 250,
+      "bounds": [
+        0,
+        0,
+        250,
+        250
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 65,
+      "sourceImageIndex": 22,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6767, tipo e apresentação conferidos na página 65 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "d8682dcd371bb31283a52bb0c85f49b4e92dcbb16de45df454fe49ed1213f139"
+    },
+    "6306": {
+      "src": "assets/catalog-completo-2026-11-13/product-6306.webp",
+      "width": 205,
+      "height": 575,
+      "bounds": [
+        0,
+        0,
+        205,
+        575
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 95,
+      "sourceImageIndex": 2,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6306, tipo e apresentação conferidos na página 95 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "eff5dae574c0e3dadf53afd2817123fc2870bcfce42916469e9c591c940645d6"
+    },
+    "6305": {
+      "src": "assets/catalog-completo-2026-11-13/product-6305.webp",
+      "width": 183,
+      "height": 560,
+      "bounds": [
+        0,
+        0,
+        183,
+        560
+      ],
+      "sourceKind": "supplied-catalog-pdf",
+      "sourceUrl": "referencias/fotos-catalogo-completo-2026-11-13.json",
+      "sourcePage": 95,
+      "sourceImageIndex": 8,
+      "reviewedAt": "2026-11-13",
+      "verification": "SKU 6305, tipo e apresentação conferidos na página 95 do PDF fornecido. Foto incorporada completa, sem corte da embalagem.",
+      "sha256": "ce7afd96fe582e81ba6adc22783ba2039981927db4501ae12f58b59c1ffd26ac"
+    }
+  },
+  "remainingCount": 25,
+  "remaining": [
+    {
+      "id": "7134",
+      "code": "7134",
+      "name": "Refil Óleo Difusor de Aromas",
+      "fragrance": "Chá Branco com Romã",
+      "volume": "250 ml"
+    },
+    {
+      "id": "7135",
+      "code": "7135",
+      "name": "Refil Óleo Difusor de Aromas",
+      "fragrance": "Patchouli e Musk Imperial",
+      "volume": "250 ml"
+    },
+    {
+      "id": "7137",
+      "code": "7137",
+      "name": "Refil Sabonete Líquido",
+      "fragrance": "Patchouli e Musk Imperial",
+      "volume": "250 ml"
+    },
+    {
+      "id": "7136",
+      "code": "7136",
+      "name": "Refil Sabonete Líquido",
+      "fragrance": "Chá Branco com Romã",
+      "volume": "250 ml"
+    },
+    {
+      "id": "7211",
+      "code": "7211",
+      "name": "Refil Óleo Difusor de Aromas",
+      "fragrance": "Chá Branco com Romã",
+      "volume": "500 ml"
+    },
+    {
+      "id": "7210",
+      "code": "7210",
+      "name": "Refil Óleo Difusor de Aromas",
+      "fragrance": "Patchouli e Musk Imperial",
+      "volume": "500 ml"
+    },
+    {
+      "id": "7193",
+      "code": "7193",
+      "name": "Aromatizador Profissional",
+      "fragrance": "Patchouli e Musk Imperial",
+      "volume": "250ml"
+    },
+    {
+      "id": "6342",
+      "code": "6342",
+      "name": "Difusor de Aromas",
+      "fragrance": "Sucesso",
+      "volume": "250 ml"
+    },
+    {
+      "id": "4818",
+      "code": "4818",
+      "name": "Água Perfumada para Roupas",
+      "fragrance": "",
+      "volume": "300ml"
+    },
+    {
+      "id": "6052",
+      "code": "6052",
+      "name": "Refil Difusor de Aromas",
+      "fragrance": "",
+      "volume": "95ml"
+    },
+    {
+      "id": "6749",
+      "code": "6749",
+      "name": "Refil Sabonete Líquido",
+      "fragrance": "Orquídea Baunilha",
+      "volume": "250ml"
+    },
+    {
+      "id": "6843",
+      "code": "6843",
+      "name": "Essência para Aromatizador Elétrico",
+      "fragrance": "Alecrim Dourado",
+      "volume": "10ml"
+    },
+    {
+      "id": "6505",
+      "code": "6505",
+      "name": "Vela Perfumada",
+      "fragrance": "Cascas e Folhas G",
+      "volume": "370g"
+    },
+    {
+      "id": "6507",
+      "code": "6507",
+      "name": "Vela Perfumada",
+      "fragrance": "Baunilha G",
+      "volume": "370g"
+    },
+    {
+      "id": "6506",
+      "code": "6506",
+      "name": "Vela Perfumada",
+      "fragrance": "Erva Doce G",
+      "volume": "370g"
+    },
+    {
+      "id": "6507-2",
+      "code": "6507",
+      "name": "Vela Perfumada",
+      "fragrance": "Canela G",
+      "volume": "370g"
+    },
+    {
+      "id": "6504",
+      "code": "6504",
+      "name": "Vela Perfumada",
+      "fragrance": "Trosseau G",
+      "volume": "370g"
+    },
+    {
+      "id": "7103",
+      "code": "7103",
+      "name": "Iogurte Desodorante",
+      "fragrance": "Dubai Dreams",
+      "volume": "200g"
+    },
+    {
+      "id": "7104",
+      "code": "7104",
+      "name": "Esfoliante Corporal",
+      "fragrance": "Bonjour Paris",
+      "volume": "200g"
+    },
+    {
+      "id": "6941",
+      "code": "6941",
+      "name": "Creme Hidratante para Mãos",
+      "fragrance": "",
+      "volume": "45g"
+    },
+    {
+      "id": "6750",
+      "code": "6750",
+      "name": "Sabonete Esfoliante",
+      "fragrance": "",
+      "volume": "150ml"
+    },
+    {
+      "id": "6754",
+      "code": "6754",
+      "name": "Hidratante de Banho",
+      "fragrance": "",
+      "volume": "150ml"
+    },
+    {
+      "id": "6590",
+      "code": "6590",
+      "name": "Loção Hidratante Corporal",
+      "fragrance": "Divina",
+      "volume": "70ml"
+    },
+    {
+      "id": "6592",
+      "code": "6592",
+      "name": "Loção Hidratante Corporal",
+      "fragrance": "Flor de Jasmim e Amêndoas Doces",
+      "volume": "70ml"
+    },
+    {
+      "id": "7030",
+      "code": "7030",
+      "name": "Deo Colônia",
+      "fragrance": "",
+      "volume": "50ml"
+    }
+  ]
+}
