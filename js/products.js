@@ -1,3 +1,4 @@
+import { officialProductUpdates, additionalOfficialProducts } from "./official-catalog.js";
 import { referencePricesById } from "./reference-prices.js";
 
 const extractedProducts = [
@@ -3121,7 +3122,7 @@ const catalogProducts = extractedProducts.map((product, index) => {
   };
 });
 
-export const products = catalogProducts.map((product) => {
+const originalProducts = catalogProducts.map((product) => {
   // The official similarly named kit contains a 200 ml lotion, while our
   // catalog kit contains 380 ml. Keep the estimate based on its actual items.
   if (product.id !== "7232") return product;
@@ -3132,3 +3133,5 @@ export const products = catalogProducts.map((product) => {
     priceBasis: "component-sum"
   };
 });
+
+export const products = [...originalProducts.map(product => ({...product, ...(officialProductUpdates[product.id] ?? {})})), ...additionalOfficialProducts];
