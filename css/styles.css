@@ -995,6 +995,10 @@ p {
   font-size: 0.88rem;
 }
 
+.cart-summary > .button + .button {
+  margin-top: 10px;
+}
+
 .inline-notice {
   padding: 10px 12px;
   border-radius: 10px;
