@@ -1,0 +1,351 @@
+{
+  "date": "2026-11-15",
+  "requestedCodes": [
+    "6744",
+    "6698",
+    "6525",
+    "6342",
+    "5253",
+    "6169",
+    "6172",
+    "4838",
+    "4836",
+    "4837",
+    "5252",
+    "6400",
+    "4818",
+    "6050",
+    "6054",
+    "2912",
+    "6401",
+    "2913",
+    "4534",
+    "4537",
+    "4540",
+    "6403",
+    "5389",
+    "5395",
+    "6405",
+    "5387",
+    "5397",
+    "6406",
+    "5398",
+    "5388",
+    "6113",
+    "6114",
+    "4071",
+    "6988",
+    "6986",
+    "6987",
+    "6900",
+    "6899",
+    "6766",
+    "6939",
+    "5092",
+    "6414",
+    "6413",
+    "5072"
+  ],
+  "correspondingUncodedIds": [
+    "site-difusor-de-aromas-desejos-sucesso-mandarina-fresca-240ml",
+    "site-agua-perfumada-para-roupas-flowers-flor-de-cerejeira-500ml"
+  ],
+  "removedCount": 41,
+  "activeCount": 195,
+  "codesAlreadyAbsent": [
+    "4838",
+    "5092",
+    "6414",
+    "6413",
+    "5072"
+  ],
+  "removed": [
+    {
+      "id": "6525",
+      "code": "6525",
+      "name": "Perfume para Roupas e Ambientes",
+      "family": "Magnólia",
+      "fragrance": ""
+    },
+    {
+      "id": "6698",
+      "code": "6698",
+      "name": "Sabonete Líquido",
+      "family": "Magnólia",
+      "fragrance": ""
+    },
+    {
+      "id": "6744",
+      "code": "6744",
+      "name": "Refil Sabonete Líquido",
+      "family": "Magnólia",
+      "fragrance": ""
+    },
+    {
+      "id": "6342",
+      "code": "6342",
+      "name": "Difusor de Aromas",
+      "family": "Desejos",
+      "fragrance": "Sucesso"
+    },
+    {
+      "id": "6169",
+      "code": "6169",
+      "name": "Sabonete Líquido",
+      "family": "Novità",
+      "fragrance": "Chá Branco com Romã"
+    },
+    {
+      "id": "6172",
+      "code": "6172",
+      "name": "Sabonete Líquido",
+      "family": "Novità",
+      "fragrance": "Chá Branco com Romã"
+    },
+    {
+      "id": "5253",
+      "code": "5253",
+      "name": "Refil Sabonete Líquido",
+      "family": "Novità",
+      "fragrance": "Chá Branco com Romã"
+    },
+    {
+      "id": "6400",
+      "code": "6400",
+      "name": "Refil Água Perfumada para Roupas",
+      "family": "Flowers",
+      "fragrance": ""
+    },
+    {
+      "id": "4818",
+      "code": "4818",
+      "name": "Água Perfumada para Roupas",
+      "family": "Flowers",
+      "fragrance": ""
+    },
+    {
+      "id": "5252",
+      "code": "5252",
+      "name": "Refil Sabonete Líquido",
+      "family": "Flowers",
+      "fragrance": ""
+    },
+    {
+      "id": "4836",
+      "code": "4836",
+      "name": "Sabonete Líquido",
+      "family": "Flowers",
+      "fragrance": ""
+    },
+    {
+      "id": "4837",
+      "code": "4837",
+      "name": "Creme Hidratante para Mãos",
+      "family": "Flowers",
+      "fragrance": ""
+    },
+    {
+      "id": "2912",
+      "code": "2912",
+      "name": "Difusor de Aromas",
+      "family": "Wedding",
+      "fragrance": ""
+    },
+    {
+      "id": "6050",
+      "code": "6050",
+      "name": "Refil Difusor de Aromas",
+      "family": "Wedding",
+      "fragrance": ""
+    },
+    {
+      "id": "6054",
+      "code": "6054",
+      "name": "Água Perfumada para Roupas",
+      "family": "Wedding",
+      "fragrance": ""
+    },
+    {
+      "id": "6401",
+      "code": "6401",
+      "name": "Refil Água Perfumada para Roupas",
+      "family": "Wedding",
+      "fragrance": ""
+    },
+    {
+      "id": "4540",
+      "code": "4540",
+      "name": "Kit Wedding",
+      "family": "Wedding",
+      "fragrance": ""
+    },
+    {
+      "id": "2913",
+      "code": "2913",
+      "name": "Sabonete Líquido",
+      "family": "Wedding",
+      "fragrance": ""
+    },
+    {
+      "id": "4534",
+      "code": "4534",
+      "name": "Sabonete Líquido",
+      "family": "Wedding",
+      "fragrance": ""
+    },
+    {
+      "id": "4537",
+      "code": "4537",
+      "name": "Creme Hidratante para Mãos",
+      "family": "Wedding",
+      "fragrance": ""
+    },
+    {
+      "id": "6403",
+      "code": "6403",
+      "name": "Refil Perfume para Roupas e Ambientes",
+      "family": "Casa Alegre",
+      "fragrance": "Capim Limão"
+    },
+    {
+      "id": "5389",
+      "code": "5389",
+      "name": "Sabonete Líquido",
+      "family": "Casa Alegre",
+      "fragrance": "Capim Limão"
+    },
+    {
+      "id": "5395",
+      "code": "5395",
+      "name": "Difusor de Aromas",
+      "family": "Casa Alegre",
+      "fragrance": "Capim Limão"
+    },
+    {
+      "id": "5397",
+      "code": "5397",
+      "name": "Difusor de Aromas",
+      "family": "Casa Alegre",
+      "fragrance": "Lichia e Flores do Campo"
+    },
+    {
+      "id": "5387",
+      "code": "5387",
+      "name": "Sabonete Líquido",
+      "family": "Casa Alegre",
+      "fragrance": "Lichia e Flores do Campo"
+    },
+    {
+      "id": "6405",
+      "code": "6405",
+      "name": "Refil Perfume para Roupas e Ambientes",
+      "family": "Casa Alegre",
+      "fragrance": "Lichia e Flores do Campo"
+    },
+    {
+      "id": "5398",
+      "code": "5398",
+      "name": "Difusor de Aromas",
+      "family": "Casa Alegre",
+      "fragrance": "Violeta e Lavanda"
+    },
+    {
+      "id": "5388",
+      "code": "5388",
+      "name": "Sabonete Líquido",
+      "family": "Casa Alegre",
+      "fragrance": "Violeta e Lavanda"
+    },
+    {
+      "id": "6406",
+      "code": "6406",
+      "name": "Refil Perfume para Roupas e Ambientes",
+      "family": "Casa Alegre",
+      "fragrance": "Violeta e Lavanda"
+    },
+    {
+      "id": "6113",
+      "code": "6113",
+      "name": "Essência para Aromatizador Elétrico",
+      "family": "Essências",
+      "fragrance": "Lichia e Flores do Campo"
+    },
+    {
+      "id": "4071",
+      "code": "4071",
+      "name": "Essência para Aromatizador Elétrico",
+      "family": "Essências",
+      "fragrance": "Maçã com Canela"
+    },
+    {
+      "id": "6114",
+      "code": "6114",
+      "name": "Essência para Aromatizador Elétrico",
+      "family": "Essências",
+      "fragrance": "Violeta e Lavanda"
+    },
+    {
+      "id": "6987",
+      "code": "6987",
+      "name": "Hidratante Desodorante",
+      "family": "Pêssego e Flores Brancas",
+      "fragrance": ""
+    },
+    {
+      "id": "6986",
+      "code": "6986",
+      "name": "Body Splash",
+      "family": "Pêssego e Flores Brancas",
+      "fragrance": ""
+    },
+    {
+      "id": "6988",
+      "code": "6988",
+      "name": "Óleo de Banho Corporal",
+      "family": "Pêssego e Flores Brancas",
+      "fragrance": ""
+    },
+    {
+      "id": "6900",
+      "code": "6900",
+      "name": "Loção Corporal Acetinada",
+      "family": "Velvet Rosé",
+      "fragrance": ""
+    },
+    {
+      "id": "6899",
+      "code": "6899",
+      "name": "Body Splash",
+      "family": "Velvet Rosé",
+      "fragrance": ""
+    },
+    {
+      "id": "6766",
+      "code": "6766",
+      "name": "Kit Rosas e Peônia",
+      "family": "Boutique em Flores",
+      "fragrance": ""
+    },
+    {
+      "id": "6939",
+      "code": "6939",
+      "name": "Kit Orquídea Baunilha",
+      "family": "Boutique em Flores",
+      "fragrance": ""
+    },
+    {
+      "id": "site-difusor-de-aromas-desejos-sucesso-mandarina-fresca-240ml",
+      "code": "Não informado",
+      "name": "Difusor de Aromas Desejos Sucesso Mandarina Fresca - 240ml",
+      "family": "Catálogo oficial",
+      "fragrance": ""
+    },
+    {
+      "id": "site-agua-perfumada-para-roupas-flowers-flor-de-cerejeira-500ml",
+      "code": "Não informado",
+      "name": "Água Perfumada para Roupas Flowers Flor de Cerejeira - 500ml",
+      "family": "Catálogo oficial",
+      "fragrance": ""
+    }
+  ]
+}

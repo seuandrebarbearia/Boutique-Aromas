@@ -1,4 +1,5 @@
 import { officialProductUpdates, additionalOfficialProducts } from "./official-catalog.js";
+import { isRetiredProduct } from "./retired-products.js";
 import { referencePricesById } from "./reference-prices.js";
 
 const extractedProducts = [
@@ -3134,4 +3135,8 @@ const originalProducts = catalogProducts.map((product) => {
   };
 });
 
-export const products = [...originalProducts.map(product => ({...product, ...(officialProductUpdates[product.id] ?? {})})), ...additionalOfficialProducts];
+// Historical source data remains available for catalog/photo audits.
+export const catalogSourceProducts = [...originalProducts.map(product => ({...product, ...(officialProductUpdates[product.id] ?? {})})), ...additionalOfficialProducts];
+
+// All storefront views, filters, cart restoration and checkout use this list.
+export const products = catalogSourceProducts.filter(product => !isRetiredProduct(product));

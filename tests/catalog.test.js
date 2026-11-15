@@ -1,7 +1,8 @@
 import {officialProductUpdates} from "../js/official-catalog.js";
 import test from "node:test";
 import assert from "node:assert/strict";
-import { products } from "../js/products.js";
+// These tests audit the complete historical source, including withdrawn items.
+import { catalogSourceProducts as products } from "../js/products.js";
 import { getCatalogDepartment, groupCatalogCollections, groupCatalogOffers, groupProductsByCategory } from "../js/catalog.js";
 import { referencePricesById } from "../js/reference-prices.js";
 import { getProductCardPhoto } from "../js/product-card-media.js";

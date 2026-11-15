@@ -117,7 +117,7 @@ test("keeps set component names identifiable in the order summary", () => {
 });
 
 test("catalog products have unique IDs and retain baseline prices except reviewed references", async () => {
-  const { products } = await import("../js/products.js");
+  const { catalogSourceProducts: products } = await import("../js/products.js");
   assert.equal(products.length, 236);
   assert.equal(new Set(products.map((product) => product.id)).size, products.length);
   assert.equal(new Set(products.map((product) => product.code)).size, 191);
@@ -200,7 +200,7 @@ test("identifies each essence by its full aroma name without a presentation numb
   const { products } = await import("../js/products.js");
   const essences = products.filter((product) => product.family === "Essências");
 
-  assert.equal(essences.length, 11);
+  assert.equal(essences.length, 8);
   assert.deepEqual(
     essences.map((product) => product.fragrance).sort(),
     [
@@ -209,12 +209,9 @@ test("identifies each essence by its full aroma name without a presentation numb
       "Borboletas Azuis",
       "Cereja e Avelã",
       "Flowers",
-      "Lichia e Flores do Campo",
-      "Maçã com Canela",
       "Magnólia",
       "Mandarina Fresca",
       "Orquídea Negra com Musk",
-      "Violeta e Lavanda"
     ].sort()
   );
 });
@@ -300,7 +297,7 @@ test("keeps catalog combos and their confirmed components explicit", async () =>
 
   assert.deepEqual(
     combos.map((product) => product.code).sort(),
-    ["4540", "6728", "6766", "6914", "6939", "7232"]
+    ["6728", "6914", "7232"]
   );
   assert.ok(combos.every((product) => product.category === "Combos"));
   assert.ok(combos.every((product) => product.composition && existsSync(product.image)));

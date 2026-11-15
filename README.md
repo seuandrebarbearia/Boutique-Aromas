@@ -124,3 +124,6 @@ Consultado o catálogo público oficial: 185 produtos em sete páginas. Atualiza
 
 ## Fotos do PDF fornecido — 13/11/2026
 Adicionadas 13 fotos individuais extraídas do catálogo de 97 páginas, preservando as imagens completas. Conferidos código, tipo e apresentação antes da associação. O catálogo tem 211 fotos disponíveis e 25 pendências documentadas em `referencias/fotos-pendentes.md`; modelos ausentes ou com volume divergente não foram substituídos por outra apresentação. Preços e dados dos produtos preservados.
+
+## Retirada de produtos — 15/11/2026
+Retirados 39 produtos por código e duas apresentações equivalentes sem código (difusor Desejos Sucesso 240 ml e água perfumada Flowers 500 ml). Restam 195 produtos ativos. Os cinco códigos 4838, 5092, 6414, 6413 e 5072 já estavam ausentes. A lista de retirada em js/retired-products.js é aplicada antes dos filtros, da restauração do carrinho e da montagem do pedido. Os arquivos de origem e auditorias históricas foram preservados. Registro: referencias/produtos-retirados-2026-11-15.json.

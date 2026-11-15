@@ -1,10 +1,10 @@
 # Fotos pendentes — Boutique de Aromas
 
-Revisão: 13/11/2026.
+Revisão: 15/11/2026.
 
-211 de 236 produtos têm foto individual disponível. O PDF fornecido de 97 páginas permitiu preencher 13 pendências, incluindo os três modelos de aromatizador elétrico. Restam 25 produtos sem correspondência individual segura.
+172 de 195 produtos ativos têm foto individual disponível. Restam 23 produtos sem correspondência individual segura. A lista já exclui os itens retirados pela loja em 15/11/2026.
 
-O novo PDF não contém os modelos exatos dos itens restantes, ou indica uma apresentação diferente. Não foram reaproveitadas fotos de outro aroma ou volume. Os preços e os cadastros não foram alterados.
+O PDF fornecido de 97 páginas permitiu preencher 13 pendências. As auditorias anteriores são registros históricos; a disponibilidade atual considera somente os produtos ativos.
 
 | Código | Produto / aroma | Apresentação do catálogo | Pendência |
 | --- | --- | --- | --- |
@@ -15,8 +15,6 @@ O novo PDF não contém os modelos exatos dos itens restantes, ou indica uma apr
 | 7211 | Refil Óleo Difusor de Aromas · Chá Branco com Romã | 500 ml | A foto disponível é coletiva ou não foi encontrada uma correspondência individual segura no site oficial. Solicitar foto frontal deste código, aroma e volume. |
 | 7210 | Refil Óleo Difusor de Aromas · Patchouli e Musk Imperial | 500 ml | A foto disponível é coletiva ou não foi encontrada uma correspondência individual segura no site oficial. Solicitar foto frontal deste código, aroma e volume. |
 | 7193 | Aromatizador Profissional · Patchouli e Musk Imperial | 250ml | A foto disponível é coletiva ou não foi encontrada uma correspondência individual segura no site oficial. Solicitar foto frontal deste código, aroma e volume. |
-| 6342 | Difusor de Aromas · Sucesso | 250 ml | O catálogo indica 250 ml; a apresentação encontrada no site é de 240 ml. |
-| 4818 | Água Perfumada para Roupas · Flowers | 300ml | O catálogo indica 300 ml; a apresentação Flowers encontrada no site é de 500 ml. |
 | 6052 | Refil Difusor de Aromas · Divina | 95ml | O catálogo indica 95 ml; o refil Divina encontrado no site é de 250 ml. |
 | 6749 | Refil Sabonete Líquido · Orquídea Baunilha | 250ml | A foto disponível é coletiva ou não foi encontrada uma correspondência individual segura no site oficial. Solicitar foto frontal deste código, aroma e volume. |
 | 6843 | Essência para Aromatizador Elétrico · Alecrim Dourado | 10ml | A foto disponível é coletiva ou não foi encontrada uma correspondência individual segura no site oficial. Solicitar foto frontal deste código, aroma e volume. |
@@ -34,4 +32,4 @@ O novo PDF não contém os modelos exatos dos itens restantes, ou indica uma apr
 | 6592 | Loção Hidratante Corporal · Flor de Jasmim e Amêndoas Doces | 70ml | A foto reúne as duas loções de 70 ml com sobreposição; falta uma foto individual de Flor de Jasmim e Amêndoas Doces. |
 | 7030 | Deo Colônia · Black 44 | 50ml | O catálogo indica 50 ml; a apresentação encontrada no site é de 60 ml. |
 
-Correspondências aplicadas, páginas e hash do PDF: `fotos-catalogo-completo-2026-11-13.json`. A auditoria de 10/11 permanece como registro histórico.
+Correspondências aplicadas, páginas e hash do PDF: fotos-catalogo-completo-2026-11-13.json.
