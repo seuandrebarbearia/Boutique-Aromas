@@ -22,6 +22,7 @@ const individualPhotos = {
 const frames = new Map(Object.values(collectionPhotosByPage).flat().map(photo => [photo.src, photo]));
 
 export function getProductCardPhoto(product) {
+  if (product.photoPending) return null;
   if (auditedProductPhotos[product.id]) return auditedProductPhotos[product.id];
   if (product.imageKind === "individual" && productPhotoFramesByPath[product.image]) {
     return productPhotoFramesByPath[product.image];

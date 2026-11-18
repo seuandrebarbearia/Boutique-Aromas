@@ -1846,6 +1846,21 @@ main,
   margin-top: 6px;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.contact-actions .footer-whatsapp {
+  margin-top: 0;
+}
+
+.contact-actions [aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .footer-disclaimer {
   max-width: 400px;
 }

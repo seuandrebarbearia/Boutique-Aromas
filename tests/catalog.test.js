@@ -2,7 +2,7 @@ import {officialProductUpdates} from "../js/official-catalog.js";
 import test from "node:test";
 import assert from "node:assert/strict";
 // These tests audit the complete historical source, including withdrawn items.
-import { catalogSourceProducts as products } from "../js/products.js";
+import { catalogSourceProducts as products, products as activeProducts } from "../js/products.js";
 import { getCatalogDepartment, groupCatalogCollections, groupCatalogOffers, groupProductsByCategory } from "../js/catalog.js";
 import { referencePricesById } from "../js/reference-prices.js";
 import { getProductCardPhoto } from "../js/product-card-media.js";
@@ -37,7 +37,7 @@ test("unit cards use identified individual photos and leave collective-only item
 
 test("reviewed photos preserve complete bounds, provenance and the identity of variants", () => {
   for (const [id, photo] of Object.entries(auditedProductPhotos)) {
-    assert.ok(products.some(p => p.id === id), `unknown photo SKU ${id}`);
+    assert.ok([...products, ...activeProducts].some(p => p.id === id), `unknown photo SKU ${id}`);
     assert.ok(existsSync(photo.src), `missing photo for ${id}`);
     const [left, top, right, bottom] = photo.bounds;
     assert.ok(left >= 0 && top >= 0 && right > left && bottom > top);
@@ -61,7 +61,7 @@ test("supplied PDF fills 13 missing photographs with complete verified images", 
     assert.deepEqual(photo.bounds, [0, 0, photo.width, photo.height]);
     assert.equal(createHash("sha256").update(readFileSync(photo.src)).digest("hex"), photo.sha256);
   }
-  assert.equal(products.filter(p => !getProductCardPhoto(p) && !p.officialImage).length, 25);
+  assert.equal(products.filter(p => !getProductCardPhoto(p) && !p.officialImage).length, 12);
   assert.notEqual(getProductCardPhoto(products.find(p => p.id === "4017")).src,
     getProductCardPhoto(products.find(p => p.id === "6768")).src);
 });
@@ -102,7 +102,7 @@ test("includes home fragrance and personal care categories in their navigation d
 
 test("shows each collective page once while preserving every product and combo", () => {
   const groups = groupCatalogOffers(products);
-  const pageGroups = groups.filter(([product]) => !product.isCombo);
+  const pageGroups = groups.filter(([product]) => !product.isCombo && product.sourcePage);
   assert.equal(new Set(pageGroups.map(([product]) => product.sourcePage)).size, pageGroups.length);
   assert.deepEqual(groups.flat().map(p => p.id).sort(), products.map(p => p.id).sort());
   for (const combo of products.filter(p => p.isCombo)) {
@@ -115,7 +115,7 @@ test("keeps category results complete without repeated collective pages", () => 
     const matching = products.filter(p => p.category === category);
     const groups = groupCatalogOffers(matching);
     assert.deepEqual(groups.flat().map(p => p.id).sort(), matching.map(p => p.id).sort());
-    const pages = groups.filter(([p]) => !p.isCombo).map(([p]) => p.sourcePage);
+    const pages = groups.filter(([p]) => !p.isCombo && p.sourcePage).map(([p]) => p.sourcePage);
     assert.equal(new Set(pages).size, pages.length);
   }
 });

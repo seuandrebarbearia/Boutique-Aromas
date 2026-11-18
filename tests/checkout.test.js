@@ -2,7 +2,7 @@ import {officialProductUpdates} from "../js/official-catalog.js";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
-import { buildOrderSummary, buildWhatsAppUrl, formatBRL, validateAddress } from "../js/checkout.js";
+import { buildOrderSummary, buildWhatsAppUrl, getStoreWhatsAppUrl, formatBRL, validateAddress } from "../js/checkout.js";
 import { createCartStore } from "../js/cart.js";
 
 const validFields = {
@@ -191,16 +191,15 @@ test("assigns unique presentation numbers and keeps catalog families and categor
   assert.equal(products.find((product) => product.code === "7102").name, "Manteiga Hidratante Desodorante");
   assert.equal(products.find((product) => product.code === "7102").fragrance, "New York Vibes");
   assert.equal(products.find((product) => product.code === "7103").fragrance, "Dubai Dreams");
-  assert.equal(products.find((product) => product.code === "7104").fragrance, "Bonjour Paris");
-  assert.equal(products.find((product) => product.code === "7245").name, "Necessaire Masculina");
-  assert.equal(products.find((product) => product.code === "7245").volume, "11 × 29,5 × 6 cm");
+  assert.equal(products.find((product) => product.code === "1795").name, "Necessaire Masculina");
+  assert.equal(products.find((product) => product.code === "1795").volume, "11 × 29,5 × 6 cm");
 });
 
 test("identifies each essence by its full aroma name without a presentation number", async () => {
   const { products } = await import("../js/products.js");
   const essences = products.filter((product) => product.family === "Essências");
 
-  assert.equal(essences.length, 8);
+  assert.equal(essences.length, 10);
   assert.deepEqual(
     essences.map((product) => product.fragrance).sort(),
     [
@@ -209,6 +208,8 @@ test("identifies each essence by its full aroma name without a presentation numb
       "Borboletas Azuis",
       "Cereja e Avelã",
       "Flowers",
+      "Felicidade",
+      "Gratidão",
       "Magnólia",
       "Mandarina Fresca",
       "Orquídea Negra com Musk",
@@ -306,13 +307,9 @@ test("keeps catalog combos and their confirmed components explicit", async () =>
     ["7149", "5024", "7150"]
   );
   const almondKit = products.find((product) => product.code === "7232");
-  assert.equal(
-    almondKit.priceCents,
-    almondKit.componentIds.reduce(
-      (total, id) => total + products.find((product) => product.id === id).priceCents,
-      0
-    )
-  );
+  assert.equal(almondKit.priceCents, 29370);
+  assert.equal(almondKit.priceStatus, "pending-review");
+  assert.match(almondKit.catalogNote, /não localizado/i);
   assert.ok(
     almondKit.componentIds.every((id) => products.some((product) => product.id === id))
   );
@@ -322,14 +319,31 @@ test("keeps catalog combos and their confirmed components explicit", async () =>
   );
 });
 
-test("keeps the supplied store address and WhatsApp number with WhatsApp ordering enabled", async () => {
+test("uses confirmed Florianópolis contacts and leaves unconfirmed channels pending", async () => {
   const { config } = await import("../js/config.js");
 
-  assert.equal(config.storeAddress, "Rua Luiz Boito Piazza, nº 3467");
-  assert.equal(config.storePhone, "48996495663");
-  assert.equal(config.whatsappNumber, "48996495663");
+  assert.equal(config.storeAddress, "Av. Luiz Boiteux Piazza, 3414, sala 3 — Cachoeira do Bom Jesus, Florianópolis - SC, CEP 88056-000");
+  assert.equal(config.storePhone, "5548991989442");
+  assert.equal(config.storePhoneLabel, "(48) 99198-9442");
+  assert.equal(config.mapsUrl, "https://maps.app.goo.gl/C189HDEHPThRFPxJ9");
+  assert.equal(config.instagramUrl, "https://www.instagram.com/boutiquedearomas.floripa/");
+  assert.equal(config.storeEmail, "");
+  assert.equal(config.whatsappNumber, "5548991989442");
   assert.equal(config.whatsappEnabled, true);
-  assert.equal(`https://wa.me/55${config.whatsappNumber}`, "https://wa.me/5548996495663");
+  const contactUrl = new URL(getStoreWhatsAppUrl(config, config.contactMessage));
+  assert.equal(contactUrl.pathname, "/5548991989442");
+  assert.equal(contactUrl.searchParams.get("text"), config.contactMessage);
+});
+
+test("service and orders share a confirmed destination and preserve their messages", () => {
+  assert.equal(getStoreWhatsAppUrl({ whatsappEnabled: false, whatsappNumber: "5548991989442" }, "Pedido"), null);
+  assert.equal(getStoreWhatsAppUrl({ whatsappEnabled: true, whatsappNumber: "" }, "Pedido"), null);
+  const confirmedStore = { whatsappEnabled: true, whatsappNumber: "5548991989442" };
+  for (const message of ["Olá! Gostaria de atendimento da Boutique de Aromas Floripa.", "Pedido: Jasmim & Vanilla\nObservações: entregar à tarde"]) {
+    const url = new URL(getStoreWhatsAppUrl(confirmedStore, message));
+    assert.equal(url.pathname, "/5548991989442");
+    assert.equal(url.searchParams.get("text"), message);
+  }
 });
 
 test("keeps every collective page and confirmed individual crop available locally", async () => {
@@ -372,12 +386,12 @@ test("WhatsApp order keeps products and delivery details after the cart is clear
     subtotalCents: cart.subtotalCents,
     shippingLabel: "A combinar"
   });
-  const url = new URL(buildWhatsAppUrl("48996495663", message));
+  const url = new URL(getStoreWhatsAppUrl({ whatsappEnabled: true, whatsappNumber: "5548991989442" }, message));
 
   cart.clear();
 
   assert.equal(cart.totalUnits, 0);
-  assert.equal(url.pathname, "/5548996495663");
+  assert.equal(url.pathname, "/5548991989442");
   const text = url.searchParams.get("text");
   assert.match(text, /2 x Difusor de Jasmim/);
   assert.match(text, /1 x Sabonete Líquido/);

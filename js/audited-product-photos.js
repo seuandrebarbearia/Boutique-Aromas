@@ -1,5 +1,229 @@
 // Photographs matched and visually reviewed against product labels.
 export const auditedProductPhotos = {
+  "6504": {
+    "src": "assets/products/vela-lata-preta-dourada-fornecida.jpg",
+    "width": 1231,
+    "height": 1278,
+    "bounds": [
+      0,
+      217,
+      1231,
+      1112
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/vela-lata-preta-dourada-fornecida.jpg",
+    "reviewedAt": "2026-11-18",
+    "verification": "Foto fornecida pelo usuário e distribuída alternadamente entre os cinco cards de velas por autorização expressa em 18/11/2026. Lata e tampa completas preservadas; a estampa não foi usada para inferir o aroma.",
+    "sha256": "fcc1f8d79ff69bc20a317a8ee29a560ff7c43d30ea09160766c8309f3a696cc8"
+  },
+  "6505": {
+    "src": "assets/products/vela-lata-preta-dourada-fornecida.jpg",
+    "width": 1231,
+    "height": 1278,
+    "bounds": [
+      0,
+      217,
+      1231,
+      1112
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/vela-lata-preta-dourada-fornecida.jpg",
+    "reviewedAt": "2026-11-18",
+    "verification": "Foto fornecida pelo usuário e distribuída alternadamente entre os cinco cards de velas por autorização expressa em 18/11/2026. Lata e tampa completas preservadas; a estampa não foi usada para inferir o aroma.",
+    "sha256": "fcc1f8d79ff69bc20a317a8ee29a560ff7c43d30ea09160766c8309f3a696cc8"
+  },
+  "6506": {
+    "src": "assets/products/vela-lata-preta-dourada-fornecida.jpg",
+    "width": 1231,
+    "height": 1278,
+    "bounds": [
+      0,
+      217,
+      1231,
+      1112
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/vela-lata-preta-dourada-fornecida.jpg",
+    "reviewedAt": "2026-11-18",
+    "verification": "Foto fornecida pelo usuário e distribuída alternadamente entre os cinco cards de velas por autorização expressa em 18/11/2026. Lata e tampa completas preservadas; a estampa não foi usada para inferir o aroma.",
+    "sha256": "fcc1f8d79ff69bc20a317a8ee29a560ff7c43d30ea09160766c8309f3a696cc8"
+  },
+  "6507": {
+    "src": "assets/products/vela-lata-azul-dourada-fornecida.jpg",
+    "width": 1231,
+    "height": 1278,
+    "bounds": [
+      0,
+      293,
+      1231,
+      1087
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/vela-lata-azul-dourada-fornecida.jpg",
+    "reviewedAt": "2026-11-18",
+    "verification": "Foto fornecida pelo usuário e distribuída alternadamente entre os cinco cards de velas por autorização expressa em 18/11/2026. Lata e tampa completas preservadas; a estampa não foi usada para inferir o aroma.",
+    "sha256": "fb68def543f3e130b30d1b1055f2a02dc38201fc91686eed5dd1701150b676a4"
+  },
+  "6507-2": {
+    "src": "assets/products/vela-lata-azul-dourada-fornecida.jpg",
+    "width": 1231,
+    "height": 1278,
+    "bounds": [
+      0,
+      293,
+      1231,
+      1087
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/vela-lata-azul-dourada-fornecida.jpg",
+    "reviewedAt": "2026-11-18",
+    "verification": "Foto fornecida pelo usuário e distribuída alternadamente entre os cinco cards de velas por autorização expressa em 18/11/2026. Lata e tampa completas preservadas; a estampa não foi usada para inferir o aroma.",
+    "sha256": "fb68def543f3e130b30d1b1055f2a02dc38201fc91686eed5dd1701150b676a4"
+  },
+  "6371": {
+    "src": "assets/products/refil-felicidade-6371-fornecido.jpg",
+    "width": 896,
+    "height": 1200,
+    "bounds": [
+      224,
+      78,
+      664,
+      1158
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/refil-felicidade-6371-fornecido.jpg",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto fornecida pelo usuário e atribuída expressamente à referência 6371, Refil Difusor Felicidade. Frasco completo preservado.",
+    "sha256": "abe53a0a074089a95fd706ada053b14dbc6f9fb1c4b9ee10edb21f6986cc686b"
+  },
+  "6590": {
+    "src": "assets/products/locao-divina-6590-fornecido.jpg",
+    "width": 1086,
+    "height": 1448,
+    "bounds": [
+      206,
+      43,
+      880,
+      1448
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/locao-divina-6590-fornecido.jpg",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto fornecida pelo usuário para a referência 6590. Loção Hidratante Corporal Divina, 70 ml. Embalagem completa preservada.",
+    "sha256": "8aee97bd85ddae61d8891f6fb87b0ff95d8d03eb85e05ee56e05cb87abc102ba"
+  },
+  "6843": {
+    "src": "assets/products/essencia-alecrim-dourado-6843-fornecido.jpg",
+    "width": 1086,
+    "height": 1448,
+    "bounds": [
+      314,
+      231,
+      772,
+      1362
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/essencia-alecrim-dourado-6843-fornecido.jpg",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto fornecida pelo usuário para a referência 6843. Essência para Aromatizador Elétrico Alecrim Dourado, 10 ml. Frasco completo preservado.",
+    "sha256": "40215f00e6250a857d0d9fbd318ac16ba78be54d43255cae0b5f78e9d9eeba1b"
+  },
+  "7193": {
+    "src": "assets/products/aromatizador-patchouli-musk-7193-fornecido.png",
+    "width": 1024,
+    "height": 1536,
+    "bounds": [
+      225,
+      9,
+      799,
+      1529
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/aromatizador-patchouli-musk-7193-fornecido.png",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto fornecida pelo usuário para a referência 7193. Aromatizador Profissional Patchouli e Musk Imperial, 250 ml. Frasco completo preservado.",
+    "sha256": "04bdec0383d85308392fcbc8838a77b922d8c884440346cb6434f8538850d4f3"
+  },
+  "6941": {
+    "src": "assets/products/creme-maos-bella-6941-fornecido.png",
+    "width": 1024,
+    "height": 1536,
+    "bounds": [
+      225,
+      92,
+      799,
+      1452
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/creme-maos-bella-6941-fornecido.png",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto fornecida pelo usuário para a referência 6941. Creme Hidratante para Mãos Bella, 45 g. Embalagem completa preservada.",
+    "sha256": "d85436f711a23a603143362fbfb11995d040d4f89035dbedec7eb6c668fc0363"
+  },
+  "6754": {
+    "src": "assets/products/hidratante-banho-divina-6754-fornecido.png",
+    "width": 1024,
+    "height": 1536,
+    "bounds": [
+      174,
+      38,
+      850,
+      1521
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/hidratante-banho-divina-6754-fornecido.png",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto fornecida pelo usuário para a referência 6754. Hidratante de Banho Divina, Jasmim e Vanilla, rótulo 200 ml. Embalagem completa preservada; divergência de volume do cadastro mantida como pendência.",
+    "sha256": "68229bbca95d80a1f33bcb111b6835d3230341df498b99a58333c4c1957fabcf"
+  },
+  "6592": {
+    "src": "assets/products/locao-flor-jasmim-6592-fornecido.png",
+    "width": 1024,
+    "height": 1536,
+    "bounds": [
+      174,
+      38,
+      850,
+      1506
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/locao-flor-jasmim-6592-fornecido.png",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto fornecida pelo usuário para a referência 6592. Loção Hidratante Corporal Flor de Jasmim e Amêndoas Doces, 70 ml. Embalagem completa preservada.",
+    "sha256": "8348f21bd135afdb0a078f4a75a5fed396e4112dcdb99105ed17d4e73ae81450"
+  },
+  "7030": {
+    "src": "assets/products/deo-colonia-black-44-7030-fornecido.png",
+    "width": 372,
+    "height": 335,
+    "bounds": [
+      88,
+      72,
+      305,
+      316
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/deo-colonia-black-44-7030-fornecido.png",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto fornecida pelo usuário para a referência 7030, Deo Colônia Black 44. Enquadramento ajustado para retirar margens brancas e igualar a escala no card, preservando o frasco e a caixa completos.",
+    "sha256": "00de9b6be28f02bc54b63a7ce0e79a34d03aaffbcd7136745ba3154f161e66b0"
+  },
+  "7103": {
+    "src": "assets/products/iogurte-dubai-dreams-fornecido.png",
+    "width": 513,
+    "height": 508,
+    "bounds": [
+      0,
+      0,
+      513,
+      508
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/iogurte-dubai-dreams-fornecido.png",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto enviada pelo usu?rio e atribu?da expressamente ? refer?ncia 7103. R?tulo Dubai Dreams, Iogurte Corporal, 200 ml. Imagem inteira preservada.",
+    "sha256": "ab89886bd67693f756e41a411b5ec894143539c17b157ee3f9e875d9cc0cbea5"
+  },
   "2912": {
     "src": "assets/official/product-2912.png",
     "width": 1000,
@@ -847,22 +1071,20 @@ export const auditedProductPhotos = {
     "sha256": "82dc8207cd028338761ae83a5185ef6987f8d966e23fda0de6a23023c77f9d62"
   },
   "6402": {
-    "src": "assets/official/product-6402.png",
-    "width": 1000,
-    "height": 1000,
+    "src": "assets/products/refil-perfume-divina-6402-fornecido.jpg",
+    "width": 1086,
+    "height": 1448,
     "bounds": [
-      278,
-      195,
-      720,
-      1000
+      228,
+      14,
+      858,
+      1427
     ],
-    "sourceKind": "official-site",
-    "sourceUrl": "https://www.boutiquedearomas.com.br/products/refil-para-perfume-de-ambiente-divina-alecrim-com-jasmim-500ml",
-    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/refil_para_perfume_de_ambiente_divina_500ml_4942_1_28c3bf58281b3624065a8840f45d8147.png?v=1750247341&width=1000",
-    "sourceTitle": "Refil para Perfume de Ambiente Divina Alecrim com Jasmim - 500ml",
-    "reviewedAt": "2026-11-10",
-    "verification": "Nome, tipo, apresentação e rótulo revisados.",
-    "sha256": "dd6f0e6d6479b188b624fd45541f211b5fd9048a5ca8418b4a71c2f8e90d8577"
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/refil-perfume-divina-6402-fornecido.jpg",
+    "reviewedAt": "2026-11-17",
+    "verification": "Foto fornecida pelo usuário para a referência 6402. Refil Perfume para Ambiente Divina, Jasmim e Alecrim, 500 ml. Frasco completo preservado.",
+    "sha256": "9ff1a4fdee80d6fd7ee726c26bfa9d5d45800317cb1b9404d6abdf3adf333978"
   },
   "6403": {
     "src": "assets/official/product-6403.png",
@@ -2143,22 +2365,20 @@ export const auditedProductPhotos = {
     "sha256": "a39ee14dfd34f24327bd12bf9d4a8466757bfecd22a57465be96dc83e4f5107c"
   },
   "7226": {
-    "src": "assets/official/product-7226.jpg",
-    "width": 1000,
-    "height": 1000,
+    "src": "assets/products/esfoliante-flor-da-pele-7226-fornecido.png",
+    "width": 625,
+    "height": 512,
     "bounds": [
-      67,
-      428,
-      971,
-      940
+      37,
+      199,
+      588,
+      492
     ],
-    "sourceKind": "official-site",
-    "sourceUrl": "https://www.boutiquedearomas.com.br/products/esfoliante-corporal",
-    "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0729/8016/8740/files/186.jpg?v=1779303212&width=1000",
-    "sourceTitle": "Esfoliante Corporal À Flor da Pele - 200g",
-    "reviewedAt": "2026-11-10",
-    "verification": "Nome, tipo, apresentação e rótulo revisados.",
-    "sha256": "507e3694790c455ffd1071a4f2f92241a4cfd1f6540a4759cff2880894e38bcd"
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/esfoliante-flor-da-pele-7226-fornecido.png",
+    "reviewedAt": "2026-11-17",
+    "verification": "Nova foto fornecida pelo usuário para a referência 7226. Rótulo Esfoliante Corporal À Flor da Pele, 200 g, compatível com o cadastro. Pote e tampa completos preservados.",
+    "sha256": "a918516f733f44b009d0466bf5fc59abbf785164e33ad738edd219ab5ed26a3b"
   },
   "7195": {
     "src": "assets/official/product-7195.jpg",

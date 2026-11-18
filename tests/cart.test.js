@@ -25,7 +25,7 @@ test("keeps different SKUs separate and calculates the specified subtotal", () =
   assert.equal(store.add("7109", 2), true);
   assert.equal(store.add("7110"), true);
   assert.equal(store.totalUnits, 3);
-  assert.equal(store.subtotalCents, 83468);
+  assert.equal(store.subtotalCents, 75870);
   assert.deepEqual(
     store.getItems().map(({ code, quantity }) => [code, quantity]),
     [["7109", 2], ["7110", 1]]
@@ -62,7 +62,7 @@ test("restores only valid IDs and quantities from storage", () => {
 
   const store = createCartStore(products, storage);
   assert.equal(store.totalUnits, 2);
-  assert.equal(store.subtotalCents, 63778);
+  assert.equal(store.subtotalCents, 57980);
 });
 
 test("ignores corrupted JSON without breaking the cart", () => {

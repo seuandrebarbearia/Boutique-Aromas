@@ -1,3 +1,14 @@
+export function getPriceLabel() {
+  return "";
+}
+
+export function getProductDescription(product) {
+  if (product.description && !/^(Item identificado|Produto da coleção.*conferido|Produto cadastrado para conferência|Produto conferido)/.test(product.description)) {
+    return product.description;
+  }
+  return "Confira a fragrância e a apresentação nas informações do produto.";
+}
+
 export function getCatalogDepartment(product) {
   const name = product.name.toLocaleLowerCase("pt-BR");
   if (product.category === "Refis") {
@@ -27,7 +38,10 @@ export function groupProductsByCategory(products) {
 export function groupCatalogOffers(products) {
   const groups = new Map();
   for (const product of products) {
-    const key = product.isCombo ? `combo-${product.id}` : `page-${product.sourcePage}`;
+    const key = product.isCombo ? `combo-${product.id}`
+      : product.approvedPdfPage ? `approved-page-${product.approvedPdfPage}`
+      : product.sourcePage ? `legacy-page-${product.sourcePage}`
+      : `individual-${product.id}`;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(product);
   }

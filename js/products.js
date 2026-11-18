@@ -1,6 +1,8 @@
 import { officialProductUpdates, additionalOfficialProducts } from "./official-catalog.js";
 import { isRetiredProduct } from "./retired-products.js";
+import { approvedCatalogOverrides, approvedCatalogAdditions, consolidatedProductIds, catalogReviewNotes, suppressedPhotoIds } from "./approved-catalog-data.js";
 import { referencePricesById } from "./reference-prices.js";
+import { applyStoreApprovedUpdate } from "./store-approved-updates.js";
 
 const extractedProducts = [
   {
@@ -3139,4 +3141,34 @@ const originalProducts = catalogProducts.map((product) => {
 export const catalogSourceProducts = [...originalProducts.map(product => ({...product, ...(officialProductUpdates[product.id] ?? {})})), ...additionalOfficialProducts];
 
 // All storefront views, filters, cart restoration and checkout use this list.
-export const products = catalogSourceProducts.filter(product => !isRetiredProduct(product));
+const consolidatedIds = new Set(consolidatedProductIds);
+const suppressedPhotos = new Set(suppressedPhotoIds);
+
+// PDF approvals override historical website imports; direct store confirmations
+// are applied last. Missing prices remain explicit until the store confirms them.
+export const products = [...catalogSourceProducts, ...approvedCatalogAdditions]
+  .filter(product => !isRetiredProduct(product) && !consolidatedIds.has(product.id))
+  .map(product => {
+    const confirmed = approvedCatalogOverrides[product.id];
+    const reviewed = {
+      ...product,
+      priceStatus: "pending-review",
+      ...confirmed,
+      catalogNote: [
+        catalogReviewNotes[product.code] ?? (confirmed && /Preço consultado/.test(product.catalogNote ?? "") ? "" : product.catalogNote),
+        !confirmed ? "Não localizado de forma legível no PDF aprovado; cadastro e preço anteriores mantidos para conferência." : ""
+      ].filter(Boolean).join(" "),
+      photoPending: suppressedPhotos.has(product.id)
+    };
+    if (confirmed) reviewed.description = `Produto da coleção ${reviewed.family}, conferido no catálogo aprovado pela loja.`;
+    else if (/site oficial/.test(reviewed.description ?? "")) reviewed.description = "Produto cadastrado para conferência pela loja.";
+    if (reviewed.isCombo && /site oficial/.test(reviewed.composition ?? "")) {
+      reviewed.composition = "Composição e apresentações pendentes de confirmação pela loja.";
+    }
+    if (reviewed.photoPending) {
+      reviewed.image = "assets/products/placeholder.svg";
+      reviewed.imageKind = "pending";
+      reviewed.officialImage = null;
+    }
+    return reviewed;
+  }).map(applyStoreApprovedUpdate).filter(product => !isRetiredProduct(product));

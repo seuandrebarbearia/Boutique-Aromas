@@ -1,8 +1,8 @@
 import { config } from "./config.js";
 import { createCartStore } from "./cart.js";
-import { buildOrderSummary, buildWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js";
+import { buildOrderSummary, getStoreWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js";
 import { products } from "./products.js";
-import { getCatalogDepartment, groupProductsByCategory } from "./catalog.js";
+import { getCatalogDepartment, groupProductsByCategory, getPriceLabel, getProductDescription } from "./catalog.js";
 import { getProductCardPhoto } from "./product-card-media.js";
 
 const cart = createCartStore(products);
@@ -147,6 +147,11 @@ function getVisibleProducts() {
         product.code,
         product.fragrance,
         product.family,
+        product.volume,
+        product.specification,
+        product.composition,
+        product.reference,
+        ...(product.legacyCodes ?? []),
         product.category
       ].join(" ")
     );
@@ -189,19 +194,6 @@ function getOfferItemSpecification(product) {
     .join(" · ");
 }
 
-function getPriceLabel(product) {
-  if (product.priceReference) return "Preço de referência";
-  if (product.priceBasis === "component-sum") return "Valor estimado do conjunto";
-  return "Valor demonstrativo";
-}
-
-function getProductDescription(product) {
-  if (!/^Item identificado no catálogo, página \d+\.$/.test(product.description)) {
-    return product.description;
-  }
-  return `Uma opção da coleção ${product.family}. Confira a fragrância, o volume e o código nas informações do produto.`;
-}
-
 const catalogDepartments = [
   {
     id: "perfumacao-de-ambientes",
@@ -231,7 +223,7 @@ function createProductCard(product) {
     const image = createElement("img", "product-card-photo");
     image.loading = "lazy";
     image.style.cssText = "width:100%;height:100%;object-fit:contain;position:static";
-    setProductImage(image, product.officialImage, product.officialTitle);
+    setProductImage(image, product.officialImage, getOfferItemName(product));
     media.append(image);
   } else if (photo) {
     const crop = createElement("span", "product-card-photo-crop");
@@ -265,10 +257,9 @@ function createProductCard(product) {
   heading.append(createButton(getOfferItemName(product), "product-card-name", (event) =>
     openProductDetails(product, event.currentTarget)));
   const price = createElement("div", "product-card-price-block");
-  price.append(
-    createElement("strong", "product-card-price", formatBRL(product.priceCents)),
-    createElement("small", "price-source-label", getPriceLabel(product))
-  );
+  price.append(createElement("strong", "product-card-price", formatBRL(product.priceCents)));
+  const priceLabel = getPriceLabel(product);
+  if (priceLabel) price.append(createElement("small", "price-source-label", priceLabel));
   card.append(media, heading,
     createElement("p", "product-card-meta", `${product.isCombo ? "Kit" : product.specification || product.volume} · Cód. ${product.code}`));
   if (product.isCombo) {
@@ -364,6 +355,7 @@ function renderCart() {
               ? ""
               : item.fragrance,
           item.isCombo ? "" : item.volume,
+          `Unitário: ${formatBRL(item.priceCents)}`,
           `Cód. ${item.code}`
         ]
           .filter(Boolean)
@@ -482,7 +474,7 @@ function openProductDetails(product, opener) {
   if (isCollective) {
     const caption = product.isCombo
       ? "Foto coletiva da linha Hydra. O combo inclui apenas esponja e espuma de limpeza de 50 ml."
-      : `Foto coletiva da página ${product.sourcePage}. O item selecionado é ${getOfferItemName(product)}, código ${product.code}; os demais produtos são vendidos separadamente.`;
+      : `Foto coletiva da página ${product.approvedPdfPage ?? product.sourcePage}. O item selecionado é ${getOfferItemName(product)}, código ${product.code}; os demais produtos são vendidos separadamente.`;
     image.alt = caption;
     const photoButton = createButton(
       "",
@@ -525,17 +517,14 @@ function openProductDetails(product, opener) {
     ["Código", product.code],
     ...(!product.isCombo
       ? [[product.specification ? "Especificação" : "Volume", product.specification || product.volume]]
-      : []),
-    ...(product.sourcePage ? [["Página do catálogo", String(product.sourcePage)]] : [["Referência", product.officialHandle]])
+      : [])
   ]) {
     metadata.append(createElement("dt", "", label), createElement("dd", "", value));
   }
   content.append(metadata);
-  if (product.catalogNote) {
-    content.append(createElement("p", "inline-notice", product.catalogNote));
-  }
   content.append(createElement("strong", "detail-price", formatBRL(product.priceCents)));
-  content.append(createElement("p", "price-source-label", getPriceLabel(product)));
+  const priceLabel = getPriceLabel(product);
+  if (priceLabel) content.append(createElement("p", "price-source-label", priceLabel));
 
   const quantityControls = createElement("div", "detail-purchase-row");
   const quantityLabel = createElement("label", "detail-quantity-label", "Quantidade");
@@ -631,7 +620,7 @@ function updateReview(customer) {
       createElement(
         "p",
         "",
-        `${item.quantity} × ${item.name} · ${item.volume} · ${formatBRL(item.lineSubtotalCents)}`
+        `${item.quantity} × ${getOfferItemName(item)} · ${item.isCombo ? item.composition : item.volume} · Unitário: ${formatBRL(item.priceCents)} · Subtotal: ${formatBRL(item.lineSubtotalCents)}`
       )
     );
   }
@@ -672,10 +661,13 @@ function showReview(customer) {
     subtotalCents: cart.subtotalCents,
     shippingLabel: config.shippingLabel
   });
-  elements.sendWhatsApp.href = buildWhatsAppUrl(config.whatsappNumber, message);
-  elements.sendWhatsApp.hidden = !config.whatsappEnabled;
-  elements.summaryStatus.textContent =
-    "O WhatsApp abrirá com seu pedido preenchido. Confirme o envio no aplicativo. A loja confirmará valores, disponibilidade e entrega.";
+  const orderUrl = getStoreWhatsAppUrl(config, message);
+  elements.sendWhatsApp.removeAttribute("href");
+  if (orderUrl) elements.sendWhatsApp.href = orderUrl;
+  elements.sendWhatsApp.hidden = !orderUrl;
+  elements.summaryStatus.textContent = orderUrl
+    ? "O WhatsApp abrirá com seu pedido preenchido e o carrinho será esvaziado. Confirme o envio no aplicativo. A loja confirmará valores, disponibilidade e entrega."
+    : "WhatsApp para pedidos aguardando confirmação da loja. Seu carrinho foi mantido. Entre em contato por telefone ou Instagram na área de contato.";
   updateReview(customer);
   elements.checkoutDialog.scrollTop = 0;
   elements.orderReview.querySelector("#edit-address-button").focus();
@@ -814,22 +806,33 @@ document.querySelector("#edit-address-button").addEventListener("click", () => {
 });
 
 elements.sendWhatsApp.addEventListener("click", (event) => {
-  if (!config.whatsappEnabled || !checkoutCustomer || cart.totalUnits === 0) {
+  if (!getStoreWhatsAppUrl(config, "") || !checkoutCustomer || cart.totalUnits === 0) {
     event.preventDefault();
     return;
   }
   cart.clear();
   renderAll();
   elements.checkoutDialog.close();
-  elements.liveStatus.textContent = "Pedido preparado para o WhatsApp. Carrinho esvaziado.";
+  elements.liveStatus.textContent = "Pedido preparado para o WhatsApp. Carrinho esvaziado. Confirme o envio no aplicativo.";
 });
 
 document.querySelector("#store-address").textContent = config.storeAddress;
 const storePhone = document.querySelector("#store-phone");
-storePhone.textContent = config.storePhone;
-storePhone.href = `tel:${config.storePhone}`;
-document.querySelector("#store-whatsapp").href =
-  `https://wa.me/55${config.whatsappNumber.replace(/\D/g, "")}`;
+storePhone.textContent = config.storePhoneLabel;
+storePhone.href = `tel:+${config.storePhone}`;
+document.querySelector("#store-instagram").href = config.instagramUrl;
+document.querySelector("#store-maps").href = config.mapsUrl;
+const contactUrl = getStoreWhatsAppUrl(config, config.contactMessage);
+const storeWhatsApp = document.querySelector("#store-whatsapp");
+storeWhatsApp.removeAttribute("href");
+storeWhatsApp.setAttribute("aria-disabled", String(!contactUrl));
+if (contactUrl) storeWhatsApp.href = contactUrl;
+document.querySelector("#whatsapp-pending").hidden = Boolean(contactUrl);
+if (config.storeEmail) {
+  const emailLink = createElement("a", "", config.storeEmail);
+  emailLink.href = `mailto:${config.storeEmail}`;
+  document.querySelector("#store-email-line").replaceChildren("E-mail: ", emailLink);
+}
 renderCategoryFilters();
 renderFragranceOptions();
 renderAll();

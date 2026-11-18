@@ -1,8 +1,36 @@
-# Boutique de Aromas — catálogo demonstrativo
+# Boutique de Aromas Floripa — catálogo
 
-Catálogo estático em português do Brasil, feito com HTML, CSS e JavaScript puro. A experiência permite pesquisar e filtrar produtos, selecionar uma categoria, montar um carrinho local e gerar uma simulação de resumo com endereço de entrega.
+Catálogo estático em português do Brasil, feito com HTML, CSS e JavaScript puro. Permite pesquisar e filtrar produtos, montar um carrinho local e preparar um pedido com endereço de entrega para o WhatsApp confirmado da unidade de Florianópolis. O cliente confirma o envio no aplicativo.
 
-> **Catálogo demonstrativo.** Há preços de referência do site oficial e valores demonstrativos identificados por item. Nenhum pedido é enviado e nenhum pagamento é realizado.
+> Os preços legíveis do PDF aprovado pela loja prevalecem sobre os valores históricos do site oficial. Preços não confirmados ficam identificados para conferência. Entrega a combinar; sem pagamento automático.
+
+## Confirmação direta da loja — 18/11/2026
+
+Aplicados os 20 preços e os códigos enviados pela loja, com prioridade sobre as fontes anteriores. Os IDs internos continuam os mesmos para preservar fotos e carrinhos salvos. Os códigos antigos continuam disponíveis na busca. O Kit Black 44 custa R$ 249,90 e inclui deo colônia, mousse de banho e barba e necessaire; a foto antiga foi ocultada por mostrar outro conjunto. O Kit Bella Original custa R$ 295,90.
+
+Por orientação da loja em 18/11/2026, nenhum card, detalhe ou pedido exibe aviso de preço pendente. Os valores cadastrados e seus registros internos de origem foram preservados; retirar a frase não altera preços nem atribui confirmação a outra fonte. A vitrine e o pedido não mostram mensagens de teste, estimativas, valores demonstrativos nem notas internas sobre a auditoria do PDF. A confirmação direta é aplicada por último, em `js/store-approved-updates.js`.
+
+Validação atual: 50 testes passaram. Cada um dos 191 cards ativos foi verificado automaticamente no fluxo de restauração do carrinho, quantidade, preço unitário, subtotal, composição de kit, endereço, observações, geração do link para o WhatsApp da loja e limpeza persistente do carrinho. “Voltar a comprar”, carrinho durante a rolagem e confirmação do envio no aplicativo continuam preservados.
+
+Registro dos valores anteriores, códigos e preços confirmados: [preços oficiais da loja](referencias/precos-oficiais-loja-2026-11-18.md). As contagens e pendências da revisão abaixo são o registro histórico de 17/11.
+
+## Revisão das 61 páginas — 17/11/2026
+
+Todas as páginas do PDF fornecido foram renderizadas e conferidas visualmente. Comparados os 192 cards anteriores e os registros do PDF: 143 preços ativos confirmados, 60 valores corrigidos, quatro duplicatas eliminadas, duas versões equivalentes a produtos retirados excluídas. Cinco novos produtos adicionados e o card Bella existente sem código identificado como 6674. Restam 191 cards ativos.
+
+- [Tabela de conferência](referencias/conferencia-catalogo-2026-11-17.md): páginas, códigos, apresentação, preços anteriores e confirmados, ações e validação.
+- [Duplicatas e consolidações](referencias/duplicatas-catalogo-2026-11-17.md).
+- [Pendências](referencias/pendencias-catalogo-2026-11-17.md): 48 preços não confirmados; 72 produtos com alguma pendência de preço, apresentação, composição ou foto.
+- [Fotos](referencias/fotos-catalogo-2026-11-17.md): 29 fotos individuais pendentes, incluindo oito suspensas por divergência. Os arquivos fornecidos foram preservados.
+- [Auditoria estruturada](referencias/catalogo-aprovado-2026-11-17.json): hash do PDF, registro das 61 páginas, decisões e comparação anterior/atual.
+
+`js/approved-catalog-data.js` é aplicado por último em `js/products.js`, após as importações históricas. A lista `catalogSourceProducts` conserva o histórico para auditorias; toda a vitrine e o carrinho usam `products`, que aplica os preços aprovados, a lista de retirados e as consolidações. Não se recalcula o preço de um kit ausente do PDF pela soma de componentes: seu valor anterior permanece pendente de confirmação.
+
+Validação: 45 testes passaram. Carrinhos antigos usam os preços atuais e ignoram IDs retirados ou consolidados. O WhatsApp inclui preços unitários, quantidades, subtotais, composição e dados de entrega; o clique limpa o carrinho e pede confirmação do envio no aplicativo. Layout, cores, contatos, “Voltar a comprar” e carrinho durante a rolagem preservados. A conferência visual da página em computador e celular não pôde ser concluída por indisponibilidade do host de navegador e janela Edge minimizada.
+
+## Histórico das revisões anteriores
+
+As entradas abaixo registram estados anteriores. Para preços, contagens e pendências atuais, prevalece a revisão de 17/11/2026 acima.
 
 ## Revisão de preços e fotos — 10/11/2026
 
@@ -75,7 +103,7 @@ Não é necessário instalar dependências nem executar uma etapa de compilaçã
 - Quiche Sans e Recursive Sans não estão disponíveis como arquivos de fonte licenciados no projeto. Seguindo a alternativa indicada no brandbook, títulos usam Optima com fallback de sistema e textos usam Calibri com fallback de sistema.
 - BA Essências, BOU Beauty e Favo Beauty não foram atribuídas aos produtos: a associação de cada SKU a uma linha não está confirmada nos cadastros. O catálogo agora agrupa páginas repetidas da mesma coleção e oferece acessos separados para perfumação de ambientes e autocuidado.
 - O botão “Ver produtos da coleção” apenas revela as opções individuais; nenhum item é adicionado até a ação explícita em um produto. As composições conhecidas de combos são apresentadas antes da compra e combos de composição não confirmada não recebem componentes presumidos.
-- O WhatsApp da loja abre um canal de atendimento com o número confirmado e prefixo internacional do Brasil. O link não preenche uma mensagem nem ativa o envio de pedido.
+- Os contatos atuais e as fontes estão em `referencias/contatos-floripa-2026-11-17.md`. O WhatsApp de atendimento e pedidos é (48) 99198-9442, confirmado pelo usuário.
 - A abertura usa uma foto de ambiente do site oficial, autorizada pelo usuário. As fotografias do brandbook não foram copiadas.
 - O usuário confirmou autorização da filial para as imagens existentes do catálogo e autorizou posteriormente as fotos do site oficial.
 - Na visualização geral, páginas repetidas da mesma coleção são agrupadas sob um único título, preservando as fotos e os produtos de cada página. Os acessos “Perfumação de ambientes” e “Autocuidado” filtram o catálogo sem alterar a busca por nome, código ou fragrância nem a seleção de categoria.
@@ -91,7 +119,7 @@ Não é necessário instalar dependências nem executar uma etapa de compilaçã
 - A revisão organiza os produtos em 16 categorias. Corrige os aromas de Casa Alegre nas páginas 32 e 33, os refis 6400 e 6106 e as famílias das loções 6590 e 6592. Divergências entre legendas e rótulos são informadas nos detalhes dos produtos e na planilha de conferência.
 - O catálogo não define disponibilidade, frete, regras de venda ou condições de atacado. A entrega aparece como **a combinar**.
 - A página oficial do Bamboo da Sorte 250 ml foi consultada na revisão de continuidade acima. A descrição e a pirâmide olfativa continuam dependendo de confirmação antes de incorporá-las ao catálogo.
-- O endereço da loja é Rua Luiz Boito Piazza, nº 3467. O telefone e WhatsApp informados são 48996495663. O link de atendimento usa o prefixo do Brasil e não envia pedidos.
+- Endereço e telefone da unidade foram atualizados conforme o Google Maps fornecido pela empresa; consulte o registro de contatos de 17/11/2026.
 - Nome, telefone e endereço de entrega permanecem apenas na memória da página durante a sessão. O carrinho salva apenas IDs e quantidades localmente.
 - O resumo é demonstrativo e não confirma nem envia um pedido.
 
@@ -103,7 +131,9 @@ Para trocar uma imagem, coloque o arquivo local em `assets/products/` e altere o
 
 ## WhatsApp
 
-O número fornecido, `48996495663`, fica registrado em `js/config.js` e é exibido junto ao telefone da loja. O link de atendimento abre `https://wa.me/5548996495663`; enviar um pedido continua desativado (`whatsappEnabled: false`).
+O telefone confirmado no Maps é `(48) 99198-9442`. Em 17/11/2026, o usuário confirmou esse mesmo número para WhatsApp, digitado como `048991989442`. A configuração usa o formato internacional `5548991989442`, sem o zero de prefixo nacional, com `whatsappEnabled: true`. Atendimento e pedidos usam a mesma função de URL. A mensagem de atendimento é configurada em `contactMessage`. Ao abrir o pedido, o carrinho é limpo; o cliente precisa confirmar o envio no aplicativo.
+
+Instagram e Google Maps abrem nas URLs fornecidas pela empresa, em nova aba. E-mail não confirmado permanece como pendência; ao preencher `storeEmail` com um endereço confirmado, o contato recebe automaticamente um link `mailto:`.
 
 ## Verificação
 

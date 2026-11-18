@@ -27,6 +27,7 @@
         <a href="#catalogo" data-department="">Catálogo</a>
         <a href="#perfumacao-de-ambientes" data-department="perfumacao-de-ambientes">Perfumação</a>
         <a href="#autocuidado" data-department="autocuidado">Autocuidado</a>
+        <a href="#contato">Contato</a>
       </nav>
       <div class="header-actions">
         <label class="search-control">
@@ -66,10 +67,9 @@
         </div>
       </section>
 
-      <aside class="demo-notice" aria-label="Aviso sobre preços">
-        Peça pelo WhatsApp. Há preços de referência do site oficial e valores
-        demonstrativos identificados em cada item. Confirme preço e disponibilidade.
-        A loja confirmará valores, disponibilidade e entrega pelo WhatsApp.
+      <aside class="demo-notice" aria-label="Informações sobre pedidos">
+        Monte seu pedido e fale com nossa equipe pelo WhatsApp.
+        Confirme a disponibilidade dos produtos. Entrega a combinar.
       </aside>
 
       <section id="sobre-a-marca" class="brand-introduction" aria-labelledby="brand-introduction-title">
@@ -135,7 +135,7 @@
     </main>
 
     <footer class="site-footer">
-      <div class="footer-brand">
+      <div id="contato" class="footer-brand" aria-labelledby="contact-title">
         <img
           class="footer-logo"
           src="assets/brand/boutique-de-aromas-logo.png"
@@ -143,19 +143,27 @@
           width="654"
           height="127"
         >
-        <p>Endereço da loja: <span id="store-address">Rua Luiz Boito Piazza, nº 3467</span></p>
-        <p>Telefone: <a id="store-phone" href="tel:48996495663">48996495663</a></p>
+        <h2 id="contact-title">Contato · Floripa</h2>
+        <p>Endereço da loja: <span id="store-address">Av. Luiz Boiteux Piazza, 3414, sala 3 — Cachoeira do Bom Jesus, Florianópolis - SC, CEP 88056-000</span></p>
+        <p>Telefone: <a id="store-phone" href="tel:+5548991989442">(48) 99198-9442</a></p>
+        <p id="store-email-line">E-mail da unidade: não confirmado.</p>
+        <p id="whatsapp-pending" hidden>WhatsApp para atendimento e pedidos: aguardando confirmação da loja. Entre em contato por telefone ou Instagram.</p>
+        <div class="contact-actions">
+        <a id="store-instagram" class="button button-outline" href="https://www.instagram.com/boutiquedearomas.floripa/" target="_blank" rel="noopener noreferrer">Siga no Instagram</a>
+        <a id="store-maps" class="button button-outline" href="https://maps.app.goo.gl/C189HDEHPThRFPxJ9" target="_blank" rel="noopener noreferrer">Como chegar</a>
         <a
           id="store-whatsapp"
           class="button button-outline footer-whatsapp"
-          href="https://wa.me/5548996495663"
+          href="https://wa.me/5548991989442?text=Ol%C3%A1!%20Gostaria%20de%20atendimento%20da%20Boutique%20de%20Aromas%20Floripa."
+          aria-describedby="whatsapp-pending"
           target="_blank"
           rel="noopener noreferrer"
-        >Atendimento pelo WhatsApp</a>
+        >Fale conosco</a>
+        </div>
       </div>
       <p class="footer-disclaimer">
-        Pedidos pelo WhatsApp. Confirme valores e disponibilidade com a loja.
-        O atendimento pelo WhatsApp não envia nem confirma pedidos.
+        Ao abrir um pedido no WhatsApp, o carrinho será esvaziado.
+        Você precisa confirmar o envio no aplicativo. A loja confirmará valores, disponibilidade e entrega.
       </p>
     </footer>
 
