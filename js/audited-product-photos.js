@@ -1,5 +1,21 @@
 // Photographs matched and visually reviewed against product labels.
 export const auditedProductPhotos = {
+  "6138": {
+    "src": "assets/products/sache-sandalo-australiano-6138-fornecido.jpg",
+    "width": 896,
+    "height": 1200,
+    "bounds": [
+      215,
+      228,
+      690,
+      973
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/sache-sandalo-australiano-6138-fornecido.jpg",
+    "reviewedAt": "2026-11-18",
+    "verification": "Foto fornecida pelo usuário para a referência 6138. Rótulo Sachê Perfumado Sândalo Australiano, 30 g. Embalagem completa preservada.",
+    "sha256": "e4b6055f82eb71d225daf7a63aafd7960208253bf56963a9c33fac167bf4c482"
+  },
   "6504": {
     "src": "assets/products/vela-lata-preta-dourada-fornecida.jpg",
     "width": 1231,
