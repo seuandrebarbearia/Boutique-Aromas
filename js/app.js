@@ -741,6 +741,11 @@ function navigateCatalog() {
   const destination = window.location.hash.slice(1);
   if (destination !== "catalogo" && !catalogDepartments.some(({ id }) => id === destination)) return;
   selectedDepartment = destination === "catalogo" ? "" : destination;
+  // A department link opens its full selection, regardless of previous filters.
+  elements.search.value = "";
+  elements.categoryFilter.value = "";
+  elements.fragranceFilter.value = "";
+  selectedFragrance = "";
   renderProducts();
   // The destination section is created by rendering the selected department.
   (document.getElementById(destination) ?? document.getElementById("catalogo"))
