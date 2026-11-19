@@ -61,7 +61,7 @@ test("supplied PDF fills 13 missing photographs with complete verified images", 
     assert.deepEqual(photo.bounds, [0, 0, photo.width, photo.height]);
     assert.equal(createHash("sha256").update(readFileSync(photo.src)).digest("hex"), photo.sha256);
   }
-  assert.equal(products.filter(p => !getProductCardPhoto(p) && !p.officialImage).length, 9);
+  assert.equal(products.filter(p => !getProductCardPhoto(p) && !p.officialImage).length, 8);
   assert.notEqual(getProductCardPhoto(products.find(p => p.id === "4017")).src,
     getProductCardPhoto(products.find(p => p.id === "6768")).src);
 });

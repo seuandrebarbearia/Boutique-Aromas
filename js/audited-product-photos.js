@@ -1,5 +1,21 @@
 // Photographs matched and visually reviewed against product labels.
 export const auditedProductPhotos = {
+  "7136": {
+    "src": "assets/products/refil-sabonete-cha-branco-roma-7136-fornecido.jpg",
+    "width": 848,
+    "height": 1264,
+    "bounds": [
+      204,
+      25,
+      636,
+      1125
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/refil-sabonete-cha-branco-roma-7136-fornecido.jpg",
+    "reviewedAt": "2026-11-19",
+    "verification": "Imagem fornecida pelo usuário como 6736, associada ao código cadastrado 7136 por corresponder ao rótulo Refil Sabonete Líquido Chá Branco com Romã. Código, volume e preço cadastrados preservados. Frasco completo e tampa preservados.",
+    "sha256": "1a22fdedc47bf91fa505f76e54c71c1e080da5a09503a0b50b3c510980e1dca2"
+  },
   "7137": {
     "src": "assets/products/refil-sabonete-7137-fornecido.jpg",
     "width": 848,
