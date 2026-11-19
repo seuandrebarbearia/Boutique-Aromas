@@ -736,7 +736,20 @@ elements.reviewButton.addEventListener("click", (event) => {
   beginCheckout(event.currentTarget);
 });
 
-elements.search.addEventListener("input", renderProducts);
+function searchCatalog() {
+  if (normalizeText(elements.search.value)) {
+    selectedDepartment = "";
+    elements.categoryFilter.value = "";
+    elements.fragranceFilter.value = "";
+    selectedFragrance = "";
+    if (catalogDepartments.some(({ id }) => window.location.hash === `#${id}`)) {
+      window.history.replaceState(null, "", "#catalogo");
+    }
+  }
+  renderProducts();
+}
+
+elements.search.addEventListener("input", searchCatalog);
 function navigateCatalog() {
   const destination = window.location.hash.slice(1);
   if (destination !== "catalogo" && !catalogDepartments.some(({ id }) => id === destination)) return;
