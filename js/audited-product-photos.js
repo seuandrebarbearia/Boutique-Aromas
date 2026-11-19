@@ -1,5 +1,21 @@
 // Photographs matched and visually reviewed against product labels.
 export const auditedProductPhotos = {
+  "6683": {
+    "src": "assets/products/sabonete-liquido-baunilha-6683-fornecido.jpg",
+    "width": 896,
+    "height": 1200,
+    "bounds": [
+      230,
+      65,
+      660,
+      1165
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/sabonete-liquido-baunilha-6683-fornecido.jpg",
+    "reviewedAt": "2026-11-19",
+    "verification": "Foto fornecida pelo usuário para a referência 6683. Rótulo Sabonete Líquido Baunilha, 250 ml. Embalagem completa e válvula preservadas.",
+    "sha256": "24c54cf8a692ec687a01612d42836a3215964e94a8eb336bceadc9e0c51b4d55"
+  },
   "6138": {
     "src": "assets/products/sache-sandalo-australiano-6138-fornecido.jpg",
     "width": 896,
