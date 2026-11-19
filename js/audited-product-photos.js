@@ -1,5 +1,37 @@
 // Photographs matched and visually reviewed against product labels.
 export const auditedProductPhotos = {
+  "7137": {
+    "src": "assets/products/refil-sabonete-7137-fornecido.jpg",
+    "width": 848,
+    "height": 1264,
+    "bounds": [
+      204,
+      25,
+      636,
+      1125
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/refil-sabonete-7137-fornecido.jpg",
+    "reviewedAt": "2026-11-19",
+    "verification": "Imagem fornecida e indicada pelo usuário para o card 7137. Frasco completo e tampa preservados. O rótulo desta imagem não permite confirmar independentemente a fragrância ou o volume; os dados cadastrados foram mantidos.",
+    "sha256": "b96c5e59d200ef9c0bddfc61831e02ccb45b6856e6e4ecf667fc886747ad3e4c"
+  },
+  "6750": {
+    "src": "assets/products/sabonete-esfoliante-divina-6750-fornecido.jpg",
+    "width": 848,
+    "height": 1264,
+    "bounds": [
+      204,
+      101,
+      636,
+      1201
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/sabonete-esfoliante-divina-6750-fornecido.jpg",
+    "reviewedAt": "2026-11-19",
+    "verification": "Imagem corrigida fornecida pelo usuário para a referência 6750. Rótulo Divina Sabonete Esfoliante Corporal, Jasmim e Vanilla, 150 ml. Embalagem completa preservada.",
+    "sha256": "b7c8945f1845bd51ebe5b90a36e04d622d382658eafa7adafb45c13279ca5839"
+  },
   "6749": {
     "src": "assets/products/refil-sabonete-baunilha-6749-fornecido.jpg",
     "width": 896,
