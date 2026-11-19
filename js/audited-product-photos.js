@@ -1,5 +1,21 @@
 // Photographs matched and visually reviewed against product labels.
 export const auditedProductPhotos = {
+  "6749": {
+    "src": "assets/products/refil-sabonete-baunilha-6749-fornecido.jpg",
+    "width": 896,
+    "height": 1200,
+    "bounds": [
+      205,
+      10,
+      700,
+      1195
+    ],
+    "sourceKind": "user-supplied-photo",
+    "sourceUrl": "assets/products/refil-sabonete-baunilha-6749-fornecido.jpg",
+    "reviewedAt": "2026-11-19",
+    "verification": "Foto fornecida pelo usuário para a referência 6749. Rótulo Refil para Sabonete Líquido Baunilha, 250 ml. Frasco completo e tampa preservados.",
+    "sha256": "3c02eb2130a5bb5461a067e88b7f0c0e6d0eae910c1afd7c4eec2038e90bcf52"
+  },
   "6683": {
     "src": "assets/products/sabonete-liquido-baunilha-6683-fornecido.jpg",
     "width": 896,
