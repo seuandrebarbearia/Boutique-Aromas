@@ -1,9 +1,9 @@
-import { config } from "./config.js";
-import { createCartStore } from "./cart.js";
-import { buildOrderSummary, getStoreWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js";
-import { products } from "./products.js";
-import { getCatalogDepartment, groupProductsByCategory, getPriceLabel, getProductDescription } from "./catalog.js";
-import { getProductCardPhoto } from "./product-card-media.js";
+import { config } from "./config.js?v=20261120";
+import { createCartStore } from "./cart.js?v=20261120";
+import { buildOrderSummary, getStoreWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js?v=20261120";
+import { products } from "./products.js?v=20261120";
+import { getCatalogDepartment, groupProductsByCategory, getPriceLabel, getProductDescription } from "./catalog.js?v=20261120";
+import { getProductCardPhoto } from "./product-card-media.js?v=20261120";
 
 const cart = createCartStore(products);
 const productById = new Map(products.map((product) => [product.id, product]));

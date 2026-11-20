@@ -1,5 +1,5 @@
-import { collectionPhotosByPage, productPhotoFramesByPath } from "./collection-photos.js";
-import { auditedProductPhotos } from "./audited-product-photos.js";
+import { collectionPhotosByPage, productPhotoFramesByPath } from "./collection-photos.js?v=20261120";
+import { auditedProductPhotos } from "./audited-product-photos.js?v=20261120";
 
 // Individual photographs identified by type, size and fragrance on the same
 // catalog page. Collective shots stay in the detail view, not unit cards.
