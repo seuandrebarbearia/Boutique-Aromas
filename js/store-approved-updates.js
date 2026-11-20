@@ -62,6 +62,31 @@ const customerNotes = {
 };
 
 export function applyStoreApprovedUpdate(product) {
+  if (product.id === "site-capsulas-de-colageno-e-acido-hialuronico-60-unidades") {
+    product = {
+      ...product,
+      description: `Celulite, flacidez e textura irregular da pele estão te incomodando?
+O DermaFirm Collagen foi desenvolvido pela Favo para cuidar da sua pele de dentro pra fora, unindo tecnologia e ativos poderosos que promovem firmeza, elasticidade e hidratação.
+
+Benefícios:
+• Auxilia na melhora da firmeza e elasticidade da pele;
+• Contribui para reduzir o aspecto da celulite;
+• Melhora a textura e aparência da pele;
+• Possui ação antioxidante e hidratante;
+• Ajuda a manter o colágeno natural do corpo.
+
+Fórmula completa com:
+• Colágeno hidrolisado, que repõe a proteína essencial para a firmeza da pele;
+• Ácido hialurônico, que garante hidratação e viço;
+• Vitamina C, conhecida por fortalecer o sistema imunológico, além de participar da síntese de colágeno;
+• Silício, cafeína e café verde, que potencializam a ação firmeza e combatem a flacidez.
+
+Sugestão de uso:
+Consumir 2 cápsulas ao dia, preferencialmente junto a uma refeição e com ingestão de água. Atua de forma natural, sem causar aceleração.
+
+Importante: O DermaFirm Collagen auxilia na beleza e firmeza da pele quando aliado a bons hábitos, alimentação equilibrada e hidratação adequada.`
+    };
+  }
   // Apresentação informada pela loja em 20/11/2026; mantém o preço vigente.
   if (["7201", "7198"].includes(product.id)) {
     product = {

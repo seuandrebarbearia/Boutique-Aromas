@@ -825,6 +825,10 @@ p {
   color: var(--muted);
 }
 
+.detail-description {
+  white-space: pre-line;
+}
+
 .detail-metadata {
   display: grid;
   grid-template-columns: max-content 1fr;
