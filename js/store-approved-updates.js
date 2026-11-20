@@ -63,11 +63,11 @@ const customerNotes = {
 
 export function applyStoreApprovedUpdate(product) {
   // Apresentação informada pela loja em 20/11/2026; mantém o preço vigente.
-  if (product.id === "7201") {
+  if (["7201", "7198"].includes(product.id)) {
     product = {
       ...product,
       name: "Papel Perfumado",
-      officialTitle: "Papel Perfumado Patchouli e Musk Imperial para Gavetas",
+      officialTitle: `Papel Perfumado ${product.fragrance} para Gavetas`,
       volume: "5 folhas decoradas de 62 cm × 42 cm",
       description: "Contém 5 folhas decoradas de 62 cm × 42 cm."
     };
