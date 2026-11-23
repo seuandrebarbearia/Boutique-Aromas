@@ -103,7 +103,7 @@ Não é necessário instalar dependências nem executar uma etapa de compilaçã
 - Quiche Sans e Recursive Sans não estão disponíveis como arquivos de fonte licenciados no projeto. Seguindo a alternativa indicada no brandbook, títulos usam Optima com fallback de sistema e textos usam Calibri com fallback de sistema.
 - BA Essências, BOU Beauty e Favo Beauty não foram atribuídas aos produtos: a associação de cada SKU a uma linha não está confirmada nos cadastros. O catálogo agora agrupa páginas repetidas da mesma coleção e oferece acessos separados para perfumação de ambientes e autocuidado.
 - O botão “Ver produtos da coleção” apenas revela as opções individuais; nenhum item é adicionado até a ação explícita em um produto. As composições conhecidas de combos são apresentadas antes da compra e combos de composição não confirmada não recebem componentes presumidos.
-- Os contatos atuais e as fontes estão em `referencias/contatos-floripa-2026-11-17.md`. O WhatsApp de atendimento e pedidos é (48) 99198-9442, confirmado pelo usuário.
+- O WhatsApp Business de atendimento e pedidos é (48) 99113-4975, informado em 23/11/2026. As fontes dos contatos anteriores estão em `referencias/contatos-floripa-2026-11-17.md`.
 - A abertura usa uma foto de ambiente do site oficial, autorizada pelo usuário. As fotografias do brandbook não foram copiadas.
 - O usuário confirmou autorização da filial para as imagens existentes do catálogo e autorizou posteriormente as fotos do site oficial.
 - Na visualização geral, páginas repetidas da mesma coleção são agrupadas sob um único título, preservando as fotos e os produtos de cada página. Os acessos “Perfumação de ambientes” e “Autocuidado” filtram o catálogo sem alterar a busca por nome, código ou fragrância nem a seleção de categoria.
@@ -131,7 +131,7 @@ Para trocar uma imagem, coloque o arquivo local em `assets/products/` e altere o
 
 ## WhatsApp
 
-O telefone confirmado no Maps é `(48) 99198-9442`. Em 17/11/2026, o usuário confirmou esse mesmo número para WhatsApp, digitado como `048991989442`. A configuração usa o formato internacional `5548991989442`, sem o zero de prefixo nacional, com `whatsappEnabled: true`. Atendimento e pedidos usam a mesma função de URL. A mensagem de atendimento é configurada em `contactMessage`. Ao abrir o pedido, o carrinho é limpo; o cliente precisa confirmar o envio no aplicativo.
+O WhatsApp Business informado em 23/11/2026 é `(48) 99113-4975`. Atendimento e pedidos usam o número internacional `5548991134975`. A mensagem de atendimento é configurada em `contactMessage`. Ao abrir o pedido, o carrinho é limpo e o cliente confirma o envio no aplicativo. O telefone listado no Maps é `(48) 99198-9442`.
 
 Instagram e Google Maps abrem nas URLs fornecidas pela empresa, em nova aba. E-mail não confirmado permanece como pendência; ao preencher `storeEmail` com um endereço confirmado, o contato recebe automaticamente um link `mailto:`.
 

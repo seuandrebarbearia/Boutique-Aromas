@@ -21,9 +21,6 @@ export const storeApprovedUpdates = {
     code: "1617", priceCents: 8990, name: "Difusor de Ambientes", family: "Cereja e Avelã", fragrance: "Cereja e Avelã", volume: "95 ml"
   },
   "site-difusor-de-aromas-mi-casa-300ml": { code: "1817", priceCents: 32890, family: "Mi Casa" },
-  "site-difusor-de-aromas-novita-orquidea-negra-com-musk-250ml": {
-    code: "341", priceCents: 9890, name: "Difusor de Aromas", family: "Novità", fragrance: "Orquídea Negra com Musk", volume: "250 ml"
-  },
   "site-difusor-de-aromas-sorria-mais-250ml": { code: "520", priceCents: 14290, customerNote: "Consulte a fragrância com nossa equipe." },
   "site-essencia-para-aromatizador-eletrico-felicidade-10ml": {
     code: "517", priceCents: 4300, name: "Essência para Aromatizador Elétrico", family: "Essências", fragrance: "Felicidade", category: "Essências", volume: "10 ml"
@@ -38,27 +35,48 @@ export const storeApprovedUpdates = {
   "site-kit-black-44": {
     priceCents: 24990, name: "Kit Black 44", family: "Black 44", category: "Combos", isCombo: true,
     composition: "1 deo colônia + 1 mousse de banho e barba + 1 necessaire.",
-    componentIds: ["7030", "6758", "7245"], photoPending: true,
-    customerNote: "Foto do kit em atualização."
+    componentIds: ["7030", "6758", "7245"]
+  }
+};
+
+// Resoluções do relatório da loja de 19/11/2026.
+const catalogReviewUpdates = {
+  "7103": { name: "Iogurte Corporal", volume: "200 ml", image: "assets/products/iogurte-dubai-dreams-fornecido.png" },
+  "7232": {
+    name: "Kit Amêndoas e Flor de Jasmim",
+    image: "assets/products/kit-amendoas-jasmim-7232.jpg",
+    catalogNote: "Kit não localizado no PDF de 61 páginas. A foto da loja confirma a composição. Preço anterior mantido para conferência."
+  },
+  "site-kit-black-44": {
+    code: "", isPromotional: true, image: "assets/products/kit-black-44-loja.jpg"
+  },
+  "6177": {
+    volume: "250 ml", priceCents: 17990,
+    image: "assets/official-2026-11-12/difusor-de-aromas-novita-orquidea-negra-com-musk-250ml.jpg",
+    legacyCodes: ["341"],
+    legacyIds: ["site-difusor-de-aromas-novita-orquidea-negra-com-musk-250ml"]
+  },
+  "5504": { priceCents: 9390, image: "assets/official/product-5504.png" },
+  "6188": {
+    name: "Deo Colônia Roll-on", volume: "10 ml", priceCents: 8090,
+    image: "assets/products/roll-on-divina-6188.jpg",
+    alternatePhoto: { src: "assets/products/roll-on-divina-6188-lateral.jpg", label: "Frasco e caixa em ângulo lateral" }
+  },
+  "7134": { priceCents: 12990 },
+  "7135": { priceCents: 12990, image: "assets/products/refil-novita-patchouli-musk-imperial-7135.jpg" },
+  "7192": {
+    volume: "100 g", priceCents: 6890, image: "assets/products/vela-massagem-flor-da-pele-7192.jpg",
+    alternatePhoto: { src: "assets/products/vela-massagem-flor-da-pele-7192-aberta.jpg", label: "Vela com a tampa aberta" }
   }
 };
 
 const customerNotes = {
-  "5504": "Confirme a apresentação de 95 ml com nossa equipe.",
-  "6052": "Confirme a apresentação de 95 ml com nossa equipe.",
-  "6177": "Confirme a apresentação de 200 ml com nossa equipe.",
   "6507": "Confirme a fragrância ao pedir: este código identifica as opções Baunilha e Canela.",
   "6507-2": "Confirme a fragrância ao pedir: este código identifica as opções Baunilha e Canela.",
   "6514": "Confirme a apresentação de 380 ml com nossa equipe.",
-  "6637": "Confirme o peso de 190 g com nossa equipe.",
   "6749": "Confirme o volume de 250 ml com nossa equipe.",
   "6750": "Confirme a apresentação com nossa equipe: há indicações de 150 ml e 80 ml.",
-  "6754": "Confirme o volume com nossa equipe: há indicações de 150 ml e 200 ml.",
-  "7103": "Confirme o conteúdo com nossa equipe: há indicações de 200 g e 200 ml.",
-  "7192": "Confirme a apresentação de 100 g com nossa equipe.",
   "7218": "Consulte as dimensões da sacola com nossa equipe.",
-  "7232": "Consulte a composição e as apresentações do kit com nossa equipe.",
-  "6188": "Consulte o volume com nossa equipe."
 };
 
 export function applyStoreApprovedUpdate(product) {
@@ -97,7 +115,9 @@ Importante: O DermaFirm Collagen auxilia na beleza e firmeza da pele quando alia
       description: "Contém 5 folhas decoradas de 62 cm × 42 cm."
     };
   }
-  const update = storeApprovedUpdates[product.id];
+  const originalUpdate = storeApprovedUpdates[product.id];
+  const reviewUpdate = catalogReviewUpdates[product.id];
+  const update = reviewUpdate ? { ...originalUpdate, ...reviewUpdate } : originalUpdate;
   const customerNote = update?.customerNote ?? (update ? "" : customerNotes[product.id] ?? "");
   if (!update) return {
     ...product, customerNote,
@@ -106,18 +126,17 @@ Importante: O DermaFirm Collagen auxilia na beleza e firmeza da pele quando alia
   };
   const legacyCodes = [...new Set([
     ...(product.legacyCodes ?? []),
+    ...(update.legacyCodes ?? []),
     ...(product.code && product.code !== "Não informado" && update.code && product.code !== update.code ? [product.code] : [])
   ])];
-  const reviewed = {
+  return {
     ...product, ...update, legacyCodes, reference: update.code ?? product.reference,
-    priceStatus: "approved-store", priceBasis: "approved-store", priceReference: null,
-    storeApprovedAt: "2026-11-18", catalogNote: "", customerNote,
-    officialTitle: "", description: "", collection: update.family ?? product.collection
+    ...(update.priceCents !== undefined ? {
+      priceStatus: "approved-store", priceBasis: "approved-store", priceReference: null,
+      storeApprovedAt: reviewUpdate?.priceCents !== undefined ? "2026-11-19" : "2026-11-18"
+    } : {}),
+    ...(update.image ? { imageKind: "individual", officialImage: null, photoPending: false } : {}),
+    catalogNote: update.catalogNote ?? "", customerNote, officialTitle: "", description: "",
+    collection: update.family ?? product.collection
   };
-  if (reviewed.photoPending) {
-    reviewed.image = "assets/products/placeholder.svg";
-    reviewed.officialImage = null;
-    reviewed.imageKind = "pending";
-  }
-  return reviewed;
 }

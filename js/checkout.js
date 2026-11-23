@@ -70,7 +70,10 @@ export function buildOrderSummary({
   ];
 
   for (const item of items) {
-    const itemDescription = item.isCombo ? item.composition : item.volume;
+    const itemDescription = [
+      item.isCombo ? item.composition : item.volume,
+      item.code && `cód. ${item.code}`
+    ].filter(Boolean).join(", ");
     const variant =
       item.fragrance ||
       (item.family && item.family !== "Outros" && !item.isCombo ? item.family : "");
@@ -81,7 +84,7 @@ export function buildOrderSummary({
           ? `${item.name} · ${variant}`
           : item.name;
     lines.push(
-      `${item.quantity} x ${item.officialTitle || itemName} (${itemDescription}, cód. ${item.code}) — ${formatBRL(item.lineSubtotalCents)} · Unitário: ${formatBRL(item.priceCents ?? Math.round(item.lineSubtotalCents / item.quantity))}`
+      `${item.quantity} x ${item.officialTitle || itemName} (${itemDescription}) — ${formatBRL(item.lineSubtotalCents)} · Unitário: ${formatBRL(item.priceCents ?? Math.round(item.lineSubtotalCents / item.quantity))}`
     );
   }
 

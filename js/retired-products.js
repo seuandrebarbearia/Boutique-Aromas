@@ -7,7 +7,8 @@ export const retiredProductCodes = [
   "6403", "5389", "5395", "6405", "5387", "5397", "6406", "5398", "5388",
   "6113", "6114", "4071", "6988", "6986", "6987", "6900", "6899",
   "6766", "6939", "5092", "6414", "6413", "5072",
-  "7104" // Retirado a pedido da loja em 17/11/2026.
+  "7104", // Retirado a pedido da loja em 17/11/2026.
+  "6754", "6052", "6745", "7211", "7210", "6637" // Relatório de 19/11/2026.
 ];
 
 // These independently imported presentations have no SKU in the source.

@@ -22,15 +22,20 @@ const expected = [
   ['site-sabonete-liquido-mi-casa-250ml','1819',15990],
   ['site-difusor-cereja-e-avela-95ml','1617',8990],
   ['site-difusor-de-aromas-mi-casa-300ml','1817',32890],
-  ['site-difusor-de-aromas-novita-orquidea-negra-com-musk-250ml','341',9890],
   ['site-difusor-de-aromas-sorria-mais-250ml','520',14290],
   ['site-essencia-para-aromatizador-eletrico-felicidade-10ml','517',4300],
   ['site-essencia-para-aromatizador-eletrico-gratidao-10ml','1780',4300],
   ['site-kit-bella-oriental-gourmand',null,29590],
-  ['site-kit-black-44',null,24990]
+  ['site-kit-black-44',null,24990],
+  ['6177','6177',17990],
+  ['5504','5504',9390],
+  ['6188','6188',8090],
+  ['7134','7134',12990],
+  ['7135','7135',12990],
+  ['7192','7192',6890]
 ];
 
-test('uses all 20 store-approved prices exactly, including 96.99 and three-digit codes', () => {
+test('uses the current store-approved prices and codes exactly', () => {
   for (const [id,code,price] of expected) {
     const p=products.find(p=>p.id===id);
     assert.ok(p,id);
@@ -42,7 +47,7 @@ test('uses all 20 store-approved prices exactly, including 96.99 and three-digit
     assert.equal(p.catalogNote,'');
   }
   assert.equal(formatBRL(products.find(p=>p.code==='1717').priceCents),'R$\u00a096,99');
-  assert.equal(products.length,191);
+  assert.equal(products.length,184);
   for (const [,code] of expected.filter(([,c])=>c)) assert.equal(products.filter(p=>p.code===code).length,1,code);
 });
 
@@ -62,8 +67,9 @@ test('Black 44 kit uses its approved total and confirmed three-item composition 
   assert.equal(getCatalogDepartment(kit),'outras-colecoes');
   assert.match(kit.composition,/deo colônia.*mousse de banho e barba.*necessaire/i);
   assert.deepEqual(kit.componentIds,['7030','6758','7245']);
-  assert.equal(getProductCardPhoto(kit),null);
-  assert.equal(kit.officialImage,null);
+  assert.equal(kit.isPromotional,true);
+  assert.equal(kit.code,'');
+  assert.equal(getProductCardPhoto(kit).src,'assets/products/kit-black-44-loja.jpg');
   const cart=createCartStore(products,null);
   cart.add(kit.id,2);
   assert.equal(cart.getItems().length,1);
@@ -72,13 +78,40 @@ test('Black 44 kit uses its approved total and confirmed three-item composition 
   const url=new URL(getStoreWhatsAppUrl(config,message));
   cart.clear();
   assert.equal(cart.totalUnits,0);
-  assert.equal(url.pathname,'/5548991989442');
+  assert.equal(url.pathname,'/5548991134975');
   assert.match(url.searchParams.get('text'),/2 x Kit Black 44/);
   assert.match(message,/Unitário: R\$\u00a0249,90/);
   assert.match(message,/Subtotal dos produtos: R\$\u00a0499,80/);
   assert.match(message,/necessaire/);
+  assert.doesNotMatch(message,/cód\./i);
   assert.match(message,/Entrega: valor a combinar/);
   assert.doesNotMatch(message,/teste|demonstrativ|estimad|PDF|pendente/i);
+});
+
+test('applies the store photographs and confirmed presentations', () => {
+  const byId = id => products.find(product => product.id === id);
+  assert.equal(byId('6177').volume, '250 ml');
+  assert.equal(byId('6188').volume, '10 ml');
+  assert.equal(byId('7192').volume, '100 g');
+  assert.equal(byId('7103').name, 'Iogurte Corporal');
+  assert.equal(byId('7103').volume, '200 ml');
+  assert.equal(getProductCardPhoto(byId('7134')), null);
+  assert.equal(getProductCardPhoto(byId('5504')).src, 'assets/official/product-5504.png');
+  for (const id of ['6188', '7192']) {
+    const product = byId(id);
+    assert.notEqual(product.alternatePhoto.src, product.image);
+    assert.ok(fs.existsSync(product.alternatePhoto.src));
+  }
+  assert.ok(fs.existsSync(getProductCardPhoto(byId('7135')).src));
+});
+
+test('restores the merged Orquídea Negra diffuser at the current price', () => {
+  const legacyId = 'site-difusor-de-aromas-novita-orquidea-negra-com-musk-250ml';
+  const saved = JSON.stringify([{id: legacyId, quantity: 2}, {id: '6177', quantity: 1}]);
+  const cart = createCartStore(products,{getItem: () => saved,setItem(){}});
+  assert.deepEqual(cart.getItems().map(({id, code, quantity}) => [id, code, quantity]), [['6177', '6177', 3]]);
+  assert.equal(cart.subtotalCents, 53970);
+  assert.ok(products.find(p => p.id === '6177').legacyCodes.includes('341'));
 });
 
 test('customer-facing text contains no testing, estimates or internal PDF audit messages', () => {
@@ -106,9 +139,9 @@ test('every active card can be restored, ordered and cleared with the current pr
     assert.equal(cart.subtotalCents,product.priceCents*2,product.id);
     const message=buildOrderSummary({storeName:config.storeName,items:cart.getItems(),customer,subtotalCents:cart.subtotalCents,shippingLabel:config.shippingLabel});
     const url=new URL(getStoreWhatsAppUrl(config,message));
-    assert.equal(url.pathname,'/5548991989442',product.id);
+    assert.equal(url.pathname,'/5548991134975',product.id);
     assert.equal(url.searchParams.get('text'),message);
-    assert.ok(message.includes(`cód. ${product.code}`),product.id);
+    if (product.code) assert.ok(message.includes(`cód. ${product.code}`),product.id);
     assert.ok(message.includes(`Unitário: ${formatBRL(product.priceCents)}`),product.id);
     assert.ok(message.includes(`Subtotal dos produtos: ${formatBRL(product.priceCents*2)}`),product.id);
     if(product.isCombo)assert.ok(message.includes(product.composition),product.id);

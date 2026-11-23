@@ -1854,7 +1854,9 @@ export const consolidatedProductIds = [
   "site-maquina-de-aromatizacao-profissional-preta",
   "site-aromatizador-eletrico",
   "site-spray-corporal-bella-oriental-gourmand-200-ml",
-  "site-locao-hidratante-corporal-bergamota-e-neroli-250ml"
+  "site-locao-hidratante-corporal-bergamota-e-neroli-250ml",
+  // A loja confirmou a mesma apresentação de 250 ml no código 6177.
+  "site-difusor-de-aromas-novita-orquidea-negra-com-musk-250ml"
 ];
 export const catalogReviewNotes = {
   "5504": "Legenda do PDF: 95 ml; embalagem fotografada: 250 ml. Confirmar a apresentação. A foto divergente não é exibida.",

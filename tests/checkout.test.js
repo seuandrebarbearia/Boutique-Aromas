@@ -76,7 +76,7 @@ test("shows a combo as one composed item in the order summary", () => {
     storeName: "Boutique de Aromas",
     items: [
       {
-        name: "Kit Amêndoas Doces e Flor de Jasmim",
+        name: "Kit Amêndoas e Flor de Jasmim",
         code: "7232",
         volume: "Não informado",
         isCombo: true,
@@ -90,7 +90,7 @@ test("shows a combo as one composed item in the order summary", () => {
     shippingLabel: "A combinar"
   });
 
-  assert.match(summary, /1 x Kit Amêndoas Doces e Flor de Jasmim/);
+  assert.match(summary, /1 x Kit Amêndoas e Flor de Jasmim/);
   assert.match(summary, /1 loção 380 ml \+ 1 mousse 150 ml \+ 1 body splash 200 ml/);
   assert.doesNotMatch(summary, /Não informado/);
 });
@@ -315,7 +315,7 @@ test("keeps catalog combos and their confirmed components explicit", async () =>
   );
   assert.equal(
     almondKit.name,
-    "Kit Amêndoas Doces e Flor de Jasmim"
+    "Kit Amêndoas e Flor de Jasmim"
   );
 });
 
@@ -328,20 +328,20 @@ test("uses confirmed Florianópolis contacts and leaves unconfirmed channels pen
   assert.equal(config.mapsUrl, "https://maps.app.goo.gl/C189HDEHPThRFPxJ9");
   assert.equal(config.instagramUrl, "https://www.instagram.com/boutiquedearomas.floripa/");
   assert.equal(config.storeEmail, "");
-  assert.equal(config.whatsappNumber, "5548991989442");
+  assert.equal(config.whatsappNumber, "5548991134975");
   assert.equal(config.whatsappEnabled, true);
   const contactUrl = new URL(getStoreWhatsAppUrl(config, config.contactMessage));
-  assert.equal(contactUrl.pathname, "/5548991989442");
+  assert.equal(contactUrl.pathname, "/5548991134975");
   assert.equal(contactUrl.searchParams.get("text"), config.contactMessage);
 });
 
 test("service and orders share a confirmed destination and preserve their messages", () => {
-  assert.equal(getStoreWhatsAppUrl({ whatsappEnabled: false, whatsappNumber: "5548991989442" }, "Pedido"), null);
+  assert.equal(getStoreWhatsAppUrl({ whatsappEnabled: false, whatsappNumber: "5548991134975" }, "Pedido"), null);
   assert.equal(getStoreWhatsAppUrl({ whatsappEnabled: true, whatsappNumber: "" }, "Pedido"), null);
-  const confirmedStore = { whatsappEnabled: true, whatsappNumber: "5548991989442" };
+  const confirmedStore = { whatsappEnabled: true, whatsappNumber: "5548991134975" };
   for (const message of ["Olá! Gostaria de atendimento da Boutique de Aromas Floripa.", "Pedido: Jasmim & Vanilla\nObservações: entregar à tarde"]) {
     const url = new URL(getStoreWhatsAppUrl(confirmedStore, message));
-    assert.equal(url.pathname, "/5548991989442");
+    assert.equal(url.pathname, "/5548991134975");
     assert.equal(url.searchParams.get("text"), message);
   }
 });
@@ -386,12 +386,12 @@ test("WhatsApp order keeps products and delivery details after the cart is clear
     subtotalCents: cart.subtotalCents,
     shippingLabel: "A combinar"
   });
-  const url = new URL(getStoreWhatsAppUrl({ whatsappEnabled: true, whatsappNumber: "5548991989442" }, message));
+  const url = new URL(getStoreWhatsAppUrl({ whatsappEnabled: true, whatsappNumber: "5548991134975" }, message));
 
   cart.clear();
 
   assert.equal(cart.totalUnits, 0);
-  assert.equal(url.pathname, "/5548991989442");
+  assert.equal(url.pathname, "/5548991134975");
   const text = url.searchParams.get("text");
   assert.match(text, /2 x Difusor de Jasmim/);
   assert.match(text, /1 x Sabonete Líquido/);

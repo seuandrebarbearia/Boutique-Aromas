@@ -7,8 +7,7 @@ export const config = Object.freeze({
   instagramUrl: "https://www.instagram.com/boutiquedearomas.floripa/",
   mapsUrl: "https://maps.app.goo.gl/C189HDEHPThRFPxJ9",
   demoMode: false,
-  // WhatsApp de pedidos confirmado pelo usuário em 17/11/2026.
-  whatsappNumber: "5548991989442",
+  whatsappNumber: "5548991134975",
   whatsappEnabled: true,
   contactMessage: "Olá! Gostaria de atendimento da Boutique de Aromas Floripa.",
   shippingLabel: "A combinar"

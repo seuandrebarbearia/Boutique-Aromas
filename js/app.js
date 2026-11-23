@@ -1,9 +1,9 @@
-import { config } from "./config.js?v=20261120";
-import { createCartStore } from "./cart.js?v=20261120";
-import { buildOrderSummary, getStoreWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js?v=20261120";
-import { products } from "./products.js?v=20261120";
+import { config } from "./config.js?v=20261123";
+import { createCartStore } from "./cart.js?v=20261123";
+import { buildOrderSummary, getStoreWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js?v=20261123";
+import { products } from "./products.js?v=20261123";
 import { getCatalogDepartment, groupProductsByCategory, getPriceLabel, getProductDescription } from "./catalog.js?v=20261120";
-import { getProductCardPhoto } from "./product-card-media.js?v=20261120";
+import { getProductCardPhoto } from "./product-card-media.js?v=20261123";
 
 const cart = createCartStore(products);
 const productById = new Map(products.map((product) => [product.id, product]));
@@ -260,8 +260,11 @@ function createProductCard(product) {
   price.append(createElement("strong", "product-card-price", formatBRL(product.priceCents)));
   const priceLabel = getPriceLabel(product);
   if (priceLabel) price.append(createElement("small", "price-source-label", priceLabel));
-  card.append(media, heading,
-    createElement("p", "product-card-meta", `${product.isCombo ? "Kit" : product.specification || product.volume} · Cód. ${product.code}`));
+  const presentation = product.isCombo
+    ? (product.isPromotional ? "Kit promocional" : "Kit")
+    : product.specification || product.volume;
+  const metadata = [presentation, product.code && `Cód. ${product.code}`].filter(Boolean).join(" · ");
+  card.append(media, heading, createElement("p", "product-card-meta", metadata));
   if (product.isCombo) {
     card.append(createElement("p", "product-card-composition", product.composition));
   }
@@ -356,7 +359,7 @@ function renderCart() {
               : item.fragrance,
           item.isCombo ? "" : item.volume,
           `Unitário: ${formatBRL(item.priceCents)}`,
-          `Cód. ${item.code}`
+          item.code && `Cód. ${item.code}`
         ]
           .filter(Boolean)
           .join(" · ")
@@ -487,6 +490,18 @@ function openProductDetails(product, opener) {
     figure.append(createElement("figcaption", "collective-caption", caption));
   } else {
     figure.append(image);
+    if (product.alternatePhoto) {
+      const primaryPhoto = cardPhoto?.src ?? product.image;
+      const name = getOfferItemName(product);
+      let showingAlternate = false;
+      const togglePhoto = createButton("Ver outra foto", "button detail-photo-switch", () => {
+        showingAlternate = !showingAlternate;
+        setProductImage(image, showingAlternate ? product.alternatePhoto.src : primaryPhoto,
+          showingAlternate ? `${name} · ${product.alternatePhoto.label}` : name);
+        togglePhoto.textContent = showingAlternate ? "Voltar à foto principal" : "Ver outra foto";
+      });
+      figure.append(togglePhoto);
+    }
   }
 
   const content = createElement("div", "detail-copy");
@@ -514,14 +529,15 @@ function openProductDetails(product, opener) {
 
   const metadata = createElement("dl", "detail-metadata");
   for (const [label, value] of [
-    ["Código", product.code],
+    ...(product.code ? [["Código", product.code]] : []),
+    ...(product.isPromotional ? [["Oferta", "Kit promocional"]] : []),
     ...(!product.isCombo
       ? [[product.specification ? "Especificação" : "Volume", product.specification || product.volume]]
       : [])
   ]) {
     metadata.append(createElement("dt", "", label), createElement("dd", "", value));
   }
-  content.append(metadata);
+  if (metadata.childElementCount) content.append(metadata);
   content.append(createElement("strong", "detail-price", formatBRL(product.priceCents)));
   const priceLabel = getPriceLabel(product);
   if (priceLabel) content.append(createElement("p", "price-source-label", priceLabel));

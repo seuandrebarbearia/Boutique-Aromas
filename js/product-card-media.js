@@ -21,8 +21,21 @@ const individualPhotos = {
 
 const frames = new Map(Object.values(collectionPhotosByPage).flat().map(photo => [photo.src, photo]));
 
+const storePhotoBounds = {
+  "assets/products/kit-amendoas-jasmim-7232.jpg": [0, 90, 1200, 1550],
+  "assets/products/kit-black-44-loja.jpg": [0, 490, 1200, 1310],
+  "assets/products/roll-on-divina-6188.jpg": [380, 310, 820, 1400],
+  "assets/products/refil-novita-patchouli-musk-imperial-7135.jpg": [343, 345, 810, 1410],
+  "assets/products/vela-massagem-flor-da-pele-7192.jpg": [360, 530, 930, 1190]
+};
+
 export function getProductCardPhoto(product) {
   if (product.photoPending) return null;
+  const bounds = storePhotoBounds[product.image];
+  if (bounds) return { src: product.image, width: 1200, height: 1600, bounds };
+  if (product.image === "assets/official-2026-11-12/difusor-de-aromas-novita-orquidea-negra-com-musk-250ml.jpg") {
+    return { src: product.image, width: 864, height: 984, bounds: [190, 0, 810, 984] };
+  }
   if (auditedProductPhotos[product.id]) return auditedProductPhotos[product.id];
   if (product.imageKind === "individual" && productPhotoFramesByPath[product.image]) {
     return productPhotoFramesByPath[product.image];

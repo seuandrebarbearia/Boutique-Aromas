@@ -1,8 +1,8 @@
 import { officialProductUpdates, additionalOfficialProducts } from "./official-catalog.js?v=20261120";
-import { isRetiredProduct } from "./retired-products.js?v=20261120";
-import { approvedCatalogOverrides, approvedCatalogAdditions, consolidatedProductIds, catalogReviewNotes, suppressedPhotoIds } from "./approved-catalog-data.js?v=20261120";
+import { isRetiredProduct } from "./retired-products.js?v=20261123";
+import { approvedCatalogOverrides, approvedCatalogAdditions, consolidatedProductIds, catalogReviewNotes, suppressedPhotoIds } from "./approved-catalog-data.js?v=20261123";
 import { referencePricesById } from "./reference-prices.js?v=20261120";
-import { applyStoreApprovedUpdate } from "./store-approved-updates.js?v=20261120";
+import { applyStoreApprovedUpdate } from "./store-approved-updates.js?v=20261123";
 
 const extractedProducts = [
   {

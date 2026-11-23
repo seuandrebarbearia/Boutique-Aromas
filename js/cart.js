@@ -10,6 +10,9 @@ function getDefaultStorage() {
 
 export function createCartStore(products, storage = getDefaultStorage()) {
   const productById = new Map(products.map((product) => [product.id, product]));
+  const currentIdByLegacyId = new Map(products.flatMap((product) =>
+    (product.legacyIds ?? []).map((id) => [id, product.id])
+  ));
   const quantities = new Map();
   let storageMessage = storage
     ? ""
@@ -46,19 +49,27 @@ export function createCartStore(products, storage = getDefaultStorage()) {
         return;
       }
 
+      const migratedQuantities = new Map();
       for (const entry of parsed) {
         if (
           !entry ||
           typeof entry.id !== "string" ||
           !Number.isInteger(entry.quantity) ||
           entry.quantity < 1 ||
-          entry.quantity > 99 ||
-          !productById.has(entry.id)
+          entry.quantity > 99
         ) {
           continue;
         }
 
-        quantities.set(entry.id, entry.quantity);
+        if (productById.has(entry.id)) {
+          quantities.set(entry.id, entry.quantity);
+        } else if (currentIdByLegacyId.has(entry.id)) {
+          const id = currentIdByLegacyId.get(entry.id);
+          migratedQuantities.set(id, (migratedQuantities.get(id) ?? 0) + entry.quantity);
+        }
+      }
+      for (const [id, quantity] of migratedQuantities) {
+        quantities.set(id, Math.min(99, (quantities.get(id) ?? 0) + quantity));
       }
     } catch {
       quantities.clear();

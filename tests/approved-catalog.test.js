@@ -25,7 +25,7 @@ test('records visual review of all 61 pages and does not approve obscured or mal
 
 test('the approved PDF wins over historical official prices for every matched active product', () => {
   const confirmed = products.filter(p => p.priceStatus === 'approved-pdf');
-  assert.equal(confirmed.length, 142);
+  assert.equal(confirmed.length, 131);
   for (const p of confirmed) {
     const source = audit.records.find(r => r.code === p.code && r.page === p.approvedPdfPage);
     assert.equal(p.priceCents, source.priceCents, `${p.id}: PDF price`);
@@ -40,23 +40,25 @@ test('the approved PDF wins over historical official prices for every matched ac
 });
 
 test('consolidates exact duplicates, preserves different presentations, and retains missing products for review', () => {
-  assert.equal(products.length, 191);
+  assert.equal(products.length, 184);
   for (const pair of audit.consolidations) {
     assert.equal(byId(pair.removedId), undefined);
     assert.ok(byId(pair.retainedId));
   }
   for (const p of audit.retiredEquivalents) assert.equal(byId(p.id), undefined);
   assert.equal(products.filter(p => p.code === '6507').length, 2);
-  assert.ok(byId('6177') && byId('site-difusor-de-aromas-novita-orquidea-negra-com-musk-250ml'));
-  assert.ok(byId('6052') && byId('site-refil-para-difusor-de-aromas-divina-250ml'));
+  assert.ok(byId('6177'));
+  assert.equal(byId('site-difusor-de-aromas-novita-orquidea-negra-com-musk-250ml'), undefined);
+  assert.equal(byId('6052'), undefined);
+  assert.ok(byId('site-refil-para-difusor-de-aromas-divina-250ml'));
   assert.ok(byId('7102') && byId('site-manteiga-hidratante-corporal-200g'));
   assert.equal(byId('7232').priceStatus, 'pending-review');
   assert.equal(byId('7232').priceCents, 29370);
   assert.equal(byId('site-kit-jasmim-e-amendoas-doces').priceStatus, 'pending-review');
 });
 
-test('registers the six missing codes with correct categories and suppresses divergent photographs', () => {
-  for (const id of ['6674','6371','6745','6683','6138','6188']) {
+test('preserves the remaining PDF-only codes and restores resolved photographs', () => {
+  for (const id of ['6674','6371','6683','6138']) {
     assert.equal(byId(id).priceStatus, 'approved-pdf');
     assert.ok(fs.existsSync(byId(id).image));
   }
@@ -64,11 +66,12 @@ test('registers the six missing codes with correct categories and suppresses div
   assert.equal(byId('6683').fragrance, 'Baunilha');
   assert.equal(getCatalogDepartment(byId('6371')), 'perfumacao-de-ambientes');
   assert.equal(getCatalogDepartment(byId('6188')), 'autocuidado');
-  assert.equal(groupProductsByCategory(products).flatMap(([,p]) => p).length, 191);
-  for (const id of suppressedPhotoIds) {
-    assert.equal(getProductCardPhoto(byId(id)), null);
-    assert.equal(byId(id).officialImage, null);
-    assert.equal(byId(id).image, 'assets/products/placeholder.svg');
+  assert.equal(groupProductsByCategory(products).flatMap(([,p]) => p).length, 184);
+  for (const id of suppressedPhotoIds.filter(id => byId(id))) {
+    const product = byId(id);
+    assert.equal(product.photoPending, false);
+    assert.equal(getProductCardPhoto(product).src, product.image);
+    assert.ok(fs.existsSync(product.image));
   }
 });
 
@@ -88,7 +91,7 @@ test('old carts use current unit prices and cannot restore retired or consolidat
   const url = new URL(getStoreWhatsAppUrl(config,message));
   cart.clear();
   assert.equal(cart.totalUnits,0);
-  assert.equal(url.pathname,'/5548991989442');
+  assert.equal(url.pathname,'/5548991134975');
   assert.equal(url.searchParams.get('text'),message);
   assert.match(message,/2 x Óleo Difusor/);
   assert.match(message,/Unitário: R\$\u00a0289,90/);
