@@ -1,9 +1,9 @@
 import { config } from "./config.js?v=20261123";
 import { createCartStore } from "./cart.js?v=20261123";
 import { buildOrderSummary, getStoreWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js?v=20261123";
-import { products } from "./products.js?v=20261123";
+import { products } from "./products.js?v=20261123-2";
 import { getCatalogDepartment, groupProductsByCategory, getPriceLabel, getProductDescription } from "./catalog.js?v=20261120";
-import { getProductCardPhoto } from "./product-card-media.js?v=20261123";
+import { getCutoutProductPhoto, getProductCardPhoto } from "./product-card-media.js?v=20261123-2";
 
 const cart = createCartStore(products);
 const productById = new Map(products.map((product) => [product.id, product]));
@@ -212,6 +212,29 @@ const catalogDepartments = [
   }
 ];
 
+function createFramedProductPhoto(photo, name) {
+  const crop = createElement("span", "product-card-photo-crop");
+  const image = createElement("img", "product-card-photo");
+  const [left, top, right, bottom] = photo.bounds;
+  const width = right - left;
+  const height = bottom - top;
+  const ratio = width / height;
+  crop.style.width = `${Math.min(1, ratio) * 90}%`;
+  crop.style.height = `${Math.min(1, 1 / ratio) * 90}%`;
+  image.style.width = `${photo.width / width * 100}%`;
+  image.style.height = `${photo.height / height * 100}%`;
+  image.style.left = `${-left / width * 100}%`;
+  image.style.top = `${-top / height * 100}%`;
+  image.width = photo.width;
+  image.height = photo.height;
+  image.loading = "lazy";
+  image.decoding = "async";
+  if (photo.cutout) image.classList.add(photo.cutout);
+  setProductImage(image, photo.src, name);
+  crop.append(image);
+  return crop;
+}
+
 function createProductCard(product) {
   const card = createElement("article", "product-card");
   card.id = `product-${product.id}`;
@@ -226,25 +249,7 @@ function createProductCard(product) {
     setProductImage(image, product.officialImage, getOfferItemName(product));
     media.append(image);
   } else if (photo) {
-    const crop = createElement("span", "product-card-photo-crop");
-    const image = createElement("img", "product-card-photo");
-    const [left, top, right, bottom] = photo.bounds;
-    const width = right - left;
-    const height = bottom - top;
-    const ratio = width / height;
-    crop.style.width = `${Math.min(1, ratio) * 90}%`;
-    crop.style.height = `${Math.min(1, 1 / ratio) * 90}%`;
-    image.style.width = `${photo.width / width * 100}%`;
-    image.style.height = `${photo.height / height * 100}%`;
-    image.style.left = `${-left / width * 100}%`;
-    image.style.top = `${-top / height * 100}%`;
-    image.width = photo.width;
-    image.height = photo.height;
-    image.loading = "lazy";
-    image.decoding = "async";
-    setProductImage(image, photo.src, getOfferItemName(product));
-    crop.append(image);
-    media.append(crop);
+    media.append(createFramedProductPhoto(photo, getOfferItemName(product)));
   } else {
     media.classList.add("product-card-media-pending");
     media.append(
@@ -470,6 +475,7 @@ function openProductDetails(product, opener) {
   const cardPhoto = getProductCardPhoto(product);
   const isCollective = !cardPhoto && product.imageKind === "collective";
   const image = createElement("img", `detail-image${isCollective ? " detail-image-collective" : ""}`);
+  if (cardPhoto?.studio) image.classList.add("detail-image-studio");
   setProductImage(image, cardPhoto?.src ?? product.image, getOfferItemName(product));
   image.width = cardPhoto?.width ?? 640;
   image.height = cardPhoto?.height ?? 480;
@@ -489,15 +495,22 @@ function openProductDetails(product, opener) {
     figure.append(photoButton);
     figure.append(createElement("figcaption", "collective-caption", caption));
   } else {
-    figure.append(image);
+    const name = getOfferItemName(product);
+    const frame = cardPhoto?.cutout ? createElement("div", "detail-photo-stage") : null;
+    if (frame) frame.append(createFramedProductPhoto(cardPhoto, name));
+    figure.append(frame ?? image);
     if (product.alternatePhoto) {
       const primaryPhoto = cardPhoto?.src ?? product.image;
-      const name = getOfferItemName(product);
       let showingAlternate = false;
       const togglePhoto = createButton("Ver outra foto", "button detail-photo-switch", () => {
         showingAlternate = !showingAlternate;
-        setProductImage(image, showingAlternate ? product.alternatePhoto.src : primaryPhoto,
-          showingAlternate ? `${name} · ${product.alternatePhoto.label}` : name);
+        const src = showingAlternate ? product.alternatePhoto.src : primaryPhoto;
+        const label = showingAlternate ? `${name} · ${product.alternatePhoto.label}` : name;
+        if (frame) {
+          frame.replaceChildren(createFramedProductPhoto(getCutoutProductPhoto(src), label));
+        } else {
+          setProductImage(image, src, label);
+        }
         togglePhoto.textContent = showingAlternate ? "Voltar à foto principal" : "Ver outra foto";
       });
       figure.append(togglePhoto);

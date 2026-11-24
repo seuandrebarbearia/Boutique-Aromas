@@ -2,7 +2,7 @@ import { officialProductUpdates, additionalOfficialProducts } from "./official-c
 import { isRetiredProduct } from "./retired-products.js?v=20261123";
 import { approvedCatalogOverrides, approvedCatalogAdditions, consolidatedProductIds, catalogReviewNotes, suppressedPhotoIds } from "./approved-catalog-data.js?v=20261123";
 import { referencePricesById } from "./reference-prices.js?v=20261120";
-import { applyStoreApprovedUpdate } from "./store-approved-updates.js?v=20261123";
+import { applyStoreApprovedUpdate } from "./store-approved-updates.js?v=20261123-2";
 
 const extractedProducts = [
   {

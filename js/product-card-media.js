@@ -21,18 +21,37 @@ const individualPhotos = {
 
 const frames = new Map(Object.values(collectionPhotosByPage).flat().map(photo => [photo.src, photo]));
 
-const storePhotoBounds = {
-  "assets/products/kit-amendoas-jasmim-7232.jpg": [0, 90, 1200, 1550],
-  "assets/products/kit-black-44-loja.jpg": [0, 490, 1200, 1310],
-  "assets/products/roll-on-divina-6188.jpg": [380, 310, 820, 1400],
-  "assets/products/refil-novita-patchouli-musk-imperial-7135.jpg": [343, 345, 810, 1410],
-  "assets/products/vela-massagem-flor-da-pele-7192.jpg": [360, 530, 930, 1190]
+const studioPhotoBounds = {
+  "assets/products/kit-amendoas-jasmim-7232-catalogo.jpg": [0, 0, 1200, 1200],
+  "assets/products/kit-black-44-catalogo.jpg": [0, 235, 1200, 1085],
+  "assets/products/vela-massagem-flor-da-pele-7192-catalogo.jpg": [215, 195, 985, 1040]
 };
+
+const cutoutPhotos = {
+  "assets/products/roll-on-divina-6188.jpg": {
+    bounds: [380, 320, 820, 1400], cutout: "roll-on-photo-front"
+  },
+  "assets/products/roll-on-divina-6188-lateral.jpg": {
+    bounds: [385, 214, 895, 1375], cutout: "roll-on-photo-side"
+  },
+  "assets/products/refil-novita-patchouli-musk-imperial-7135.jpg": {
+    bounds: [343, 345, 810, 1410], cutout: "refill-photo-cutout"
+  }
+};
+
+export function getCutoutProductPhoto(src) {
+  const frame = cutoutPhotos[src];
+  return frame ? { src, width: 1200, height: 1600, ...frame } : null;
+}
 
 export function getProductCardPhoto(product) {
   if (product.photoPending) return null;
-  const bounds = storePhotoBounds[product.image];
-  if (bounds) return { src: product.image, width: 1200, height: 1600, bounds };
+  const studioBounds = studioPhotoBounds[product.image];
+  if (studioBounds) return {
+    src: product.image, width: 1200, height: 1200, bounds: studioBounds, studio: true
+  };
+  const cutoutPhoto = getCutoutProductPhoto(product.image);
+  if (cutoutPhoto) return cutoutPhoto;
   if (product.image === "assets/official-2026-11-12/difusor-de-aromas-novita-orquidea-negra-com-musk-250ml.jpg") {
     return { src: product.image, width: 864, height: 984, bounds: [190, 0, 810, 984] };
   }

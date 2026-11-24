@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { products } from '../js/products.js';
 import { getPriceLabel, getProductDescription, getCatalogDepartment } from '../js/catalog.js';
-import { getProductCardPhoto } from '../js/product-card-media.js';
+import { getCutoutProductPhoto, getProductCardPhoto } from '../js/product-card-media.js';
 import { createCartStore, CART_STORAGE_KEY } from '../js/cart.js';
 import { buildOrderSummary, getStoreWhatsAppUrl, formatBRL } from '../js/checkout.js';
 import { config } from '../js/config.js';
@@ -69,7 +69,7 @@ test('Black 44 kit uses its approved total and confirmed three-item composition 
   assert.deepEqual(kit.componentIds,['7030','6758','7245']);
   assert.equal(kit.isPromotional,true);
   assert.equal(kit.code,'');
-  assert.equal(getProductCardPhoto(kit).src,'assets/products/kit-black-44-loja.jpg');
+  assert.equal(getProductCardPhoto(kit).src,'assets/products/kit-black-44-catalogo.jpg');
   const cart=createCartStore(products,null);
   cart.add(kit.id,2);
   assert.equal(cart.getItems().length,1);
@@ -102,7 +102,13 @@ test('applies the store photographs and confirmed presentations', () => {
     assert.notEqual(product.alternatePhoto.src, product.image);
     assert.ok(fs.existsSync(product.alternatePhoto.src));
   }
-  assert.ok(fs.existsSync(getProductCardPhoto(byId('7135')).src));
+  const refill = getProductCardPhoto(byId('7135'));
+  assert.equal(refill.src, 'assets/products/refil-novita-patchouli-musk-imperial-7135.jpg');
+  assert.equal(refill.cutout, 'refill-photo-cutout');
+  assert.ok(fs.existsSync(refill.src));
+  const rollOn = byId('6188');
+  assert.equal(getProductCardPhoto(rollOn).cutout, 'roll-on-photo-front');
+  assert.equal(getCutoutProductPhoto(rollOn.alternatePhoto.src).cutout, 'roll-on-photo-side');
 });
 
 test('restores the merged Orquídea Negra diffuser at the current price', () => {

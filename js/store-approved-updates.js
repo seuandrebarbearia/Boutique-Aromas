@@ -44,11 +44,11 @@ const catalogReviewUpdates = {
   "7103": { name: "Iogurte Corporal", volume: "200 ml", image: "assets/products/iogurte-dubai-dreams-fornecido.png" },
   "7232": {
     name: "Kit Amêndoas e Flor de Jasmim",
-    image: "assets/products/kit-amendoas-jasmim-7232.jpg",
+    image: "assets/products/kit-amendoas-jasmim-7232-catalogo.jpg",
     catalogNote: "Kit não localizado no PDF de 61 páginas. A foto da loja confirma a composição. Preço anterior mantido para conferência."
   },
   "site-kit-black-44": {
-    code: "", isPromotional: true, image: "assets/products/kit-black-44-loja.jpg"
+    code: "", isPromotional: true, image: "assets/products/kit-black-44-catalogo.jpg"
   },
   "6177": {
     volume: "250 ml", priceCents: 17990,
@@ -65,8 +65,8 @@ const catalogReviewUpdates = {
   "7134": { priceCents: 12990 },
   "7135": { priceCents: 12990, image: "assets/products/refil-novita-patchouli-musk-imperial-7135.jpg" },
   "7192": {
-    volume: "100 g", priceCents: 6890, image: "assets/products/vela-massagem-flor-da-pele-7192.jpg",
-    alternatePhoto: { src: "assets/products/vela-massagem-flor-da-pele-7192-aberta.jpg", label: "Vela com a tampa aberta" }
+    volume: "100 g", priceCents: 6890, image: "assets/products/vela-massagem-flor-da-pele-7192-catalogo.jpg",
+    alternatePhoto: { src: "assets/products/vela-massagem-flor-da-pele-7192-aberta-catalogo.jpg", label: "Vela com a tampa aberta" }
   }
 };
 
