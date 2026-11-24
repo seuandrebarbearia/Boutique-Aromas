@@ -71,7 +71,7 @@ const catalogReviewUpdates = {
 };
 
 const currentStoreDate = "2026-11-24";
-const christmasPromotion = { campaign: "natal", promotionLabel: "Promoção de Natal" };
+const christmasPromotion = { campaign: "natal", category: "Presentes de Natal", promotionLabel: "Promoção de Natal" };
 const currentCatalogUpdates = {
   "7201": { priceCents: 9890 },
   "7198": { priceCents: 9890 },
@@ -96,11 +96,15 @@ const currentCatalogUpdates = {
     priceCents: 10190, name: "Sérum Uniformizador com Vitamina C", family: "Favo Beauty", officialTitle: ""
   },
   "site-kit-3-body-splash-all-you-need-is-splash": {
-    code: "7274", priceCents: 10990, name: "Kit 3 Body Splash All You Need Is Splash", category: "Combos",
+    code: "7274", priceCents: 10990, name: "Kit 3 Body Splash All You Need Is Splash",
     volume: "3 × 100 ml", specification: "3 × 100 ml", ...christmasPromotion,
     composition: "3 body splashes de 100 ml cada: Start, Lumi e Night.",
     image: "assets/products/kit-all-you-need-is-splash-7274.jpg",
     alternatePhoto: { src: "assets/products/kit-all-you-need-is-splash-7274-frascos.jpg", label: "Frascos Start, Night e Lumi" }
+  },
+  "site-difusor-cereja-e-avela-95ml": {
+    ...christmasPromotion, promotionGroup: "encantos-de-natal", name: "Difusor de Aromas",
+    family: "Encantos de Natal", specification: "95 ml", priceCents: 8990
   },
   "7232": { priceCents: 26790, name: "Kit Jasmim e Amêndoas Doces", catalogNote: "" },
   "site-refil-para-difusor-de-aromas-desejos-gratidao-canela-com-musk-250ml": {
@@ -125,7 +129,7 @@ const currentCatalogUpdates = {
 
 export const storeCatalogAdditions = [
   {
-    code: "7260", name: "Kit Desejos de Natal", family: "Desejos de Natal", category: "Combos",
+    code: "7260", name: "Kit Desejos de Natal", family: "Desejos de Natal",
     priceCents: 8990, volume: "3 × 30 ml", isCombo: true, ...christmasPromotion,
     composition: "3 perfumes para roupas e ambiente de 30 ml cada: Felicidade, Gratidão e Coragem.",
     image: "assets/products/kit-desejos-natal-7260.jpg"
@@ -143,10 +147,16 @@ export const storeCatalogAdditions = [
   ].map(([code, fragrance]) => ({
     code, fragrance, name: "Vela Aromática de Vidro", family: "Velas Aromáticas", category: "Velas",
     priceCents: 16490, volume: "200 g"
-  }))
+  })),
+  {
+    id: "site-sabonete-liquido-cereja-e-avela-natal-190ml", code: "",
+    name: "Sabonete Líquido", family: "Encantos de Natal", fragrance: "Cereja e Avelã", volume: "190 ml",
+    ...christmasPromotion, promotionGroup: "encantos-de-natal", priceCents: 4990,
+    image: "assets/products/sabonete-encantos-de-natal-cereja-avela-190ml.jpg"
+  }
 ].map(product => ({
   fragrance: "",
-  ...product, id: product.code, reference: product.code, collection: product.family,
+  ...product, id: product.id ?? product.code, reference: product.code, collection: product.family,
   image: product.image ?? "assets/products/placeholder.svg",
   imageKind: product.image ? "individual" : "pending", photoPending: !product.image, sourcePage: null, catalogNote: "",
   priceStatus: "approved-store", priceBasis: "approved-store", priceReference: null, storeApprovedAt: currentStoreDate

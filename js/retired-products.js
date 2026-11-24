@@ -9,7 +9,7 @@ export const retiredProductCodes = [
   "6766", "6939", "5092", "6414", "6413", "5072",
   "7104", // Retirado a pedido da loja em 17/11/2026.
   "6754", "6745", "7211", "7210", "6637", // Relatório de 19/11/2026. O 6052 voltou ao catálogo em 24/11.
-  "1486", "1487", "1617", "6175", "6370", "6402"
+  "1486", "1487", "6175", "6370", "6402"
 ];
 
 // These independently imported presentations have no SKU in the source.

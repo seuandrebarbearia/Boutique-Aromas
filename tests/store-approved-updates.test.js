@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { products } from '../js/products.js';
-import { corporateGiftProducts } from '../js/corporate-gifts.js';
+import { corporateGifts, corporateGiftProducts } from '../js/corporate-gifts.js';
 import { getPriceLabel, getProductDescription, getCatalogDepartment } from '../js/catalog.js';
 import { getCutoutProductPhoto, getProductCardPhoto } from '../js/product-card-media.js';
 import { createCartStore, CART_STORAGE_KEY } from '../js/cart.js';
@@ -45,6 +45,8 @@ const expected = [
   ['6052','6052',8490],
   ['6100','6100',7290],
   ['site-vela-aromatica-mi-casa-190g','7235',19990],
+  ['site-difusor-cereja-e-avela-95ml','1617',8990],
+  ['site-sabonete-liquido-cereja-e-avela-natal-190ml',null,4990],
   ['7246','7246',8990],
   ['7247','7247',8990],
   ['7248','7248',8990],
@@ -91,7 +93,7 @@ test('uses the current store-approved prices and codes exactly', () => {
     assert.equal(p.catalogNote,'');
   }
   assert.equal(formatBRL(products.find(p=>p.code==='1717').priceCents),'R$\u00a096,90');
-  assert.equal(products.length,182);
+  assert.equal(products.length,184);
   for (const [,code] of expected.filter(([,c])=>c)) assert.equal(products.filter(p=>p.code===code).length,1,code);
   for (const id of ['6504','6505','6506','6507','6507-2']) {
     const candle = products.find(product => product.id === id);
@@ -110,7 +112,17 @@ test('adds the supplied product presentations and keeps distinct Black 44 varian
   assert.equal(christmasKit.composition, '3 perfumes para roupas e ambiente de 30 ml cada: Felicidade, Gratidão e Coragem.');
   const splashKit = byCode('7274');
   assert.equal(splashKit.composition, '3 body splashes de 100 ml cada: Start, Lumi e Night.');
-  assert.deepEqual(products.filter(product => product.campaign === 'natal').map(product => product.code).sort(), ['7260', '7274']);
+  const christmasOffers = products.filter(product => product.campaign === 'natal');
+  assert.deepEqual(christmasOffers.map(product => product.code).sort(), ['', '1617', '7260', '7274']);
+  assert.ok(christmasOffers.every(product => product.category === 'Presentes de Natal'));
+  assert.equal(getProductCardPhoto(byCode('1617')).src, 'assets/official-2026-11-12/difusor-cereja-e-avela-95ml.png');
+  const soap = products.find(product => product.id === 'site-sabonete-liquido-cereja-e-avela-natal-190ml');
+  assert.equal(soap.code, '');
+  assert.equal(soap.volume, '190 ml');
+  assert.equal(getProductCardPhoto(soap).src, 'assets/products/sabonete-encantos-de-natal-cereja-avela-190ml.jpg');
+  assert.equal(soap.promotionGroup, byCode('1617').promotionGroup);
+  assert.equal(corporateGifts.length, 8);
+  assert.ok(corporateGifts.every(gift => gift.category === 'Presentes Corporativos de Natal'));
   for (const [product, filename] of [[christmasKit, 'kit-desejos-natal-7260.jpg'], [splashKit, 'kit-all-you-need-is-splash-7274.jpg']]) {
     assert.equal(product.promotionLabel, 'Promoção de Natal');
     assert.equal(product.photoPending, false);

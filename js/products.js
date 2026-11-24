@@ -1,8 +1,8 @@
 import { officialProductUpdates, additionalOfficialProducts } from "./official-catalog.js?v=20261120";
-import { isRetiredProduct } from "./retired-products.js?v=20261124";
+import { isRetiredProduct } from "./retired-products.js?v=natal-categorias-20261124";
 import { approvedCatalogOverrides, approvedCatalogAdditions, consolidatedProductIds, catalogReviewNotes, suppressedPhotoIds } from "./approved-catalog-data.js?v=20261123";
 import { referencePricesById } from "./reference-prices.js?v=20261120";
-import { applyStoreApprovedUpdate, storeCatalogAdditions } from "./store-approved-updates.js?v=natal-20261124-2";
+import { applyStoreApprovedUpdate, storeCatalogAdditions } from "./store-approved-updates.js?v=encantos-20261124";
 
 const extractedProducts = [
   {

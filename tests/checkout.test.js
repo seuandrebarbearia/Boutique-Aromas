@@ -300,7 +300,7 @@ test("keeps catalog combos and their confirmed components explicit", async () =>
     combos.map((product) => product.code).sort(),
     ["6728", "6914", "7232", "7260"]
   );
-  assert.ok(combos.every((product) => product.category === "Combos"));
+  assert.ok(combos.every((product) => product.category === (product.campaign === "natal" ? "Presentes de Natal" : "Combos")));
   assert.ok(combos.every((product) => product.composition && existsSync(product.image)));
   assert.deepEqual(
     products.find((product) => product.code === "7232").componentIds,

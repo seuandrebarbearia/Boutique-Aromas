@@ -39,7 +39,7 @@ test('the approved PDF wins over historical official prices for every matched ac
 });
 
 test('consolidates exact duplicates, preserves different presentations, and retains missing products for review', () => {
-  assert.equal(products.length, 182);
+  assert.equal(products.length, 184);
   for (const pair of audit.consolidations) {
     assert.equal(byId(pair.removedId), undefined);
     assert.ok(byId(pair.retainedId));
@@ -66,7 +66,7 @@ test('preserves the remaining PDF-only codes and restores resolved photographs',
   assert.equal(byId('6683').fragrance, 'Baunilha');
   assert.equal(getCatalogDepartment(byId('6371')), 'perfumacao-de-ambientes');
   assert.equal(getCatalogDepartment(byId('6188')), 'autocuidado');
-  assert.equal(groupProductsByCategory(products).flatMap(([,p]) => p).length, 182);
+  assert.equal(groupProductsByCategory(products).flatMap(([,p]) => p).length, 184);
   for (const id of suppressedPhotoIds.filter(id => byId(id))) {
     const product = byId(id);
     assert.equal(product.photoPending, false);

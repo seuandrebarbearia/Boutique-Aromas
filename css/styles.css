@@ -2225,7 +2225,11 @@ main,
 
 .christmas-section {
   margin-bottom: 24px;
-  scroll-margin-top: 168px;
+}
+
+.christmas-section,
+#presentes-corporativos-de-natal {
+  scroll-margin-top: var(--site-header-height, 240px);
 }
 
 .christmas-nav-link {
@@ -2327,7 +2331,7 @@ main,
   background: #fffdf8;
 }
 
-.christmas-carousel-viewport .product-card {
+.christmas-carousel-viewport > .product-card {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
   grid-template-rows: auto auto 1fr auto auto;
@@ -2335,14 +2339,14 @@ main,
   column-gap: clamp(12px, 3vw, 30px);
 }
 
-.christmas-carousel-viewport .product-card-media {
+.christmas-carousel-viewport > .product-card > .product-card-media {
   grid-column: 1;
   grid-row: 1 / span 5;
   align-self: center;
   border-radius: 12px;
 }
 
-.christmas-carousel-viewport .product-card > :not(.product-card-media) {
+.christmas-carousel-viewport > .product-card > :not(.product-card-media) {
   grid-column: 2;
 }
 
@@ -2382,6 +2386,116 @@ main,
   font-variant-numeric: tabular-nums;
 }
 
+.christmas-pair {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.christmas-pair-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 330px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(16px, 4vw, 36px);
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.christmas-pair-media {
+  position: relative;
+  width: min(100%, 330px);
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #f2e5d6;
+}
+
+.christmas-pair-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.christmas-pair-toggle {
+  position: absolute;
+  inset-inline: 10px;
+  bottom: 10px;
+  padding-inline: 8px;
+  border-color: #ab782c;
+  color: #102e54;
+  background: linear-gradient(115deg, #e5b254, #f4cb72);
+  box-shadow: 0 4px 14px rgb(23 33 49 / 34%);
+}
+
+.christmas-pair-toggle:hover {
+  background: #f4cb72;
+}
+
+.christmas-pair-summary > :is(h3, h4) {
+  margin: 0 0 12px;
+  color: var(--olive-dark);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+.christmas-pair-price-list {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.christmas-pair-price-list li {
+  padding: 10px 12px;
+  border: 1px solid #ead8ad;
+  border-radius: 10px;
+  background: #fffaf0;
+}
+
+.christmas-unit-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 6px;
+  margin: 6px 0 0;
+}
+
+.christmas-unit-price .product-card-meta {
+  margin: 0;
+}
+
+.christmas-unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 820px;
+  margin: 20px auto 0;
+  scroll-margin-top: var(--site-header-height, 240px);
+}
+
+.christmas-carousel-viewport .christmas-unit-grid {
+  scroll-margin-top: 10px;
+}
+
+.christmas-unit-card {
+  padding: clamp(12px, 2.5vw, 20px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.christmas-unit-card > .product-card-media {
+  align-self: center;
+  width: min(100%, 200px);
+}
+
+.christmas-unit-card .christmas-unit-price {
+  margin-top: auto;
+}
+
+.christmas-unit-card .detail-quantity-label {
+  margin-top: 10px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .christmas-nav-icon {
     animation: christmas-icon-pulse 1.45s ease-in-out 3;
@@ -2391,11 +2505,12 @@ main,
     animation: christmas-promo-in 220ms ease-out;
   }
 
-  .christmas-carousel-viewport .product-card {
+  .christmas-carousel-viewport > :is(.product-card, .christmas-pair) {
     animation: christmas-card-in 360ms ease-out;
   }
 
-  .christmas-carousel-viewport .product-card-media {
+  .christmas-carousel-viewport > .product-card > .product-card-media,
+  .christmas-carousel-viewport .christmas-pair-media img {
     animation: christmas-product-pulse 760ms ease-in-out 120ms both;
   }
 }
@@ -2408,6 +2523,17 @@ main,
 
 .corporate-gift-unit {
   margin-inline-start: 4px;
+}
+
+.corporate-category-note {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.corporate-category-note a {
+  color: var(--olive-dark);
+  font-weight: 650;
+  text-underline-offset: 3px;
 }
 
 .corporate-gift-options {
@@ -2426,23 +2552,67 @@ main,
   font-size: 1rem;
 }
 
-@media (max-width: 850px) {
-  .christmas-section {
-    scroll-margin-top: 240px;
-  }
-}
-
 @media (max-width: 560px) {
-  .christmas-carousel-viewport .product-card {
+  .christmas-carousel-viewport > .product-card {
     display: flex;
   }
 
-  .christmas-carousel-viewport .product-card-media {
+  .christmas-carousel-viewport > .product-card > .product-card-media {
     width: min(100%, 205px);
   }
 
   .christmas-carousel-controls .button {
     padding-inline: 9px;
+  }
+
+  .christmas-pair-overview,
+  .christmas-unit-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .christmas-pair-overview {
+    gap: 10px;
+  }
+
+  .christmas-pair-summary > :is(h3, h4) {
+    margin-bottom: 6px;
+  }
+
+  .christmas-pair-price-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .christmas-pair-price-list li {
+    padding: 7px 8px;
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+
+  .christmas-pair-price-list .product-card-price {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 560px) and (max-height: 650px) {
+  .christmas-carousel-viewport .christmas-pair-media {
+    max-width: 270px;
+  }
+
+  .christmas-carousel-viewport .christmas-pair-media img {
+    height: 180px;
+    object-fit: cover;
+    object-position: center 77%;
+  }
+
+  .christmas-carousel-viewport .christmas-pair-toggle {
+    top: 8px;
+    bottom: auto;
+    font-size: 0.84rem;
+  }
+
+  .christmas-carousel-viewport .christmas-pair-summary > h3 {
+    display: none;
   }
 }
 

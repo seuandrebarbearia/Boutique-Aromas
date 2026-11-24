@@ -1,19 +1,20 @@
 import { config } from "./config.js?v=20261124";
 import { createCartStore } from "./cart.js?v=20261123";
 import { buildOrderSummary, getStoreWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js?v=20261123";
-import { products } from "./products.js?v=natal-20261124-2";
-import { corporateGifts, corporateGiftProducts } from "./corporate-gifts.js?v=natal-20261124-6";
+import { products } from "./products.js?v=encantos-20261124";
+import { corporateGifts, corporateGiftProducts, CORPORATE_GIFT_CATEGORY } from "./corporate-gifts.js?v=natal-categorias-20261124";
 import { getCatalogDepartment, groupProductsByCategory, getPriceLabel, getProductDescription } from "./catalog.js?v=20261120";
-import { getCutoutProductPhoto, getProductCardPhoto } from "./product-card-media.js?v=natal-20261124";
+import { getCutoutProductPhoto, getProductCardPhoto } from "./product-card-media.js?v=encantos-20261124";
 
+const storefrontProducts = [...products, ...corporateGifts];
 const purchasableProducts = [...products, ...corporateGiftProducts];
 const cart = createCartStore(purchasableProducts);
 const productById = new Map(purchasableProducts.map((product) => [product.id, product]));
-const christmasProducts = products.filter((product) => product.campaign === "natal");
-const CHRISTMAS_CATEGORY = "presentes-corporativos-natal";
+const christmasProducts = products.filter((product) => product.campaign === "natal")
+  .sort((a, b) => a.code.localeCompare(b.code));
+const corporateCategoryAnchor = slugify(CORPORATE_GIFT_CATEGORY);
 let selectedFragrance = "";
 let selectedDepartment = "";
-let displayedCategory = "";
 let checkoutCustomer = null;
 
 const elements = {
@@ -117,7 +118,7 @@ function updateCartDisplays() {
 }
 
 function renderCategoryFilters() {
-  const categories = [...new Set(products.map((product) => product.category))]
+  const categories = [...new Set(storefrontProducts.map((product) => product.category))]
     .filter(Boolean)
     .sort((a, b) => a.localeCompare(b, "pt-BR"));
   for (const category of categories) {
@@ -141,7 +142,7 @@ function renderFragranceOptions() {
 
 function getVisibleProducts() {
   const query = normalizeText(elements.search.value);
-  const matching = products.filter((product) => {
+  const matching = storefrontProducts.filter((product) => {
     const matchesCategory =
       !elements.categoryFilter.value || product.category === elements.categoryFilter.value;
     const matchesFragrance =
@@ -273,9 +274,9 @@ function createProductCard(product, inChristmasCarousel = false) {
   price.append(createElement("strong", "product-card-price", formatBRL(product.priceCents)));
   const priceLabel = getPriceLabel(product);
   if (priceLabel) price.append(createElement("small", "price-source-label", priceLabel));
-  const presentation = product.promotionLabel || (product.isCombo
-    ? (product.isPromotional ? "Kit promocional" : "Kit")
-    : product.specification || product.volume);
+  const presentation = product.isCombo
+    ? product.promotionLabel || (product.isPromotional ? "Kit promocional" : "Kit")
+    : [product.promotionLabel, product.specification || product.volume].filter(Boolean).join(" · ");
   const metadata = [presentation, product.code && `Cód. ${product.code}`].filter(Boolean).join(" · ");
   card.append(media, heading, createElement("p", "product-card-meta", metadata));
   if (product.isCombo) {
@@ -288,6 +289,8 @@ function createProductCard(product, inChristmasCarousel = false) {
 
 function createCorporateGiftCard(gift) {
   const card = createElement("article", "product-card");
+  card.id = `product-${gift.id}`;
+  card.dataset.productId = gift.id;
   const media = createElement("div", "product-card-media");
   const image = createElement("img", "corporate-gift-photo");
   image.width = 900;
@@ -324,7 +327,7 @@ function createCorporateGiftCard(gift) {
   );
   card.append(
     media,
-    createElement("h3", "product-card-heading", gift.name),
+    createElement("h4", "product-card-heading", gift.name),
     createElement("p", "product-card-meta", gift.volume),
     description,
     price,
@@ -336,11 +339,130 @@ function createCorporateGiftCard(gift) {
   return card;
 }
 
-function setupChristmasCarousel() {
-  const slides = [
-    ...christmasProducts.map((product) => createProductCard(product, true)),
-    ...corporateGifts.map(createCorporateGiftCard)
+function createCorporateCategoryNote() {
+  const note = createElement("p", "corporate-category-note");
+  const label = "Consulte nossos preços para pedidos em maior quantidade";
+  const url = getStoreWhatsAppUrl(config, "Olá! Gostaria de consultar preços para presentes corporativos de Natal em maior quantidade e saber mais sobre a personalização para minha empresa.");
+  if (url) {
+    const link = createElement("a", "", label);
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    note.append(link);
+  } else {
+    note.append(label);
+  }
+  note.append(". Podemos personalizar os presentes para a sua empresa.");
+  return note;
+}
+
+function createChristmasUnitPrice(priceCents) {
+  const price = createElement("p", "christmas-unit-price");
+  price.append(
+    createElement("strong", "product-card-price", formatBRL(priceCents)),
+    createElement("span", "product-card-meta", "por unidade")
+  );
+  return price;
+}
+
+function createEncantosUnitCard(product) {
+  const name = `${product.name} ${product.fragrance}`;
+  const card = createElement("article", "product-card christmas-unit-card");
+  card.dataset.productId = product.id;
+  const media = createElement("div", "product-card-media");
+  const photo = getProductCardPhoto(product);
+  media.append(photo
+    ? createFramedProductPhoto(photo, name)
+    : createElement("span", "product-card-meta", "Foto individual em atualização"));
+
+  const quantityLabel = createElement("label", "detail-quantity-label", "Quantidade");
+  const quantity = createElement("input", "quantity-input");
+  quantity.type = "number";
+  quantity.inputMode = "numeric";
+  quantity.min = "1";
+  quantity.max = "99";
+  quantity.step = "1";
+  quantity.value = "1";
+  quantity.required = true;
+  quantityLabel.append(quantity);
+
+  card.append(
+    media,
+    createElement("h4", "product-card-heading", name),
+    createElement("p", "product-card-meta", `Fragrância: ${product.fragrance}`),
+    createElement("p", "product-card-meta", product.volume),
+    createChristmasUnitPrice(product.priceCents),
+    quantityLabel,
+    createButton("Adicionar ao carrinho", "button product-card-add", (event) => {
+      if (quantity.reportValidity()) addProduct(product, quantity.valueAsNumber, event.currentTarget);
+    }, `Adicionar ${name} ao carrinho`)
+  );
+  return card;
+}
+
+function createEncantosPair(productsInPair, inCarousel, onExpand) {
+  const offer = createElement("article", "christmas-pair");
+  const overview = createElement("div", "christmas-pair-overview");
+  const media = createElement("div", "christmas-pair-media");
+  const image = createElement("img");
+  image.width = 977;
+  image.height = 1210;
+  image.loading = "lazy";
+  image.decoding = "async";
+  setProductImage(image, "assets/products/encantos-de-natal-cereja-avela.jpg",
+    "Difusor de Aromas e Sabonete Líquido Cereja e Avelã, linha Encantos de Natal");
+
+  const units = createElement("div", "christmas-unit-grid");
+  units.id = inCarousel ? "encantos-unidades-vitrine" : "encantos-unidades-catalogo";
+  units.hidden = true;
+  units.append(...productsInPair.map(createEncantosUnitCard));
+  const toggle = createButton("Escolher produto / Comprar unidade", "button christmas-pair-toggle", () => {
+    const expanded = units.hidden;
+    units.hidden = !expanded;
+    toggle.setAttribute("aria-expanded", String(expanded));
+    if (expanded) {
+      onExpand?.();
+      units.scrollIntoView({
+        block: "start",
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+      });
+    }
+  });
+  toggle.setAttribute("aria-controls", units.id);
+  toggle.setAttribute("aria-expanded", "false");
+  media.append(image, toggle);
+
+  const summary = createElement("div", "christmas-pair-summary");
+  summary.append(createElement(inCarousel ? "h3" : "h4", "", "Encantos de Natal"));
+  const priceList = createElement("ul", "christmas-pair-price-list");
+  for (const product of productsInPair) {
+    const item = createElement("li");
+    item.append(
+      createElement("span", "", `${product.name} ${product.fragrance} · ${product.volume}`),
+      createChristmasUnitPrice(product.priceCents)
+    );
+    priceList.append(item);
+  }
+  summary.append(priceList);
+  overview.append(media, summary);
+  offer.append(overview, units);
+  return offer;
+}
+
+function createChristmasCards(offers, inCarousel = false, onExpand) {
+  const pair = offers.filter((product) => product.promotionGroup === "encantos-de-natal")
+    .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
+  if (pair.length !== 2) return offers.map((product) => createProductCard(product, inCarousel));
+
+  return [
+    createEncantosPair(pair, inCarousel, onExpand),
+    ...offers.filter((product) => product.promotionGroup !== "encantos-de-natal")
+      .map((product) => createProductCard(product, inCarousel))
   ];
+}
+
+function setupChristmasCarousel() {
+  const slides = createChristmasCards(christmasProducts, true, () => setPlaying(false));
   if (slides.length === 0) return () => {};
 
   const dialog = elements.christmasDialog;
@@ -387,8 +509,8 @@ function setupChristmasCarousel() {
     } catch {
       // Disconnecting the observer prevents another automatic opening on this page.
     }
-    setPlaying(!reducedMotion.matches);
     showSlide();
+    setPlaying(!reducedMotion.matches && !viewport.querySelector(".christmas-unit-grid:not([hidden])"));
     openDialog(dialog, opener, ".dialog-close");
     timer = window.setInterval(() => {
       if (playing && dialog.open && !document.hidden &&
@@ -402,7 +524,8 @@ function setupChristmasCarousel() {
   const observer = !alreadyShown && typeof IntersectionObserver === "function"
     ? new IntersectionObserver((entries) => {
       if (entries.some((entry) => entry.isIntersecting) &&
-          !normalizeText(elements.search.value) && !document.querySelector("dialog[open]")) {
+          !elements.categoryFilter.value && !normalizeText(elements.search.value) &&
+          !document.querySelector("dialog[open]")) {
         open(launcher);
       }
     }, { threshold: 0.75 })
@@ -417,14 +540,12 @@ function setupChristmasCarousel() {
     if (window.location.hash === "#natal") window.history.replaceState(null, "", "#catalogo");
   });
   elements.christmasSection.hidden = false;
-  document.querySelector("#christmas-category-option").hidden = false;
   document.querySelector("#christmas-link").hidden = false;
   observer?.observe(launcher);
   return open;
 }
 
 function renderProducts() {
-  displayedCategory = elements.categoryFilter.value;
   document.querySelectorAll("[data-department]").forEach((link) => {
     if (link.dataset.department === selectedDepartment) {
       link.setAttribute("aria-current", "true");
@@ -460,9 +581,19 @@ function renderProducts() {
     const title = createElement("h3", "", category);
     title.id = categoryId;
     categoryHeading.append(title, createElement("span", "", `${categoryProducts.length} ${categoryProducts.length === 1 ? "produto" : "produtos"}`));
+    const isCorporateCategory = category === CORPORATE_GIFT_CATEGORY;
     const grid = createElement("div", "product-grid");
-    for (const product of categoryProducts) grid.append(createProductCard(product));
-    categorySection.append(categoryHeading, grid);
+    const cards = isCorporateCategory ? categoryProducts.map(createCorporateGiftCard)
+      : categoryProducts.some((product) => product.campaign === "natal")
+        ? createChristmasCards(categoryProducts)
+        : categoryProducts.map((product) => createProductCard(product));
+    grid.append(...cards);
+    categorySection.append(categoryHeading);
+    if (isCorporateCategory) {
+      categorySection.id = corporateCategoryAnchor;
+      categorySection.append(createCorporateCategoryNote());
+    }
+    categorySection.append(grid);
     section.append(categorySection);
   }
   if (visibleProducts.length > 0) fragment.append(section);
@@ -475,11 +606,17 @@ function renderProducts() {
       : `${visibleProducts.length} produtos`;
 }
 
-function clearCatalogFilters() {
-  selectedDepartment = "";
-  if (window.location.hash === "#natal" || catalogDepartments.some(({ id }) => window.location.hash === `#${id}`)) {
+function resetCatalogAnchor() {
+  const destination = window.location.hash.slice(1);
+  if (destination === "natal" || destination === corporateCategoryAnchor ||
+      catalogDepartments.some(({ id }) => id === destination)) {
     window.history.replaceState(null, "", "#catalogo");
   }
+}
+
+function clearCatalogFilters() {
+  selectedDepartment = "";
+  resetCatalogAnchor();
   elements.search.value = "";
   elements.categoryFilter.value = "";
   elements.fragranceFilter.value = "";
@@ -918,9 +1055,7 @@ function searchCatalog() {
     elements.categoryFilter.value = "";
     elements.fragranceFilter.value = "";
     selectedFragrance = "";
-    if (window.location.hash === "#natal" || catalogDepartments.some(({ id }) => window.location.hash === `#${id}`)) {
-      window.history.replaceState(null, "", "#catalogo");
-    }
+    resetCatalogAnchor();
   }
   renderProducts();
 }
@@ -929,12 +1064,13 @@ elements.search.addEventListener("input", searchCatalog);
 function navigateCatalog() {
   const destination = window.location.hash.slice(1);
   const christmasDestination = destination === "natal" && !elements.christmasSection.hidden;
-  if (!christmasDestination && destination !== "catalogo" &&
-      !catalogDepartments.some(({ id }) => id === destination)) return;
-  selectedDepartment = destination === "catalogo" || christmasDestination ? "" : destination;
+  const corporateDestination = destination === corporateCategoryAnchor && corporateGifts.length > 0;
+  const department = catalogDepartments.find(({ id }) => id === destination);
+  if (!christmasDestination && !corporateDestination && destination !== "catalogo" && !department) return;
+  selectedDepartment = department?.id ?? "";
   // A department link opens its full selection, regardless of previous filters.
   elements.search.value = "";
-  elements.categoryFilter.value = "";
+  elements.categoryFilter.value = corporateDestination ? CORPORATE_GIFT_CATEGORY : "";
   elements.fragranceFilter.value = "";
   selectedFragrance = "";
   renderProducts();
@@ -945,16 +1081,23 @@ function navigateCatalog() {
 }
 
 window.addEventListener("hashchange", navigateCatalog);
-document.querySelectorAll('a[href="#catalogo"], a[href="#perfumacao-de-ambientes"], a[href="#autocuidado"], a[href="#natal"]').forEach((link) => {
+document.querySelectorAll('a[href="#catalogo"], a[href="#perfumacao-de-ambientes"], a[href="#autocuidado"], a[href="#natal"], #corporate-gifts-link').forEach((link) => {
   link.addEventListener("click", () => {
     if (link.hash === window.location.hash) navigateCatalog();
   });
 });
 elements.categoryFilter.addEventListener("change", () => {
-  if (elements.categoryFilter.value === CHRISTMAS_CATEGORY) {
-    elements.categoryFilter.value = displayedCategory;
-    openChristmasOffers(elements.categoryFilter);
-    return;
+  const category = elements.categoryFilter.value;
+  if (category === CORPORATE_GIFT_CATEGORY || christmasProducts.some((product) => product.category === category)) {
+    selectedDepartment = "";
+    selectedFragrance = "";
+    elements.fragranceFilter.value = "";
+    elements.search.value = "";
+    if (category !== CORPORATE_GIFT_CATEGORY || window.location.hash !== `#${corporateCategoryAnchor}`) {
+      resetCatalogAnchor();
+    }
+  } else if (window.location.hash === `#${corporateCategoryAnchor}`) {
+    resetCatalogAnchor();
   }
   renderProducts();
 });
@@ -1041,5 +1184,12 @@ if (config.storeEmail) {
 renderCategoryFilters();
 renderFragranceOptions();
 const openChristmasOffers = setupChristmasCarousel();
+document.querySelector("#corporate-gifts-link").hidden = corporateGifts.length === 0;
+const siteHeader = document.querySelector(".site-header");
+function updateHeaderScrollMargin() {
+  document.documentElement.style.setProperty("--site-header-height", `${Math.ceil(siteHeader.getBoundingClientRect().height)}px`);
+}
+updateHeaderScrollMargin();
+if (typeof ResizeObserver === "function") new ResizeObserver(updateHeaderScrollMargin).observe(siteHeader);
 renderAll();
 navigateCatalog();

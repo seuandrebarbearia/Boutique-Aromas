@@ -7,7 +7,7 @@ import { CART_STORAGE_KEY, createCartStore } from "../js/cart.js";
 import { groupProductsByCategory } from "../js/catalog.js";
 import { buildOrderSummary } from "../js/checkout.js";
 
-const withdrawnCodes = "6744 6698 6525 6342 5253 6169 6172 4838 4836 4837 5252 6400 4818 6050 6054 2912 6401 2913 4534 4537 4540 6403 5389 5395 6405 5387 5397 6406 5398 5388 6113 6114 4071 6988 6986 6987 6900 6899 6766 6939 5092 6414 6413 5072 7104 6754 6745 7211 7210 6637 1486 1487 1617 6175 6370 6402".split(" ");
+const withdrawnCodes = "6744 6698 6525 6342 5253 6169 6172 4838 4836 4837 5252 6400 4818 6050 6054 2912 6401 2913 4534 4537 4540 6403 5389 5395 6405 5387 5397 6406 5398 5388 6113 6114 4071 6988 6986 6987 6900 6899 6766 6939 5092 6414 6413 5072 7104 6754 6745 7211 7210 6637 1486 1487 6175 6370 6402".split(" ");
 const withdrawnIds = [
   "site-difusor-de-aromas-desejos-sucesso-mandarina-fresca-240ml",
   "site-agua-perfumada-para-roupas-flowers-flor-de-cerejeira-500ml",
@@ -18,7 +18,6 @@ const withdrawnIds = [
   "site-capsulas-de-colageno-e-acido-hialuronico-60-unidades",
   "site-sabonete-esfoliante-jabuticaba-120ml",
   "site-sabonete-esfoliante-maracuja-120ml",
-  "site-difusor-cereja-e-avela-95ml",
   "site-kit-cascas-e-folhas-herbal-verde",
   "site-kit-viagem-flor-de-jasmim-e-amendoas-doces",
   "site-refil-para-difusor-de-aromas-desejos-sucesso-mandarina-fresca-250ml",
@@ -27,12 +26,12 @@ const withdrawnIds = [
 
 test("removes the requested products and corresponding uncoded cards from the storefront", () => {
   assert.deepEqual([...retiredProductCodes].sort(), [...withdrawnCodes].sort());
-  assert.equal(products.length, 182);
+  assert.equal(products.length, 184);
   assert.ok(products.some(product => product.code === "7030"));
   assert.ok(products.some(product => product.code === "7103"));
   assert.ok(products.every(product => !withdrawnIds.includes(product.id) && !consolidatedProductIds.includes(product.id)));
   const grouped = groupProductsByCategory(products).flatMap(([, items]) => items);
-  assert.equal(grouped.length, 182);
+  assert.equal(grouped.length, 184);
   assert.ok(grouped.every(product => !withdrawnCodes.includes(product.code)));
   for (const family of ["Wedding", "Pêssego e Flores Brancas", "Velvet Rosé"]) {
     assert.ok(!products.some(product => product.family === family));

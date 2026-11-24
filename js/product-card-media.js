@@ -54,6 +54,12 @@ export function getProductCardPhoto(product) {
   };
   const cutoutPhoto = getCutoutProductPhoto(product.image);
   if (cutoutPhoto) return cutoutPhoto;
+  if (product.image === "assets/official-2026-11-12/difusor-cereja-e-avela-95ml.png") {
+    return { src: product.image, width: 1000, height: 1000, bounds: [310, 135, 700, 982] };
+  }
+  if (product.image === "assets/products/sabonete-encantos-de-natal-cereja-avela-190ml.jpg") {
+    return { src: product.image, width: 328, height: 492, bounds: [0, 0, 328, 492] };
+  }
   if (product.image === "assets/official-2026-11-12/difusor-de-aromas-novita-orquidea-negra-com-musk-250ml.jpg") {
     return { src: product.image, width: 864, height: 984, bounds: [190, 0, 810, 984] };
   }

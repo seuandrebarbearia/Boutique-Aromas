@@ -1,4 +1,6 @@
 // Ofertas por unidade das páginas 2 a 8 do catálogo Mimos Corporativos.
+export const CORPORATE_GIFT_CATEGORY = "Presentes Corporativos de Natal";
+
 export const corporateGifts = [
   {
     id: "corporativo-perfume-ambiente-15ml",
@@ -70,7 +72,7 @@ export const corporateGifts = [
     description: "Vela em frasco de vidro com tampa de cortiça.",
     image: "assets/products/corporativo-vela-cereja-avela-30g.jpg"
   }
-];
+].map((gift) => ({ ...gift, category: CORPORATE_GIFT_CATEGORY }));
 
 export const corporateGiftProducts = corporateGifts.flatMap(({ id, name, volume, priceCents, variants }) => {
   const product = { id, name, volume, priceCents, code: "", family: "Presentes corporativos" };
