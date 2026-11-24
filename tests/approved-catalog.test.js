@@ -25,7 +25,7 @@ test('records visual review of all 61 pages and does not approve obscured or mal
 
 test('the approved PDF wins over historical official prices for every matched active product', () => {
   const confirmed = products.filter(p => p.priceStatus === 'approved-pdf');
-  assert.equal(confirmed.length, 131);
+  assert.equal(confirmed.length, 123);
   for (const p of confirmed) {
     const source = audit.records.find(r => r.code === p.code && r.page === p.approvedPdfPage);
     assert.equal(p.priceCents, source.priceCents, `${p.id}: PDF price`);
@@ -35,12 +35,11 @@ test('the approved PDF wins over historical official prices for every matched ac
   assert.equal(byId('7109').priceCents, 28990);
   assert.equal(byId('7110').priceCents, 17890);
   assert.equal(byId('7193').priceCents, 38490);
-  assert.equal(byId('7030').priceCents, 20890);
   assert.equal(byId('7218').priceCents, 890);
 });
 
 test('consolidates exact duplicates, preserves different presentations, and retains missing products for review', () => {
-  assert.equal(products.length, 184);
+  assert.equal(products.length, 182);
   for (const pair of audit.consolidations) {
     assert.equal(byId(pair.removedId), undefined);
     assert.ok(byId(pair.retainedId));
@@ -49,12 +48,13 @@ test('consolidates exact duplicates, preserves different presentations, and reta
   assert.equal(products.filter(p => p.code === '6507').length, 2);
   assert.ok(byId('6177'));
   assert.equal(byId('site-difusor-de-aromas-novita-orquidea-negra-com-musk-250ml'), undefined);
-  assert.equal(byId('6052'), undefined);
+  assert.equal(byId('6052').volume, '95 ml');
+  assert.equal(getProductCardPhoto(byId('6052')), null);
   assert.ok(byId('site-refil-para-difusor-de-aromas-divina-250ml'));
   assert.ok(byId('7102') && byId('site-manteiga-hidratante-corporal-200g'));
-  assert.equal(byId('7232').priceStatus, 'pending-review');
-  assert.equal(byId('7232').priceCents, 29370);
-  assert.equal(byId('site-kit-jasmim-e-amendoas-doces').priceStatus, 'pending-review');
+  assert.equal(byId('7232').priceStatus, 'approved-store');
+  assert.equal(byId('7232').priceCents, 26790);
+  assert.equal(byId('site-kit-jasmim-e-amendoas-doces').priceCents, 26990);
 });
 
 test('preserves the remaining PDF-only codes and restores resolved photographs', () => {
@@ -66,7 +66,7 @@ test('preserves the remaining PDF-only codes and restores resolved photographs',
   assert.equal(byId('6683').fragrance, 'Baunilha');
   assert.equal(getCatalogDepartment(byId('6371')), 'perfumacao-de-ambientes');
   assert.equal(getCatalogDepartment(byId('6188')), 'autocuidado');
-  assert.equal(groupProductsByCategory(products).flatMap(([,p]) => p).length, 184);
+  assert.equal(groupProductsByCategory(products).flatMap(([,p]) => p).length, 182);
   for (const id of suppressedPhotoIds.filter(id => byId(id))) {
     const product = byId(id);
     assert.equal(product.photoPending, false);

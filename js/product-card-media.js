@@ -22,6 +22,8 @@ const individualPhotos = {
 const frames = new Map(Object.values(collectionPhotosByPage).flat().map(photo => [photo.src, photo]));
 
 const studioPhotoBounds = {
+  "assets/products/kit-desejos-natal-7260.jpg": [100, 140, 1090, 1050],
+  "assets/products/kit-all-you-need-is-splash-7274.jpg": [0, 80, 1200, 1120],
   "assets/products/kit-amendoas-jasmim-7232-catalogo.jpg": [0, 0, 1200, 1200],
   "assets/products/kit-black-44-catalogo.jpg": [0, 235, 1200, 1085],
   "assets/products/vela-massagem-flor-da-pele-7192-catalogo.jpg": [215, 195, 985, 1040]

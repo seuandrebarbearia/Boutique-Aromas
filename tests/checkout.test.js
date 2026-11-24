@@ -76,7 +76,7 @@ test("shows a combo as one composed item in the order summary", () => {
     storeName: "Boutique de Aromas",
     items: [
       {
-        name: "Kit Amêndoas e Flor de Jasmim",
+        name: "Kit Jasmim e Amêndoas Doces",
         code: "7232",
         volume: "Não informado",
         isCombo: true,
@@ -90,7 +90,7 @@ test("shows a combo as one composed item in the order summary", () => {
     shippingLabel: "A combinar"
   });
 
-  assert.match(summary, /1 x Kit Amêndoas e Flor de Jasmim/);
+  assert.match(summary, /1 x Kit Jasmim e Amêndoas Doces/);
   assert.match(summary, /1 loção 380 ml \+ 1 mousse 150 ml \+ 1 body splash 200 ml/);
   assert.doesNotMatch(summary, /Não informado/);
 });
@@ -298,7 +298,7 @@ test("keeps catalog combos and their confirmed components explicit", async () =>
 
   assert.deepEqual(
     combos.map((product) => product.code).sort(),
-    ["6728", "6914", "7232"]
+    ["6728", "6914", "7232", "7260"]
   );
   assert.ok(combos.every((product) => product.category === "Combos"));
   assert.ok(combos.every((product) => product.composition && existsSync(product.image)));
@@ -307,15 +307,14 @@ test("keeps catalog combos and their confirmed components explicit", async () =>
     ["7149", "5024", "7150"]
   );
   const almondKit = products.find((product) => product.code === "7232");
-  assert.equal(almondKit.priceCents, 29370);
-  assert.equal(almondKit.priceStatus, "pending-review");
-  assert.match(almondKit.catalogNote, /não localizado/i);
+  assert.equal(almondKit.priceCents, 26790);
+  assert.equal(almondKit.priceStatus, "approved-store");
   assert.ok(
     almondKit.componentIds.every((id) => products.some((product) => product.id === id))
   );
   assert.equal(
     almondKit.name,
-    "Kit Amêndoas e Flor de Jasmim"
+    "Kit Jasmim e Amêndoas Doces"
   );
 });
 
@@ -323,16 +322,19 @@ test("uses confirmed Florianópolis contacts and leaves unconfirmed channels pen
   const { config } = await import("../js/config.js");
 
   assert.equal(config.storeAddress, "Av. Luiz Boiteux Piazza, 3414, sala 3 — Cachoeira do Bom Jesus, Florianópolis - SC, CEP 88056-000");
-  assert.equal(config.storePhone, "5548991989442");
-  assert.equal(config.storePhoneLabel, "(48) 99198-9442");
+  assert.equal(config.storePhone, "5548991134975");
+  assert.equal(config.storePhoneLabel, "(48) 99113-4975");
   assert.equal(config.mapsUrl, "https://maps.app.goo.gl/C189HDEHPThRFPxJ9");
   assert.equal(config.instagramUrl, "https://www.instagram.com/boutiquedearomas.floripa/");
   assert.equal(config.storeEmail, "");
-  assert.equal(config.whatsappNumber, "5548991134975");
+  assert.equal(config.whatsappNumber, config.storePhone);
   assert.equal(config.whatsappEnabled, true);
   const contactUrl = new URL(getStoreWhatsAppUrl(config, config.contactMessage));
   assert.equal(contactUrl.pathname, "/5548991134975");
   assert.equal(contactUrl.searchParams.get("text"), config.contactMessage);
+  const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  assert.ok(html.includes(`id="store-phone" href="tel:+${config.storePhone}">${config.storePhoneLabel}</a>`));
+  assert.ok(html.includes(`href="${contactUrl.origin}${contactUrl.pathname}?`));
 });
 
 test("service and orders share a confirmed destination and preserve their messages", () => {

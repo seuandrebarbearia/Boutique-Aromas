@@ -131,7 +131,7 @@ Para trocar uma imagem, coloque o arquivo local em `assets/products/` e altere o
 
 ## WhatsApp
 
-O WhatsApp Business informado em 23/11/2026 é `(48) 99113-4975`. Atendimento e pedidos usam o número internacional `5548991134975`. A mensagem de atendimento é configurada em `contactMessage`. Ao abrir o pedido, o carrinho é limpo e o cliente confirma o envio no aplicativo. O telefone listado no Maps é `(48) 99198-9442`.
+O telefone e o WhatsApp Business exibidos no catálogo usam o mesmo número, `(48) 99113-4975`. Ligações, atendimento e pedidos usam o número internacional `5548991134975`. A mensagem de atendimento é configurada em `contactMessage`. Ao abrir o pedido, o carrinho é limpo e o cliente confirma o envio no aplicativo.
 
 Instagram e Google Maps abrem nas URLs fornecidas pela empresa, em nova aba. E-mail não confirmado permanece como pendência; ao preencher `storeEmail` com um endereço confirmado, o contato recebe automaticamente um link `mailto:`.
 

@@ -1,14 +1,19 @@
-import { config } from "./config.js?v=20261123";
+import { config } from "./config.js?v=20261124";
 import { createCartStore } from "./cart.js?v=20261123";
 import { buildOrderSummary, getStoreWhatsAppUrl, formatBRL, validateAddress } from "./checkout.js?v=20261123";
-import { products } from "./products.js?v=20261123-2";
+import { products } from "./products.js?v=natal-20261124-2";
+import { corporateGifts, corporateGiftProducts } from "./corporate-gifts.js?v=natal-20261124-6";
 import { getCatalogDepartment, groupProductsByCategory, getPriceLabel, getProductDescription } from "./catalog.js?v=20261120";
-import { getCutoutProductPhoto, getProductCardPhoto } from "./product-card-media.js?v=20261123-2";
+import { getCutoutProductPhoto, getProductCardPhoto } from "./product-card-media.js?v=natal-20261124";
 
-const cart = createCartStore(products);
-const productById = new Map(products.map((product) => [product.id, product]));
+const purchasableProducts = [...products, ...corporateGiftProducts];
+const cart = createCartStore(purchasableProducts);
+const productById = new Map(purchasableProducts.map((product) => [product.id, product]));
+const christmasProducts = products.filter((product) => product.campaign === "natal");
+const CHRISTMAS_CATEGORY = "presentes-corporativos-natal";
 let selectedFragrance = "";
 let selectedDepartment = "";
+let displayedCategory = "";
 let checkoutCustomer = null;
 
 const elements = {
@@ -17,6 +22,8 @@ const elements = {
   fragranceFilter: document.querySelector("#fragrance-filter"),
   sortSelect: document.querySelector("#sort-select"),
   catalogSections: document.querySelector("#catalog-sections"),
+  christmasSection: document.querySelector("#natal"),
+  christmasDialog: document.querySelector("#christmas-promo-dialog"),
   emptyState: document.querySelector("#empty-state"),
   resultsCount: document.querySelector("#results-count"),
   cartCount: document.querySelector("#cart-count"),
@@ -150,6 +157,7 @@ function getVisibleProducts() {
         product.volume,
         product.specification,
         product.composition,
+        product.promotionLabel,
         product.reference,
         ...(product.legacyCodes ?? []),
         product.category
@@ -235,9 +243,9 @@ function createFramedProductPhoto(photo, name) {
   return crop;
 }
 
-function createProductCard(product) {
+function createProductCard(product, inChristmasCarousel = false) {
   const card = createElement("article", "product-card");
-  card.id = `product-${product.id}`;
+  card.id = `${inChristmasCarousel ? "christmas-product" : "product"}-${product.id}`;
   card.dataset.productId = product.id;
   const photo = getProductCardPhoto(product);
   const media = createButton("", "product-card-media", (event) =>
@@ -258,16 +266,16 @@ function createProductCard(product) {
       createElement("span", "product-card-pending-link", "Ver referência nos detalhes")
     );
   }
-  const heading = createElement("h4", "product-card-heading");
+  const heading = createElement(inChristmasCarousel ? "h3" : "h4", "product-card-heading");
   heading.append(createButton(getOfferItemName(product), "product-card-name", (event) =>
     openProductDetails(product, event.currentTarget)));
   const price = createElement("div", "product-card-price-block");
   price.append(createElement("strong", "product-card-price", formatBRL(product.priceCents)));
   const priceLabel = getPriceLabel(product);
   if (priceLabel) price.append(createElement("small", "price-source-label", priceLabel));
-  const presentation = product.isCombo
+  const presentation = product.promotionLabel || (product.isCombo
     ? (product.isPromotional ? "Kit promocional" : "Kit")
-    : product.specification || product.volume;
+    : product.specification || product.volume);
   const metadata = [presentation, product.code && `Cód. ${product.code}`].filter(Boolean).join(" · ");
   card.append(media, heading, createElement("p", "product-card-meta", metadata));
   if (product.isCombo) {
@@ -278,7 +286,152 @@ function createProductCard(product) {
   return card;
 }
 
+function createCorporateGiftCard(gift) {
+  const card = createElement("article", "product-card");
+  const media = createElement("div", "product-card-media");
+  const image = createElement("img", "corporate-gift-photo");
+  image.width = 900;
+  image.height = 900;
+  image.loading = "lazy";
+  image.decoding = "async";
+  setProductImage(image, gift.image, gift.imageAlt ?? gift.name);
+  media.append(image);
+
+  const description = createElement("div", "product-card-composition");
+  description.append(createElement("p", "", gift.description));
+  let variantSelect = null;
+  if (gift.variants) {
+    const label = createElement("label", "corporate-gift-options");
+    label.append(createElement("span", "", "Versão"));
+    variantSelect = createElement("select");
+    variantSelect.required = true;
+    const placeholder = createElement("option", "", "Escolha a versão");
+    placeholder.value = "";
+    variantSelect.append(placeholder);
+    for (const variant of gift.variants) {
+      const option = createElement("option", "", variant.label);
+      option.value = variant.id;
+      variantSelect.append(option);
+    }
+    label.append(variantSelect);
+    description.append(label);
+  }
+
+  const price = createElement("div", "product-card-price-block");
+  price.append(
+    createElement("strong", "product-card-price", formatBRL(gift.priceCents)),
+    createElement("span", "product-card-meta corporate-gift-unit", "por unidade")
+  );
+  card.append(
+    media,
+    createElement("h3", "product-card-heading", gift.name),
+    createElement("p", "product-card-meta", gift.volume),
+    description,
+    price,
+    createButton("Adicionar ao carrinho", "button product-card-add", (event) => {
+      if (variantSelect && !variantSelect.reportValidity()) return;
+      addProduct(productById.get(variantSelect?.value ?? gift.id), 1, event.currentTarget);
+    }, `Adicionar ${gift.name} ao carrinho`)
+  );
+  return card;
+}
+
+function setupChristmasCarousel() {
+  const slides = [
+    ...christmasProducts.map((product) => createProductCard(product, true)),
+    ...corporateGifts.map(createCorporateGiftCard)
+  ];
+  if (slides.length === 0) return () => {};
+
+  const dialog = elements.christmasDialog;
+  const viewport = document.querySelector("#christmas-slides");
+  const position = document.querySelector("#christmas-position");
+  const launcher = document.querySelector("#christmas-open");
+  const playback = document.querySelector("#christmas-playback");
+  const sessionKey = "boutique-aromas-christmas-promo-seen";
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let index = 0;
+  let playing = false;
+  let timer;
+  let alreadyShown = false;
+  try {
+    alreadyShown = window.sessionStorage.getItem(sessionKey) === "true";
+  } catch {
+    // The carousel still works when storage is unavailable.
+  }
+
+  function showSlide(step = 0) {
+    index = (index + step + slides.length) % slides.length;
+    viewport.style.setProperty("--christmas-slide-entry", step < 0 ? "-18px" : "18px");
+    viewport.replaceChildren(slides[index]);
+    viewport.scrollTop = 0;
+    position.textContent = `${index + 1} de ${slides.length}`;
+  }
+
+  function setPlaying(value) {
+    playing = value;
+    playback.textContent = playing ? "Pausar" : "Reproduzir";
+    position.setAttribute("aria-live", playing ? "off" : "polite");
+  }
+
+  function advanceManually(step) {
+    setPlaying(false);
+    showSlide(step);
+  }
+
+  function open(opener) {
+    if (dialog.open) return;
+    observer?.disconnect();
+    try {
+      window.sessionStorage.setItem(sessionKey, "true");
+    } catch {
+      // Disconnecting the observer prevents another automatic opening on this page.
+    }
+    setPlaying(!reducedMotion.matches);
+    showSlide();
+    openDialog(dialog, opener, ".dialog-close");
+    timer = window.setInterval(() => {
+      if (playing && dialog.open && !document.hidden &&
+          !viewport.contains(document.activeElement) &&
+          !document.querySelector("dialog[open]:not(#christmas-promo-dialog)")) {
+        showSlide(1);
+      }
+    }, 3000);
+  }
+
+  const observer = !alreadyShown && typeof IntersectionObserver === "function"
+    ? new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting) &&
+          !normalizeText(elements.search.value) && !document.querySelector("dialog[open]")) {
+        open(launcher);
+      }
+    }, { threshold: 0.75 })
+    : null;
+
+  launcher.addEventListener("click", () => open(launcher));
+  document.querySelector("#christmas-previous").addEventListener("click", () => advanceManually(-1));
+  document.querySelector("#christmas-next").addEventListener("click", () => advanceManually(1));
+  playback.addEventListener("click", () => setPlaying(!playing));
+  dialog.addEventListener("close", () => {
+    window.clearInterval(timer);
+    if (window.location.hash === "#natal") window.history.replaceState(null, "", "#catalogo");
+  });
+  elements.christmasSection.hidden = false;
+  document.querySelector("#christmas-category-option").hidden = false;
+  document.querySelector("#christmas-link").hidden = false;
+  observer?.observe(launcher);
+  return open;
+}
+
 function renderProducts() {
+  displayedCategory = elements.categoryFilter.value;
+  document.querySelectorAll("[data-department]").forEach((link) => {
+    if (link.dataset.department === selectedDepartment) {
+      link.setAttribute("aria-current", "true");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
   const visibleProducts = getVisibleProducts().filter(
     (product) =>
       !selectedDepartment || getCatalogDepartment(product) === selectedDepartment
@@ -314,14 +467,6 @@ function renderProducts() {
   }
   if (visibleProducts.length > 0) fragment.append(section);
 
-  document.querySelectorAll("[data-department]").forEach((link) => {
-    if (link.dataset.department === selectedDepartment) {
-      link.setAttribute("aria-current", "true");
-    } else {
-      link.removeAttribute("aria-current");
-    }
-  });
-
   elements.catalogSections.replaceChildren(fragment);
   elements.emptyState.hidden = visibleProducts.length > 0;
   elements.resultsCount.textContent =
@@ -332,7 +477,7 @@ function renderProducts() {
 
 function clearCatalogFilters() {
   selectedDepartment = "";
-  if (catalogDepartments.some(({ id }) => window.location.hash === `#${id}`)) {
+  if (window.location.hash === "#natal" || catalogDepartments.some(({ id }) => window.location.hash === `#${id}`)) {
     window.history.replaceState(null, "", "#catalogo");
   }
   elements.search.value = "";
@@ -541,9 +686,10 @@ function openProductDetails(product, opener) {
   );
 
   const metadata = createElement("dl", "detail-metadata");
+  const promotion = product.promotionLabel || (product.isPromotional ? "Kit promocional" : "");
   for (const [label, value] of [
     ...(product.code ? [["Código", product.code]] : []),
-    ...(product.isPromotional ? [["Oferta", "Kit promocional"]] : []),
+    ...(promotion ? [["Oferta", promotion]] : []),
     ...(!product.isCombo
       ? [[product.specification ? "Especificação" : "Volume", product.specification || product.volume]]
       : [])
@@ -754,6 +900,7 @@ elements.mobileCartButton.addEventListener("click", (event) => {
 
 document.querySelector("#back-to-catalog-button").addEventListener("click", () => {
   elements.cartDialog.close();
+  if (elements.christmasDialog.open) elements.christmasDialog.close();
   document.querySelector("#catalogo").scrollIntoView({
     behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
       ? "auto"
@@ -771,7 +918,7 @@ function searchCatalog() {
     elements.categoryFilter.value = "";
     elements.fragranceFilter.value = "";
     selectedFragrance = "";
-    if (catalogDepartments.some(({ id }) => window.location.hash === `#${id}`)) {
+    if (window.location.hash === "#natal" || catalogDepartments.some(({ id }) => window.location.hash === `#${id}`)) {
       window.history.replaceState(null, "", "#catalogo");
     }
   }
@@ -781,8 +928,10 @@ function searchCatalog() {
 elements.search.addEventListener("input", searchCatalog);
 function navigateCatalog() {
   const destination = window.location.hash.slice(1);
-  if (destination !== "catalogo" && !catalogDepartments.some(({ id }) => id === destination)) return;
-  selectedDepartment = destination === "catalogo" ? "" : destination;
+  const christmasDestination = destination === "natal" && !elements.christmasSection.hidden;
+  if (!christmasDestination && destination !== "catalogo" &&
+      !catalogDepartments.some(({ id }) => id === destination)) return;
+  selectedDepartment = destination === "catalogo" || christmasDestination ? "" : destination;
   // A department link opens its full selection, regardless of previous filters.
   elements.search.value = "";
   elements.categoryFilter.value = "";
@@ -792,15 +941,23 @@ function navigateCatalog() {
   // The destination section is created by rendering the selected department.
   (document.getElementById(destination) ?? document.getElementById("catalogo"))
     .scrollIntoView({ behavior: "auto" });
+  if (christmasDestination) openChristmasOffers(document.querySelector("#christmas-link"));
 }
 
 window.addEventListener("hashchange", navigateCatalog);
-document.querySelectorAll('a[href="#catalogo"], a[href="#perfumacao-de-ambientes"], a[href="#autocuidado"]').forEach((link) => {
+document.querySelectorAll('a[href="#catalogo"], a[href="#perfumacao-de-ambientes"], a[href="#autocuidado"], a[href="#natal"]').forEach((link) => {
   link.addEventListener("click", () => {
     if (link.hash === window.location.hash) navigateCatalog();
   });
 });
-elements.categoryFilter.addEventListener("change", renderProducts);
+elements.categoryFilter.addEventListener("change", () => {
+  if (elements.categoryFilter.value === CHRISTMAS_CATEGORY) {
+    elements.categoryFilter.value = displayedCategory;
+    openChristmasOffers(elements.categoryFilter);
+    return;
+  }
+  renderProducts();
+});
 elements.fragranceFilter.addEventListener("change", (event) => {
   selectedFragrance = event.currentTarget.value;
   renderProducts();
@@ -860,6 +1017,7 @@ elements.sendWhatsApp.addEventListener("click", (event) => {
   cart.clear();
   renderAll();
   elements.checkoutDialog.close();
+  if (elements.christmasDialog.open) elements.christmasDialog.close();
   elements.liveStatus.textContent = "Pedido preparado para o WhatsApp. Carrinho esvaziado. Confirme o envio no aplicativo.";
 });
 
@@ -882,5 +1040,6 @@ if (config.storeEmail) {
 }
 renderCategoryFilters();
 renderFragranceOptions();
+const openChristmasOffers = setupChristmasCarousel();
 renderAll();
 navigateCatalog();

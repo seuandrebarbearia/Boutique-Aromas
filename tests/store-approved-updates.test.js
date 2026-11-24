@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { products } from '../js/products.js';
+import { corporateGiftProducts } from '../js/corporate-gifts.js';
 import { getPriceLabel, getProductDescription, getCatalogDepartment } from '../js/catalog.js';
 import { getCutoutProductPhoto, getProductCardPhoto } from '../js/product-card-media.js';
 import { createCartStore, CART_STORAGE_KEY } from '../js/cart.js';
@@ -11,29 +12,72 @@ import { config } from '../js/config.js';
 const expected = [
   ['7245','1795',5990],
   ['site-aromatizador-profissional-cascas-e-folhas-250ml','1377',19990],
-  ['site-bruma-hidratante-corporal-150ml','1717',9699],
+  ['site-bruma-hidratante-corporal-150ml','1717',9690],
   ['site-conjunto-de-varetas-natural-25cm-5-unidades',null,1690],
   ['7213','1753',6890], ['7226','1754',6890],
   ['site-manteiga-hidratante-corporal-200g','1627',10890],
-  ['site-sabonete-esfoliante-jabuticaba-120ml','1487',4390],
-  ['site-sabonete-esfoliante-maracuja-120ml','1486',4390],
   ['6589','834',15790],
   ['site-sabonete-liquido-corpo-e-rosto-250ml','1715',8590],
   ['site-sabonete-liquido-mi-casa-250ml','1819',15990],
-  ['site-difusor-cereja-e-avela-95ml','1617',8990],
   ['site-difusor-de-aromas-mi-casa-300ml','1817',32890],
   ['site-difusor-de-aromas-sorria-mais-250ml','520',14290],
   ['site-essencia-para-aromatizador-eletrico-felicidade-10ml','517',4300],
   ['site-essencia-para-aromatizador-eletrico-gratidao-10ml','1780',4300],
   ['site-kit-bella-oriental-gourmand',null,29590],
-  ['site-kit-black-44',null,24990],
+  ['site-kit-black-44',null,32990],
   ['6177','6177',17990],
   ['5504','5504',9390],
   ['6188','6188',8090],
   ['7134','7134',12990],
   ['7135','7135',12990],
-  ['7192','7192',6890]
+  ['7192','7192',6890],
+  ['7201','7201',9890],
+  ['7198','7198',9890],
+  ['7151','7151',8990],
+  ['site-creme-de-banho-shower-cream-esfoliante-200ml',null,9790],
+  ['5024','5024',8490],
+  ['site-kit-jasmim-e-amendoas-doces',null,26990],
+  ['site-serum-clareador-de-manchas-30ml',null,10190],
+  ['site-serum-uniformizador-30ml',null,10190],
+  ['site-kit-3-body-splash-all-you-need-is-splash','7274',10990],
+  ['7232','7232',26790],
+  ['site-refil-para-difusor-de-aromas-desejos-gratidao-canela-com-musk-250ml','6176',7290],
+  ['6052','6052',8490],
+  ['6100','6100',7290],
+  ['site-vela-aromatica-mi-casa-190g','7235',19990],
+  ['7246','7246',8990],
+  ['7247','7247',8990],
+  ['7248','7248',8990],
+  ['7030','7030',20890],
+  ['7260','7260',8990],
+  ['7194','7194',7690],
+  ...['7074','7075','7076','7077','7078'].map(code => [code,code,16490])
 ];
+
+test('corporate gifts keep their chosen versions and unit prices through checkout', () => {
+  const available = [...products, ...corporateGiftProducts];
+  const saved = JSON.stringify([
+    {id:'corporativo-body-splash-masculino-15ml-ocean',quantity:2},
+    {id:'corporativo-body-splash-masculino-15ml-original',quantity:1},
+    {id:'corporativo-vela-cereja-avela-30g',quantity:1}
+  ]);
+  const cart = createCartStore(available,{getItem: key => key === CART_STORAGE_KEY ? saved : null,setItem(){}});
+  assert.equal(cart.totalUnits,4);
+  assert.equal(cart.subtotalCents,7260);
+  assert.ok(cart.add('7260'));
+  const message = buildOrderSummary({
+    storeName: config.storeName,
+    items: cart.getItems(),
+    subtotalCents: cart.subtotalCents,
+    shippingLabel: config.shippingLabel,
+    customer: {name:'Cliente',phone:'48999990000',street:'Rua A',number:'10',city:'Florianópolis',state:'SC',postalCode:'88010000'}
+  });
+  assert.match(message,/2 x Body Splash Masculino · Ocean · Presentes corporativos \(15 ml\)/);
+  assert.match(message,/1 x Body Splash Masculino · Original · Presentes corporativos \(15 ml\)/);
+  assert.match(message,/1 x Vela Aromática Cereja e Avelã · Presentes corporativos \(30 g\)/);
+  assert.match(message,/1 x Kit Desejos de Natal/);
+  assert.equal(new URL(getStoreWhatsAppUrl(config,message)).pathname,'/5548991134975');
+});
 
 test('uses the current store-approved prices and codes exactly', () => {
   for (const [id,code,price] of expected) {
@@ -46,9 +90,43 @@ test('uses the current store-approved prices and codes exactly', () => {
     assert.equal(getPriceLabel(p),'');
     assert.equal(p.catalogNote,'');
   }
-  assert.equal(formatBRL(products.find(p=>p.code==='1717').priceCents),'R$\u00a096,99');
-  assert.equal(products.length,184);
+  assert.equal(formatBRL(products.find(p=>p.code==='1717').priceCents),'R$\u00a096,90');
+  assert.equal(products.length,182);
   for (const [,code] of expected.filter(([,c])=>c)) assert.equal(products.filter(p=>p.code===code).length,1,code);
+  for (const id of ['6504','6505','6506','6507','6507-2']) {
+    const candle = products.find(product => product.id === id);
+    assert.equal(candle.priceCents,17490,id);
+    assert.equal(candle.priceStatus,'approved-store',id);
+  }
+  assert.match(getProductDescription(products.find(product => product.id === '7201')), /62 cm × 42 cm/);
+});
+
+test('adds the supplied product presentations and keeps distinct Black 44 variants', () => {
+  const byCode = code => products.find(product => product.code === code);
+  const glassCandles = ['7074','7075','7076','7077','7078'].map(byCode);
+  assert.deepEqual(glassCandles.map(product => product.fragrance), ['Verbena','Cereja e Avelã','Lavanda','Vanilla','Chá Branco']);
+  assert.ok(glassCandles.every(product => product.volume === '200 g' && product.category === 'Velas'));
+  const christmasKit = byCode('7260');
+  assert.equal(christmasKit.composition, '3 perfumes para roupas e ambiente de 30 ml cada: Felicidade, Gratidão e Coragem.');
+  const splashKit = byCode('7274');
+  assert.equal(splashKit.composition, '3 body splashes de 100 ml cada: Start, Lumi e Night.');
+  assert.deepEqual(products.filter(product => product.campaign === 'natal').map(product => product.code).sort(), ['7260', '7274']);
+  for (const [product, filename] of [[christmasKit, 'kit-desejos-natal-7260.jpg'], [splashKit, 'kit-all-you-need-is-splash-7274.jpg']]) {
+    assert.equal(product.promotionLabel, 'Promoção de Natal');
+    assert.equal(product.photoPending, false);
+    assert.equal(getProductCardPhoto(product).src, `assets/products/${filename}`);
+    assert.ok(fs.existsSync(product.image));
+  }
+  assert.ok(fs.existsSync(splashKit.alternatePhoto.src));
+  assert.equal(byCode('7194').volume, '10 ml');
+  assert.deepEqual(['7246','7247','7248'].map(code => byCode(code).fragrance), ['Original','Element','Ocean']);
+  for (const code of ['7246','7247','7248','7030']) {
+    assert.match(byCode(code).specification, /Masculino$/);
+  }
+  for (const product of [byCode('7194'), ...glassCandles]) {
+    assert.equal(product.photoPending,true);
+    assert.equal(getProductCardPhoto(product),null);
+  }
 });
 
 test('preserves photos and old cart IDs while displaying the new official references', () => {
@@ -56,7 +134,7 @@ test('preserves photos and old cart IDs while displaying the new official refere
   assert.ok(products.find(p=>p.code==='1754').legacyCodes.includes('7226'));
   const saved=JSON.stringify([{id:'7245',quantity:1,priceCents:1},{id:'7226',quantity:2,priceCents:1},{id:'site-bruma-hidratante-corporal-150ml',quantity:1,priceCents:1}]);
   const cart=createCartStore(products,{getItem:k=>k===CART_STORAGE_KEY?saved:null,setItem(){}});
-  assert.equal(cart.subtotalCents,29469);
+  assert.equal(cart.subtotalCents,29460);
   assert.deepEqual(cart.getItems().map(p=>p.code),['1795','1754','1717']);
   assert.ok(products.find(p=>p.id==='site-sabonete-liquido-borboletas-azuis-flor-de-lotus-com-musgos-do-vale-240ml'));
   assert.equal(products.find(p=>p.code==='834').volume,'220 ml');
@@ -65,7 +143,7 @@ test('preserves photos and old cart IDs while displaying the new official refere
 test('Black 44 kit uses its approved total and confirmed three-item composition in WhatsApp', () => {
   const kit=products.find(p=>p.id==='site-kit-black-44');
   assert.equal(getCatalogDepartment(kit),'outras-colecoes');
-  assert.match(kit.composition,/deo colônia.*mousse de banho e barba.*necessaire/i);
+  assert.equal(kit.composition,'1 deo colônia + 1 mousse de banho e barba + 1 necessaire. Masculino.');
   assert.deepEqual(kit.componentIds,['7030','6758','7245']);
   assert.equal(kit.isPromotional,true);
   assert.equal(kit.code,'');
@@ -73,15 +151,15 @@ test('Black 44 kit uses its approved total and confirmed three-item composition 
   const cart=createCartStore(products,null);
   cart.add(kit.id,2);
   assert.equal(cart.getItems().length,1);
-  assert.equal(cart.subtotalCents,49980);
+  assert.equal(cart.subtotalCents,65980);
   const message=buildOrderSummary({storeName:config.storeName,items:cart.getItems(),customer:{name:'Cliente',phone:'48999990000',street:'Rua A',number:'10',city:'Florianópolis',state:'SC',postalCode:'88010000',notes:'Entregar à tarde'},subtotalCents:cart.subtotalCents,shippingLabel:config.shippingLabel});
   const url=new URL(getStoreWhatsAppUrl(config,message));
   cart.clear();
   assert.equal(cart.totalUnits,0);
   assert.equal(url.pathname,'/5548991134975');
   assert.match(url.searchParams.get('text'),/2 x Kit Black 44/);
-  assert.match(message,/Unitário: R\$\u00a0249,90/);
-  assert.match(message,/Subtotal dos produtos: R\$\u00a0499,80/);
+  assert.match(message,/Unitário: R\$\u00a0329,90/);
+  assert.match(message,/Subtotal dos produtos: R\$\u00a0659,80/);
   assert.match(message,/necessaire/);
   assert.doesNotMatch(message,/cód\./i);
   assert.match(message,/Entrega: valor a combinar/);

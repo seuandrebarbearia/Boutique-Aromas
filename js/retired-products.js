@@ -8,7 +8,8 @@ export const retiredProductCodes = [
   "6113", "6114", "4071", "6988", "6986", "6987", "6900", "6899",
   "6766", "6939", "5092", "6414", "6413", "5072",
   "7104", // Retirado a pedido da loja em 17/11/2026.
-  "6754", "6052", "6745", "7211", "7210", "6637" // Relatório de 19/11/2026.
+  "6754", "6745", "7211", "7210", "6637", // Relatório de 19/11/2026. O 6052 voltou ao catálogo em 24/11.
+  "1486", "1487", "1617", "6175", "6370", "6402"
 ];
 
 // These independently imported presentations have no SKU in the source.
@@ -18,7 +19,14 @@ export const retiredProductIds = [
   "site-iogurte-corporal-dubai-dreams-200ml",
   "site-deo-colonia-spray-black-44-60ml",
   "site-acucar-esfoliante-bonjour-paris-250g",
-  "site-kit-boutique-em-flores"
+  "site-kit-boutique-em-flores",
+  "site-capsulas-de-colageno-e-acido-hialuronico-60-unidades",
+  "site-sabonete-esfoliante-jabuticaba-120ml",
+  "site-sabonete-esfoliante-maracuja-120ml",
+  "site-kit-cascas-e-folhas-herbal-verde",
+  "site-kit-viagem-flor-de-jasmim-e-amendoas-doces",
+  "site-refil-para-difusor-de-aromas-desejos-sucesso-mandarina-fresca-250ml",
+  "site-perfume-para-roupas-e-ambiente-sucesso-mandarina-fresca-380ml"
 ];
 
 const codes = new Set(retiredProductCodes);

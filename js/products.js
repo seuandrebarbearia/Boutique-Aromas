@@ -1,8 +1,8 @@
 import { officialProductUpdates, additionalOfficialProducts } from "./official-catalog.js?v=20261120";
-import { isRetiredProduct } from "./retired-products.js?v=20261123";
+import { isRetiredProduct } from "./retired-products.js?v=20261124";
 import { approvedCatalogOverrides, approvedCatalogAdditions, consolidatedProductIds, catalogReviewNotes, suppressedPhotoIds } from "./approved-catalog-data.js?v=20261123";
 import { referencePricesById } from "./reference-prices.js?v=20261120";
-import { applyStoreApprovedUpdate } from "./store-approved-updates.js?v=20261123-2";
+import { applyStoreApprovedUpdate, storeCatalogAdditions } from "./store-approved-updates.js?v=natal-20261124-2";
 
 const extractedProducts = [
   {
@@ -3146,7 +3146,10 @@ const suppressedPhotos = new Set(suppressedPhotoIds);
 
 // PDF approvals override historical website imports; direct store confirmations
 // are applied last. Missing prices remain explicit until the store confirms them.
-export const products = [...catalogSourceProducts, ...approvedCatalogAdditions]
+const catalogProductsWithAdditions = [...catalogSourceProducts, ...approvedCatalogAdditions];
+const lastPresentationNumber = Math.max(...catalogProductsWithAdditions.map(product => product.presentationNumber));
+
+export const products = catalogProductsWithAdditions
   .filter(product => !isRetiredProduct(product) && !consolidatedIds.has(product.id))
   .map(product => {
     const confirmed = approvedCatalogOverrides[product.id];
@@ -3171,4 +3174,6 @@ export const products = [...catalogSourceProducts, ...approvedCatalogAdditions]
       reviewed.officialImage = null;
     }
     return reviewed;
-  }).map(applyStoreApprovedUpdate).filter(product => !isRetiredProduct(product));
+  }).map(applyStoreApprovedUpdate).concat(storeCatalogAdditions.map((product, index) => ({
+    ...product, presentationNumber: lastPresentationNumber + index + 1
+  }))).filter(product => !isRetiredProduct(product));

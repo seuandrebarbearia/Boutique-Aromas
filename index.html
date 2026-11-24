@@ -9,19 +9,18 @@
       content="Aromas e rituais de autocuidado da Boutique de Aromas. Explore coleções e produtos em nosso catálogo online."
     >
     <title>Boutique de Aromas | Catálogo</title>
-    <link rel="stylesheet" href="css/styles.css?v=20261124">
-    <script type="module" src="js/app.js?v=20261123-2"></script>
+    <link rel="stylesheet" href="css/styles.css?v=natal-20261124-9">
+    <script type="module" src="js/app.js?v=natal-20261124-7"></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="Boutique de Aromas, início">
-        <img
-          class="brand-logo"
-          src="assets/brand/boutique-de-aromas-logo.png"
-          alt="Boutique de Aromas — Sua essência, seu mundo"
-          width="654"
-          height="127"
-        >
+      <a class="brand" href="#inicio" aria-label="Boutique de Aromas — Sua essência, seu mundo. Início">
+        <span class="brand-logo-part brand-wordmark">
+          <img class="brand-logo" src="assets/brand/boutique-de-aromas-logo.png" alt="" width="654" height="127">
+        </span>
+        <span class="brand-logo-part brand-tagline">
+          <img class="brand-logo" src="assets/brand/boutique-de-aromas-logo.png" alt="" width="654" height="127">
+        </span>
       </a>
       <nav class="header-navigation" aria-label="Navegação principal">
         <a href="#catalogo" data-department="">Catálogo</a>
@@ -30,15 +29,21 @@
         <a href="#contato">Contato</a>
       </nav>
       <div class="header-actions">
-        <label class="search-control">
-          <span class="visually-hidden">Buscar produto, código ou fragrância</span>
-          <input
-            id="search-input"
-            type="search"
-            placeholder="Buscar produtos"
-            autocomplete="off"
-          >
-        </label>
+        <div class="header-search">
+          <label class="search-control">
+            <span class="visually-hidden">Buscar produto, código ou fragrância</span>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Buscar produtos"
+              autocomplete="off"
+            >
+          </label>
+          <a href="#natal" id="christmas-link" class="christmas-nav-link" aria-haspopup="dialog" hidden>
+            <span class="christmas-nav-icon" aria-hidden="true">🎁</span>
+            <span>Promoções de Natal</span>
+          </a>
+        </div>
         <button id="open-cart-button" class="button button-outline" type="button">
           Carrinho <span id="cart-count" class="count-badge">0</span>
         </button>
@@ -103,6 +108,7 @@
           <span class="visually-hidden">Categorias do catálogo</span>
           <select id="category-filter" class="category-select">
             <option value="">Todas as categorias</option>
+            <option id="christmas-category-option" value="presentes-corporativos-natal" hidden>Presentes corporativos de Natal</option>
           </select>
         </label>
 
@@ -121,6 +127,12 @@
               <option value="price-desc">Maior preço</option>
             </select>
           </label>
+        </div>
+
+        <div id="natal" class="christmas-section" hidden>
+          <button id="christmas-open" class="button button-outline" type="button" aria-haspopup="dialog">
+            Ver promoções de Natal
+          </button>
         </div>
 
         <div id="catalog-sections" class="catalog-sections"></div>
@@ -145,7 +157,7 @@
         >
         <h2 id="contact-title">Contato · Floripa</h2>
         <p>Endereço da loja: <span id="store-address">Av. Luiz Boiteux Piazza, 3414, sala 3 — Cachoeira do Bom Jesus, Florianópolis - SC, CEP 88056-000</span></p>
-        <p>Telefone: <a id="store-phone" href="tel:+5548991989442">(48) 99198-9442</a></p>
+        <p>Telefone: <a id="store-phone" href="tel:+5548991134975">(48) 99113-4975</a></p>
         <p id="store-email-line">E-mail da unidade: não confirmado.</p>
         <p id="whatsapp-pending" hidden>WhatsApp para atendimento e pedidos: aguardando confirmação da loja. Entre em contato por telefone ou Instagram.</p>
         <div class="contact-actions">
@@ -175,6 +187,22 @@
         >Desenvolvido por Site Pró Local</a>
       </div>
     </footer>
+
+    <dialog id="christmas-promo-dialog" class="modal christmas-promo-modal" aria-labelledby="christmas-title">
+      <header class="christmas-promo-header">
+        <h2 id="christmas-title">Veja as nossas promoções de Natal</h2>
+        <button class="dialog-close" type="button" data-close-dialog aria-label="Fechar promoções de Natal">
+          <span aria-hidden="true">×</span>
+        </button>
+      </header>
+      <div id="christmas-slides" class="christmas-carousel-viewport"></div>
+      <div class="christmas-carousel-controls" aria-label="Controles das promoções de Natal" role="group">
+        <button id="christmas-previous" class="button button-outline button-small" type="button">Anterior</button>
+        <span id="christmas-position" class="christmas-position"></span>
+        <button id="christmas-next" class="button button-outline button-small" type="button">Próximo</button>
+        <button id="christmas-playback" class="button button-outline button-small" type="button">Pausar</button>
+      </div>
+    </dialog>
 
     <div id="cart-live-status" class="visually-hidden" aria-live="polite"></div>
 

@@ -133,8 +133,15 @@ main,
 
 .header-actions {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 12px;
+}
+
+.header-search {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  width: min(280px, 22vw);
 }
 
 .header-catalog-link {
@@ -145,7 +152,7 @@ main,
 }
 
 .search-control input {
-  width: min(320px, 30vw);
+  width: 100%;
   min-height: 44px;
   padding: 9px 14px;
   border: 1px solid var(--line);
@@ -1202,15 +1209,6 @@ p {
     justify-content: space-between;
   }
 
-  .search-control {
-    min-width: 0;
-    flex: 1;
-  }
-
-  .search-control input {
-    width: 100%;
-  }
-
   .header-actions > .button {
     flex: 0 0 auto;
     padding-inline: 12px;
@@ -1366,14 +1364,6 @@ p {
     justify-content: flex-end;
   }
 
-  .search-control {
-    min-width: 0;
-    flex: 1;
-  }
-
-  .search-control input {
-    width: 100%;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1439,26 +1429,72 @@ main,
 
 .site-header {
   min-height: 92px;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px 24px;
+  padding-block: 12px;
 }
 
 .brand {
   min-width: 0;
-  flex: 0 1 270px;
-  gap: 0;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  display: grid;
+  justify-items: center;
+  width: min(100%, 330px);
+  gap: 3px;
+}
+
+/* Stack the two parts of the original signature while keeping the artwork. */
+.brand-logo-part {
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-wordmark {
+  width: 100%;
+  aspect-ratio: 974 / 109;
+}
+
+.brand-tagline {
+  width: 74%;
+  aspect-ratio: 778 / 86;
 }
 
 .brand-logo {
-  width: min(100%, 270px);
+  position: absolute;
+  max-width: none;
   height: auto;
-  display: block;
+}
+
+.brand-wordmark .brand-logo {
+  width: 201.44%;
+  left: -5.34%;
+  top: -55.05%;
+}
+
+.brand-tagline .brand-logo {
+  width: 252.19%;
+  left: -134.19%;
+  top: -93.02%;
 }
 
 .header-navigation {
+  grid-column: 1 / -1;
+  grid-row: 2;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: clamp(12px, 2vw, 28px);
+  font-size: 1.125rem;
+}
+
+.header-actions {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 1.0625rem;
 }
 
 .header-navigation a,
@@ -1852,9 +1888,11 @@ main,
 }
 
 .footer-logo {
-  width: min(100%, 220px);
+  width: min(100%, 400px);
   height: auto;
-  margin-bottom: 4px;
+  aspect-ratio: 654 / 42;
+  object-fit: cover;
+  object-position: center 22%;
 }
 
 .footer-brand p {
@@ -1909,25 +1947,14 @@ main,
 
 @media (max-width: 850px) {
   .site-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
     gap: 10px 16px;
-    padding-block: 12px;
   }
 
   .brand {
-    width: min(100%, 245px);
-    flex-basis: auto;
-  }
-
-  .brand-logo {
-    width: 100%;
+    grid-column: 1 / -1;
   }
 
   .header-navigation {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-content: space-between;
     padding: 3px 0;
   }
 
@@ -1938,13 +1965,9 @@ main,
     justify-content: space-between;
   }
 
-  .search-control {
-    min-width: 0;
+  .header-search {
     flex: 1;
-  }
-
-  .search-control input {
-    width: 100%;
+    width: auto;
   }
 }
 
@@ -1960,13 +1983,9 @@ main,
     gap: 9px 14px;
   }
 
-  .brand {
-    width: min(100%, 220px);
-  }
-
   .header-navigation {
-    gap: 12px;
-    font-size: 0.92rem;
+    gap: 6px 10px;
+    font-size: 1.0625rem;
   }
 
   .header-actions {
@@ -2202,6 +2221,252 @@ main,
   border-radius: 18px;
   background: #fff;
   scroll-margin-top: 20px;
+}
+
+.christmas-section {
+  margin-bottom: 24px;
+  scroll-margin-top: 168px;
+}
+
+.christmas-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  gap: 7px;
+  min-height: 54px;
+  max-width: 100%;
+  padding: 3px 5px;
+  border-radius: 999px;
+  color: #102e54;
+  font-family: "Quiche Sans", "Century Gothic", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.94rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.christmas-nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.christmas-nav-icon {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: #f2e3bd;
+  font-size: 1.75rem;
+}
+
+.christmas-promo-modal {
+  --christmas-navy: #102e54;
+  --christmas-gold: #f4cb72;
+  --christmas-cream: #fff7e8;
+  width: min(760px, calc(100vw - 28px));
+  max-height: min(91dvh, 740px);
+  padding: clamp(14px, 3vw, 28px);
+  border-color: #c99643;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgb(75 139 161 / 34%), transparent 55%),
+    linear-gradient(145deg, #0b2044, var(--christmas-navy) 54%, #184a68);
+  box-shadow: 0 20px 60px rgb(7 20 40 / 45%);
+}
+
+.christmas-promo-modal::backdrop {
+  background: rgb(7 18 38 / 60%);
+}
+
+.christmas-promo-modal[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: clamp(10px, 2vw, 20px);
+  overflow: hidden;
+}
+
+.christmas-promo-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.christmas-promo-header h2 {
+  margin: 0;
+  color: var(--christmas-gold);
+  font-family: Optima, "Segoe UI", sans-serif;
+  font-size: clamp(1.3rem, 4.2vw, 2.15rem);
+  font-weight: 650;
+  line-height: 1.17;
+}
+
+.christmas-promo-header .dialog-close,
+.christmas-carousel-controls .button {
+  border-color: rgb(244 203 114 / 65%);
+  color: var(--christmas-cream);
+  background: rgb(255 247 232 / 8%);
+}
+
+.christmas-promo-header .dialog-close:hover,
+.christmas-carousel-controls .button:hover {
+  border-color: var(--christmas-gold);
+  color: var(--christmas-navy);
+  background: var(--christmas-gold);
+}
+
+.christmas-carousel-viewport {
+  min-width: 0;
+  padding: clamp(10px, 2vw, 20px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #e2bc75;
+  border-radius: 14px;
+  background: #fffdf8;
+}
+
+.christmas-carousel-viewport .product-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr auto auto;
+  align-items: start;
+  column-gap: clamp(12px, 3vw, 30px);
+}
+
+.christmas-carousel-viewport .product-card-media {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+  align-self: center;
+  border-radius: 12px;
+}
+
+.christmas-carousel-viewport .product-card > :not(.product-card-media) {
+  grid-column: 2;
+}
+
+.christmas-carousel-viewport .product-card-heading {
+  min-height: 0;
+  margin: 8px 0 6px;
+  font-size: clamp(1rem, 2.3vw, 1.3rem);
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.christmas-carousel-viewport .product-card-add {
+  margin-top: 12px;
+  border-color: #c99643;
+  border-radius: 999px;
+  color: var(--christmas-navy);
+  background: linear-gradient(115deg, #dfaa4c, var(--christmas-gold));
+  font-weight: 650;
+}
+
+.christmas-carousel-viewport .product-card-add:hover {
+  background: var(--christmas-gold);
+}
+
+.christmas-carousel-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 10px;
+}
+
+.christmas-position {
+  min-width: 6ch;
+  text-align: center;
+  color: var(--christmas-cream);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .christmas-nav-icon {
+    animation: christmas-icon-pulse 1.45s ease-in-out 3;
+  }
+
+  .christmas-promo-modal[open] {
+    animation: christmas-promo-in 220ms ease-out;
+  }
+
+  .christmas-carousel-viewport .product-card {
+    animation: christmas-card-in 360ms ease-out;
+  }
+
+  .christmas-carousel-viewport .product-card-media {
+    animation: christmas-product-pulse 760ms ease-in-out 120ms both;
+  }
+}
+
+.corporate-gift-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.corporate-gift-unit {
+  margin-inline-start: 4px;
+}
+
+.corporate-gift-options {
+  display: grid;
+  gap: 4px;
+}
+
+.corporate-gift-options select {
+  width: 100%;
+  min-height: 42px;
+  padding-inline: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 1rem;
+}
+
+@media (max-width: 850px) {
+  .christmas-section {
+    scroll-margin-top: 240px;
+  }
+}
+
+@media (max-width: 560px) {
+  .christmas-carousel-viewport .product-card {
+    display: flex;
+  }
+
+  .christmas-carousel-viewport .product-card-media {
+    width: min(100%, 205px);
+  }
+
+  .christmas-carousel-controls .button {
+    padding-inline: 9px;
+  }
+}
+
+@keyframes christmas-promo-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes christmas-icon-pulse {
+  0% { box-shadow: 0 0 0 0 rgb(158 132 83 / 35%); }
+  28% { transform: translateY(-2px) rotate(-8deg) scale(1.11); }
+  52% { transform: translateY(-2px) rotate(6deg) scale(1.11); }
+  100% { box-shadow: 0 0 0 9px rgb(158 132 83 / 0%); transform: none; }
+}
+
+@keyframes christmas-card-in {
+  from { opacity: 0; transform: translateX(var(--christmas-slide-entry, 18px)); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes christmas-product-pulse {
+  0% { transform: translateY(3px) scale(0.97); }
+  48% { transform: translateY(-5px) scale(1.065); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 .product-category-heading {

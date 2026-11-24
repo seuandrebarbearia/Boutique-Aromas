@@ -70,6 +70,88 @@ const catalogReviewUpdates = {
   }
 };
 
+const currentStoreDate = "2026-11-24";
+const christmasPromotion = { campaign: "natal", promotionLabel: "Promoção de Natal" };
+const currentCatalogUpdates = {
+  "7201": { priceCents: 9890 },
+  "7198": { priceCents: 9890 },
+  "7151": { priceCents: 8990 },
+  "site-bruma-hidratante-corporal-150ml": {
+    priceCents: 9690, name: "Bruma Hidratante Corporal", family: "Favo Beauty"
+  },
+  "site-creme-de-banho-shower-cream-esfoliante-200ml": { priceCents: 9790 },
+  "5024": { priceCents: 8490, name: "Mousse de Banho Aerossol" },
+  "site-kit-jasmim-e-amendoas-doces": {
+    priceCents: 26990, name: "Kit Amêndoas Doces e Flor de Jasmim", category: "Combos",
+    family: "Amêndoas Doces e Flor de Jasmim", officialTitle: ""
+  },
+  "site-kit-black-44": {
+    priceCents: 32990,
+    composition: "1 deo colônia + 1 mousse de banho e barba + 1 necessaire. Masculino."
+  },
+  "site-serum-clareador-de-manchas-30ml": {
+    priceCents: 10190, name: "Sérum Clareador com Ácido Glicólico", family: "Favo Beauty", officialTitle: ""
+  },
+  "site-serum-uniformizador-30ml": {
+    priceCents: 10190, name: "Sérum Uniformizador com Vitamina C", family: "Favo Beauty", officialTitle: ""
+  },
+  "site-kit-3-body-splash-all-you-need-is-splash": {
+    code: "7274", priceCents: 10990, name: "Kit 3 Body Splash All You Need Is Splash", category: "Combos",
+    volume: "3 × 100 ml", specification: "3 × 100 ml", ...christmasPromotion,
+    composition: "3 body splashes de 100 ml cada: Start, Lumi e Night.",
+    image: "assets/products/kit-all-you-need-is-splash-7274.jpg",
+    alternatePhoto: { src: "assets/products/kit-all-you-need-is-splash-7274-frascos.jpg", label: "Frascos Start, Night e Lumi" }
+  },
+  "7232": { priceCents: 26790, name: "Kit Jasmim e Amêndoas Doces", catalogNote: "" },
+  "site-refil-para-difusor-de-aromas-desejos-gratidao-canela-com-musk-250ml": {
+    code: "6176", priceCents: 7290, name: "Refil Difusor de Aromas", family: "Desejos",
+    fragrance: "Canela com Musk — Gratidão"
+  },
+  "6052": { priceCents: 8490, photoPending: true },
+  "6100": { priceCents: 7290 },
+  "site-vela-aromatica-mi-casa-190g": {
+    code: "7235", priceCents: 19990, name: "Vela Aromática", family: "Mi Casa", volume: "190 g", specification: "190 g"
+  },
+  "6504": { priceCents: 17490 },
+  "6505": { priceCents: 17490 },
+  "6506": { priceCents: 17490 },
+  "6507": { priceCents: 17490 },
+  "6507-2": { priceCents: 17490 },
+  "7246": { priceCents: 8990, volume: "200 ml", specification: "200 ml · Masculino" },
+  "7247": { priceCents: 8990, volume: "200 ml", specification: "200 ml · Masculino" },
+  "7248": { priceCents: 8990, volume: "200 ml", specification: "200 ml · Masculino" },
+  "7030": { priceCents: 20890, specification: "50 ml · Masculino" }
+};
+
+export const storeCatalogAdditions = [
+  {
+    code: "7260", name: "Kit Desejos de Natal", family: "Desejos de Natal", category: "Combos",
+    priceCents: 8990, volume: "3 × 30 ml", isCombo: true, ...christmasPromotion,
+    composition: "3 perfumes para roupas e ambiente de 30 ml cada: Felicidade, Gratidão e Coragem.",
+    image: "assets/products/kit-desejos-natal-7260.jpg"
+  },
+  {
+    code: "7194", name: "Deo Colônia Spray", family: "Amêndoas Doces e Flor de Jasmim", category: "Perfumaria",
+    priceCents: 7690, volume: "10 ml"
+  },
+  ...[
+    ["7074", "Verbena"],
+    ["7075", "Cereja e Avelã"],
+    ["7076", "Lavanda"],
+    ["7077", "Vanilla"],
+    ["7078", "Chá Branco"]
+  ].map(([code, fragrance]) => ({
+    code, fragrance, name: "Vela Aromática de Vidro", family: "Velas Aromáticas", category: "Velas",
+    priceCents: 16490, volume: "200 g"
+  }))
+].map(product => ({
+  fragrance: "",
+  ...product, id: product.code, reference: product.code, collection: product.family,
+  image: product.image ?? "assets/products/placeholder.svg",
+  imageKind: product.image ? "individual" : "pending", photoPending: !product.image, sourcePage: null, catalogNote: "",
+  priceStatus: "approved-store", priceBasis: "approved-store", priceReference: null, storeApprovedAt: currentStoreDate
+}));
+
 const customerNotes = {
   "6507": "Confirme a fragrância ao pedir: este código identifica as opções Baunilha e Canela.",
   "6507-2": "Confirme a fragrância ao pedir: este código identifica as opções Baunilha e Canela.",
@@ -117,13 +199,17 @@ Importante: O DermaFirm Collagen auxilia na beleza e firmeza da pele quando alia
   }
   const originalUpdate = storeApprovedUpdates[product.id];
   const reviewUpdate = catalogReviewUpdates[product.id];
-  const update = reviewUpdate ? { ...originalUpdate, ...reviewUpdate } : originalUpdate;
-  const customerNote = update?.customerNote ?? (update ? "" : customerNotes[product.id] ?? "");
-  if (!update) return {
-    ...product, customerNote,
+  const currentUpdate = currentCatalogUpdates[product.id];
+  if (!originalUpdate && !reviewUpdate && !currentUpdate) return {
+    ...product, customerNote: customerNotes[product.id] ?? "",
     ...(product.isCombo && /PDF|catálogo|pendente|não informad/i.test(product.composition ?? "")
       ? { composition: "Consulte os itens do kit com nossa equipe." } : {})
   };
+  const update = { ...originalUpdate, ...reviewUpdate, ...currentUpdate };
+  const productIdentityChanged = update.name !== undefined || update.family !== undefined;
+  const photo = update.photoPending
+    ? { image: "assets/products/placeholder.svg", imageKind: "pending", officialImage: null }
+    : update.image ? { imageKind: "individual", officialImage: null, photoPending: false } : {};
   const legacyCodes = [...new Set([
     ...(product.legacyCodes ?? []),
     ...(update.legacyCodes ?? []),
@@ -133,10 +219,14 @@ Importante: O DermaFirm Collagen auxilia na beleza e firmeza da pele quando alia
     ...product, ...update, legacyCodes, reference: update.code ?? product.reference,
     ...(update.priceCents !== undefined ? {
       priceStatus: "approved-store", priceBasis: "approved-store", priceReference: null,
-      storeApprovedAt: reviewUpdate?.priceCents !== undefined ? "2026-11-19" : "2026-11-18"
+      storeApprovedAt: currentUpdate?.priceCents !== undefined
+        ? currentStoreDate : reviewUpdate?.priceCents !== undefined ? "2026-11-19" : "2026-11-18"
     } : {}),
-    ...(update.image ? { imageKind: "individual", officialImage: null, photoPending: false } : {}),
-    catalogNote: update.catalogNote ?? "", customerNote, officialTitle: "", description: "",
+    ...photo,
+    catalogNote: update.catalogNote ?? "",
+    customerNote: update.customerNote ?? customerNotes[product.id] ?? "",
+    officialTitle: update.officialTitle ?? (originalUpdate || reviewUpdate || productIdentityChanged ? "" : product.officialTitle),
+    description: originalUpdate || reviewUpdate ? "" : product.description,
     collection: update.family ?? product.collection
   };
 }
