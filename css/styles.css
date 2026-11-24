@@ -690,12 +690,12 @@ p {
   margin-bottom: 6px;
 }
 
-.site-footer > p {
+.footer-notes {
   max-width: 420px;
   text-align: right;
 }
 
-.site-footer p:first-child {
+.site-footer > p:first-child {
   color: var(--olive-dark);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.1rem;
@@ -1333,7 +1333,7 @@ p {
     padding-bottom: 30px;
   }
 
-  .site-footer > p {
+  .footer-notes {
     text-align: left;
   }
 
@@ -1882,6 +1882,14 @@ main,
 
 .footer-disclaimer {
   max-width: 400px;
+}
+
+.footer-credit {
+  margin-top: 8px;
+  border-color: var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
 }
 
 .count-badge {
